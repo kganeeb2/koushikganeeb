@@ -1,11 +1,11 @@
 
 I am Koushik Kumar Ganeeb
 
-User Interface Architect and Thought Leader in Building Advanced Digital Platforms
+Building Data Connectors for enriched AI Experiences
 
 Key Highlights:
 
-- Technical mastery in user interface engineering across the spectrum of web, mobile and emerging technologies 
+- Technology expert in Data Engineering, Distributed Systems, Cloud Computing and AI
 
 - Pioneer in envisioning, strategizing and building multiple digital experience platforms and content ecosystems from ideation to delivery
 
@@ -15,9 +15,9 @@ Key Highlights:
 
 - Software engineering leader who has built high performing teams and led large scale implementations
 
-- Working as PMTS UI @ Salesforce
+- Working as a Principal Software Engineer @ Salesforce
 
-- More details visit my website https://spradeep.com
+- More details visit my website https://koushikganeeb.com
 
-https://spradeep.com
+https://koushikganeeb.com
 
