@@ -1,9 +1,9 @@
-title: Koushik Kumar Ganeeb
-subtitle: Koushik Kumar Ganeeb
+title: Pradeep Kumar Saraswathi
+subtitle: Pradeep Kumar Saraswathi
 description: >- # this means to ignore newlines until "baseurl:"
-  My name is Koushik Kumar Ganeeb, working as a Principal Software Engineer at Salesforce with over 14+ years of experience in Technology.
+  Pradeep Kumar Saraswathi is PMTS (UI) at salesforce with 17+ years of experience in building UI (Builders) with multiple UI technologies that builds experiences and AI/ML, Generative AI enthusiast. 
 
-url: "https://koushikganeeb.com" # the base hostname & protocol for your site, e.g. https://example.github.io
+url: "https://spradeep.com" # the base hostname & protocol for your site, e.g. https://example.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
 
 # Navigation
@@ -29,13 +29,13 @@ urls:
 # Edit Author details (For multi authors check _data/authors.yml)
 
 author_logo: pradeep.png
-author: Koushik Kumar Ganeeb
-author_bio: Welcome! My name is Koushik Kumar Ganeeb, working as a Principal Software Engineer at Salesforce with over 14+ years of experience in Technology.
+author: Pradeep Kumar Saraswathi
+author_bio: Hi, Pradeep Kumar Saraswathi is PMTS (UI) at salesforce with 17+ years of experience in building UI (Builders) with multiple UI technologies that builds experiences and AI/ML, Generative AI enthusiast. 
 
-author_email: "kganeeb2@gmail.com"
+author_email: "pradeepin2@gmail.com"
 author_location: United States of America
-author_website_url: "https://koushikganeeb.com"
-typewrite-text: Reach out for mentorship on Technology, Data and AI adaptation for Businesses 
+author_website_url: "https://spradeep.com"
+typewrite-text: Learn building UI using Javascript, Typescript, UI Frameworks, AI/ML and Generative AI 
 hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
 # Experiences
@@ -43,23 +43,37 @@ author_work_experiences:
             - company_name: Salesforce
               company_logo: salesforce.png
               company_url: https://salesforce.com
-              designation: Principal Software Engineer, Data Cloud
-              description: Working on building Data Connectors, Extraction Pipelines and transforming Data Cloud with AI Experiences.
-              experience: 2017 - 2024*
+              designation: PMTS (UI) Software Engineering
+              description: Working on Building Builder platform, CMS Platform and Digital experience platform that enables creation of Builders like Site Builders, Form Builders which allow delivering customer digital experiences.
+              experience: 2018 - 2023*
               visibility: true
-            - company_name: UnitedHealth Care
+            - company_name: Gainsight
               company_logo: gainsight.png
-              company_url: https://www.unitedhealthgroup.com/
-              designation: Senior Software Engineer
-              description: Worked on developing a robust UHOne Dev Infrastructure setup, Clinical Healthcare Applications and Robot for automating the claims adjudication process.
-              experience: 2012 - 2016
+              company_url: https://www.gainsight.com/
+              designation: Software Engineering Architect (UI)
+              description: Worked on Building Customer success platform, Analytics platform that enables customer success teams to retain customers and reduce churn.
+              experience: 2014 - 2018
               visibility: true
-            - company_name: Infosys Technologies Ltd
+            - company_name: IVY comptech (Bwin.party)
               company_logo: ivy.png
-              company_url: https://www.infosys.com/
-              designation: Systems Engineer
-              description: Developed new features, critical vulnerability fixes and query optimization for the Microsoft Channel Incentives Program and improved adaptation rate.
-              experience: 2010 - 2012
+              company_url: https://ivy.global
+              designation: Senior Software Engineer
+              description: Worked on Building Gaming platform, to enable HTML5 games that can by used by multi players.
+              experience: 2013 - 2014
+              visibility: true  
+            - company_name: Pramati
+              company_logo: pramati.png
+              company_url: https://pramati.com/
+              designation: Principle Software Engineer
+              description: Worked on Building Configuration Pricing and Quoting (CPQ) platform (Big Machines) which got acquired by Oracle Corp.
+              experience: 2010 - 2013
+              visibility: true 
+            - company_name: Zoho Corp
+              company_logo: zoho.png
+              company_url: https://www.zoho.com/
+              designation: Member Technical Staff
+              description: Worked on Building online Document Management platform.
+              experience: 2006 - 2010
               visibility: true   
 
 author_project_details:
