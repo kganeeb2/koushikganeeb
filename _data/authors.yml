@@ -1,14 +1,14 @@
 # Add Authors here
 spradeep:
-   name: Pradeep Kumar Saraswathi
+   name: Koushik Kumar Ganeeb
    username: xplor4r
-   site: https://spradeep.com
-   avatar: pradeep.png
-   bio: "PMTS UI at Salesforce, based in California, United States"
-   email: pradeepin2@gmail.com
+   site: https://master--melodious-hamster-a1de67.netlify.app
+   avatar: koushik.png
+   bio: "Principal Software Engineer at Salesforce, Charlotte Metro, United States"
+   email: kganeeb2@gmail.com
    social:
       - title: "github"
-        url: "https://github.com/pradeepin2"
+        url: "https://github.com/kganeeb2/koushikganeeb"
       - title: "linkedin"
-        url: "https://www.linkedin.com/in/pradeepsaraswathi"
+        url: "https://www.linkedin.com/in/koushikganeeb"
 

@@ -1,6 +1,6 @@
 ---
-name: Pradeep Kumar Saraswathi
-username: pradeepin2
+name: Koushik Kumar Ganeeb
+username: kganeeb2
 bio: "PMTS UI at Salesforce, based in California, United States"
 site: https://spradeep.com
 avatar: pradeep.png
