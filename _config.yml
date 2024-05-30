@@ -1,7 +1,7 @@
-title: Pradeep Kumar Saraswathi
-subtitle: Pradeep Kumar Saraswathi
+title: Koushik Kumar Ganeeb
+subtitle: Koushik Kumar Ganeeb
 description: >- # this means to ignore newlines until "baseurl:"
-  Pradeep Kumar Saraswathi is PMTS (UI) at salesforce with 17+ years of experience in building UI (Builders) with multiple UI technologies that builds experiences and AI/ML, Generative AI enthusiast. 
+  My name is Koushik Kumar Ganeeb, working as a Principal Software Engineer at Salesforce with over 14+ years of experience as a Data Architect and Engineering Leader in various sectors of Software Development, I believe I bring a unique perspective and a wealth of knowledge to contribute to the membership community.
 
 url: "https://master--melodious-hamster-a1de67.netlify.app" # the base hostname & protocol for your site, e.g. https://example.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -63,50 +63,45 @@ author_work_experiences:
               visibility: true    
 
 author_project_details:
-              - project_title: Patent Filed for my work in Builder Platform
-                project_info: Patent Filed for Creating a WYSIWYG Canvas in Builder to build UI / Experiences
-                project_description: Almost all WYSIWYG Builders (site builders, email builders, content builders) are tied to a specific front-end component library or technology. Consumers of the builder need to adapt to the technology of choice if they want to be able to leverage the builder’s preview and design-mode functionalities, like selection, drag-and-drop, clone, and delete. The innovation led to a new dimension of expanding the capabilities
+              - project_title: IEEE Member
+                project_info: IEEE membership offers access to technical innovation, cutting-edge information and access to data intelligence world wide
+                project_description: IEEE is an integrated multi-functional platform and global network of technology-focused professionals, leveraging IEEE's extensive knowledge base and community of thought-leaders
                 visibility: true  
-              - project_title: Member of w3c, w3.org in Web components
-                project_info: Member of Web Components Community Group in https://www.w3.org/
-                project_description: Member of Web Components Community Group in https://www.w3.org/ in collaborating Web components standards.
-                project_url: https://www.w3.org/groups/cg/webcomponents/
+              - project_title: Hackathon Raptor Fellow
+                project_info: A Global Community of Technology and AI Experts committed to making a real-world impact through technology.
+                project_description: Hackathon Raptor is a Community of Experts specialized on impactful challenges, top-tier Software Development, efficient Scientific Methods across the Globe, while still contributing to the betterment of the Society.
                 visibility: true 
-              - project_title: Patent Filed internally for my work in Content Management system and Document collaboration software integration 
-                project_info: Patent Filed internally for Content Management system and Document collaboration software integration 
-                project_description: Innovative approach to integrate Content Management system and Document collaboration software integration
+              - project_title: Proud Judge of Several International Hackathons on Technology, Innovation and AI Adaptation
+                project_info: Judged several hackathons, which aims to bring together the brightest minds in technology to tackle real-world challenges and develop innovative solutions. 
+                project_description: Judged Hackathons like HackSharks 2.0, HackSharks 3.0, Learn It Global, HackSwift 2024, Innovate Hacks etc
+                project_url: https://www.w3.org/groups/cg/webcomponents/
                 visibility: true  
-              - project_title: Authored Article Published in Salesforce developer blogs
-                project_info: Authored Article on Content Curation in Salesforce CMS
-                project_description: You can curate and customize the content you create in Salesforce CMS for specific channels. At Capricorn Coffee, the content management team wants to curate the content that they’ve created. This will help them to organize their content and present it to their audiences more effectively.
-                project_url: https://developer.salesforce.com/blogs/2019/11/content-curation-in-salesforce-cms
+              - project_title: Reviewed Articles Published in IEEE World Conference on Applied Intelligence and Computing 2024
+                project_info: Reviewed Technology Advancement Articles in AIC2024
+                project_description: The IEEE World Conference on Applied Intelligence and Computing is a premier international forum for researchers, practitioners, and educators to present and discuss the latest advancements in the field of applied intelligence and computing.
+                project_url: https://scrs.in/conference/aic2024
                 visibility: true
-              - project_title: Article Published in Salesforce developer blogs
-                project_info: Article Published on Content Delivery API to Extend or Integrate Content
-                project_description: You can curate and customize the content you create in Salesforce CMS for specific channels. At Capricorn Coffee, the content management team wants to curate the content that they’ve created. This will help them to organize their content and present it to their audiences more effectively.
-                project_url: https://developer.salesforce.com/blogs/2019/11/content-delivery-api-to-extend-or-integrate-content
+              - project_title: Reviewed Articles Published in International Conference on Computer, Information and Telecommunication Systems (CITS) 2024
+                project_info: Reviewed Computer and Data Integration Articles in AIC2024
+                project_description: The 2024 International Conference on Computer, Information, and Telecommunication Systems (CITS) serves as a platform for researchers and professionals to exchange ideas and discuss emerging trends in computer science, information technology, and telecommunications.
+                project_url: https://cits.udg.edu/
                 visibility: true
+
 
 # Education
 author_education_details:
-              - college_logo: IIITH_25th-year-celebration.png
-                college_name: IIIT Hyderabad
-                college_url: https://www.iiit.ac.in/
-                college_degree: Diploma in AI/ML
-                description: Diploma in AI/ML
-                visibility: true
               - college_logo: RMK_Engineering_College_logo.png
-                college_name: R.M.K. Engineering college
-                college_url: https://www.rmkec.ac.in/2023/
-                college_degree: Electronics & Instrumentation engineering
+                college_name: Chaitanya Bharathi Institute Of Technology
+                college_url: https://www.cbit.ac.in/
+                college_degree: Information Technology
                 description: Bachelor of Engineering
                 visibility: true
 
 # social links
-twitter_username: pradeepin2
-github_username: pradeepin2
-facebook_username: pradeep.saraswathi
-linkedin_username: pradeepsaraswathi
+twitter_username: kaushikkmr
+github_username: kganeeb2
+facebook_username: kmr_kshk
+linkedin_username: koushikganeeb
 
 #for comments ( we got Disqus and Hyvor Commenting, uncomment the one you want to use )
 

@@ -20,7 +20,7 @@ Here is an example of web component, The web component can be deployed in github
 ```javascript
 class MyFirstWebComponent extends HTMLElement {
     connectedCallback() {
-      this.innerHTML = `<h1>Hi Pradeep Kumar Saraswathi</h1>`;
+      this.innerHTML = `<h1>Hi Koushik Kumar Ganeeb</h1>`;
     }
   }
 customElements.define('my-first-web-component', MyFirstWebComponent);
