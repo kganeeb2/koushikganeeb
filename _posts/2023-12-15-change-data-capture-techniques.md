@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Change Data Capture Techniques"
-summary: "Change Data Capture Techniques"
+title:  "Change Data Capture Techniques used in Distributed Systems"
+summary: "Change Data Capture Techniques used in Distributed Systems"
 author: kganeeb
 date: '2023-12-15 14:35:23 +0530'
 category: Data Capture, Deltas, Incremental, Full
-keywords: Data Capture, Databases, SQL, CDC, Incremental, Full
+keywords: Data Capture, Databases, SQL, CDC, Incremental, Full, Distributed Systems, Import, Export
 permalink: /blog/change-data-capture-techniques/
 usemathjax: true
 ---

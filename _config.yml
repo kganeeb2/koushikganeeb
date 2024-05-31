@@ -82,15 +82,12 @@ author_project_details:
                 visibility: true
 committee_details:
               - project_title: IEEE Technical Committee on Security and Privacy (TCSP)
-                project_info:
                 project_description: The Committee of the IEEE Computer Society that addresses operating system security, data encryption, access-control mechanisms, database protection, network security, and impact of privacy protection legislation.
                 visibility: true  
               - project_title: IEEE Technical Committee on Data Engineering (TCDE)
-                project_info:
                 project_description: The Committee of the IEEE Computer Society that examines the role of data in the design, development, management, and utilization of information systems.
                 visibility: true  
               - project_title: IEEE Technical Community on Cloud Computing (TCCLD)
-                project_info:
                 project_description: The Committee of the IEEE Computer Society, that promotes research, education, and industry in cloud computing.
                 visibility: true  
 

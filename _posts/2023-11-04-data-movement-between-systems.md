@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Data Movement between Systems"
-summary: "Data Movement between Systems"
+title:  "Data Movement and Processing practices for transfering data at Scale"
+summary: "Data Movement and Processing practices for transfering data at Scale"
 author: kganeeb
 date: '2023-11-04 14:35:23 +0530'
 category: Data Movement, Extraction, Import, Batch, Streaming data
-keywords: Data Movement, Databases, Data Transfer Patterns, Distributed Systems
+keywords: Data Movement, Databases, Data Transfer Patterns, Distributed Systems, Processing, Data, Engineering
 permalink: /blog/data-movement-between-systems/
 usemathjax: true
 ---
