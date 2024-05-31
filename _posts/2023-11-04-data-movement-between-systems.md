@@ -4,6 +4,7 @@ title:  "Data Movement between Systems"
 summary: "Data Movement between Systems"
 author: kganeeb
 date: '2023-11-04 14:35:23 +0530'
+category: Data Movement, Extraction, Import, Batch, Streaming data
 keywords: Data Movement, Databases, Data Transfer Patterns, Distributed Systems
 permalink: /blog/data-movement-between-systems/
 usemathjax: true

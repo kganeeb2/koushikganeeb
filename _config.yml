@@ -16,18 +16,20 @@ urls:
       url: /blog
     - text: Contact
       url : /contact
+    - text: Committees
+      url : /committee
 
 
 # Edit Author details (For multi authors check _data/authors.yml)
 
 author_logo: koushik.png
 author: Koushik Kumar Ganeeb
-author_bio: Welcome! My name is Koushik Kumar Ganeeb, working as a Principal Software Engineer at Salesforce with over 14+ years of experience in Technology.
+author_bio: Welcome! My name is Koushik Kumar Ganeeb, working as a Principal Software Engineer at Salesforce with over 14+ years of experience in Technology & Engineering.
 
 author_email: "kganeeb2@gmail.com"
 author_location: United States of America
 author_website_url: "https://master--melodious-hamster-a1de67.netlify.app"
-typewrite-text: Reach out for mentorship on Technology, Data Engineering, Integrations, Distributed Systems and leverage AI for any domain 
+typewrite-text: Reach out for mentorship on Technology, Data Engineering, Integrations, Distributed Systems and to understand & leverage AI for any domain 
 hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 
 # Experiences

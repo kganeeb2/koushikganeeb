@@ -4,6 +4,7 @@ title:  "Change Data Capture Techniques"
 summary: "Change Data Capture Techniques"
 author: kganeeb
 date: '2023-12-15 14:35:23 +0530'
+category: Data Capture, Deltas, Incremental, Full
 keywords: Data Capture, Databases, SQL, CDC, Incremental, Full
 permalink: /blog/change-data-capture-techniques/
 usemathjax: true

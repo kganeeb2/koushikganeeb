@@ -27,44 +27,6 @@
     {%- include github_star_button.html -%}
     {%- include github_follow_button.html -%}
   </span>
-  <p class="profile-links">
-    {% if site.twitter_username %}
-    <a
-      class="social-link"
-      href="http://twitter.com/{{ site.twitter_username }}"
-    >
-      <i class="fab fa-twitter"></i>
-    </a>
-    {% endif %} {% if site.facebook_username %}
-    <a
-      class="social-link"
-      href="http://facebook.com/{{ site.facebook_username }}"
-    >
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    {% endif %} {% if site.adplist_username %}
-    <a
-      class="social-link"
-      href="https://adplist.org/mentors/{{ site.adplist_username }}"
-    >
-      <i class="fab fa-instagram"></i>
-    </a>
-    {% endif %} {% if site.linkedin_username %}
-    <a
-      class="social-link"
-      href="http://linkedin.com/in/{{ site.linkedin_username }}"
-    >
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    {% endif %} {% if site.github_username %}
-    <a
-      class="social-link"
-      href="http://github.com/{{ site.github_username }}"
-    >
-      <i class="fab fa-github"></i>
-    </a>
-    {% endif %}
-  </p>
   <!-- uncomment/modify buttons as you want-->
   <!--div class="jumbotron-btns">
     <a href="{{site.url}}{{site.baseurl}}/get-started">
