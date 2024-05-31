@@ -3,7 +3,7 @@ subtitle: Koushik Kumar Ganeeb
 description: >- # this means to ignore newlines until "baseurl:"
   My name is Koushik Kumar Ganeeb, working as a Principal Software Engineer at Salesforce with over 14+ years of experience as a Data Architect and Engineering Leader in various sectors of Software Development, I believe I bring a unique perspective and a wealth of knowledge to contribute to the membership community.
 
-url: "https://master--melodious-hamster-a1de67.netlify.app" # the base hostname & protocol for your site, e.g. https://example.github.io
+url: "https://koushikganeeb.com" # the base hostname & protocol for your site, e.g. https://example.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
 
 # Navigation
@@ -28,7 +28,7 @@ author_bio: Welcome! My name is Koushik Kumar Ganeeb, working as a Principal Sof
 author_biocommittee: I feel incredibly privileged to contribute my expertise and insights as a member of various prestigious Reviewing and Judging Committees. These committees provide me with the opportunity to evaluate and assess a wide range of projects, initiatives, or submissions, ultimately playing a crucial role in recognizing excellence and promoting standards of quality within their respective fields.
 author_email: "kganeeb2@gmail.com"
 author_location: United States of America
-author_website_url: "https://master--melodious-hamster-a1de67.netlify.app"
+author_website_url: "https://koushikganeeb.com"
 typewrite-text: Reach out for mentorship on Technology, Data Engineering, Integrations, Distributed Systems and to understand & leverage AI for any domain 
 hero_cover_img: sample_cover.jpg # replace this for changing homepage cover (eg. try cover.jpeg). Image should be in /assets/img
 

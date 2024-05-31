@@ -2,7 +2,7 @@
 name: Koushik Kumar Ganeeb
 username: kganeeb2
 bio: "Principal Software Engineer at Salesforce, Charlotte Metro, United States"
-site: https://master--melodious-hamster-a1de67.netlify.app
+site: https://koushikganeeb.com
 avatar: koushik.png
 email: kganeeb2@gmail.com
 social:

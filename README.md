@@ -17,7 +17,7 @@ Key Highlights:
 
 - Working as a Principal Software Engineer @ Salesforce
 
-- More details visit my website https://master--melodious-hamster-a1de67.netlify.app
+- More details visit my website https://koushikganeeb.com
 
-https://master--melodious-hamster-a1de67.netlify.app
+https://koushikganeeb.com
 
