@@ -9,7 +9,7 @@ permalink: /blog/change-data-capture-techniques/
 usemathjax: true
 ---
 
- <img src="/assets/img/posts/client-side-rendering-web-components.png" class="img-fluid">
+ <img src="/assets/img/posts/change-data-capture-techniques.png" class="img-fluid">
  
 ## Change Data Capture:
 
