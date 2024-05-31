@@ -12,16 +12,8 @@ urls:
       url: /
     - text: About
       url: /about
-    - text: UI
-      url: /ui
-    - text: CMS
-      url: /cms
-    - text: Builders
-      url: /site-builders  
-    - text: Frameworks
-      url: /ui-frameworks
-    - text: JSON Schema
-      url: /json-schema   
+    - text: Blogs
+      url: /blog
     - text: Contact
       url : /contact
 
