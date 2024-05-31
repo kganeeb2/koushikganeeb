@@ -40,14 +40,14 @@ author_work_experiences:
               experience: 2017 - 2024*
               visibility: true
             - company_name: UnitedHealth Group Inc
-              company_logo: gainsight.png
+              company_logo: uhg.png
               company_url: https://www.gainsight.com/
               designation: Senior Software Engineer
               description: Worked on developing a robust UHOne Dev Infrastructure setup, Clinical Healthcare Applications and Robot for automating the claims adjudication process.
               experience: 2012 - 2016
               visibility: true
             - company_name: Infosys Technologies Ltd
-              company_logo: ivy.png
+              company_logo: infosys.png
               company_url: https://www.infosys.com/
               designation: Systems Engineer
               description: Developed new features, critical vulnerability fixes and query optimization for the Microsoft Channel Incentives Program and improved adaptation rate.
@@ -82,7 +82,7 @@ author_project_details:
 
 # Education
 author_education_details:
-              - college_logo: RMK_Engineering_College_logo.png
+              - college_logo: cbit.png
                 college_name: Chaitanya Bharathi Institute Of Technology
                 college_url: https://www.cbit.ac.in/
                 college_degree: Information Technology
@@ -92,6 +92,7 @@ author_education_details:
 # social links
 twitter_username: kaushikkmr
 github_username: kganeeb2
+adplist_username: koushik-kumar-ganeeb
 facebook_username: kmr_kshk
 linkedin_username: koushikganeeb
 
