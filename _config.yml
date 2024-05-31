@@ -80,7 +80,19 @@ author_project_details:
                 project_description: The 2024 International Conference on Computer, Information, and Telecommunication Systems (CITS) serves as a platform for researchers and professionals to exchange ideas and discuss emerging trends in computer science, information technology, and telecommunications.
                 project_url: https://cits.udg.edu/
                 visibility: true
-
+committee_details:
+              - project_title: IEEE Technical Committee on Security and Privacy (TCSP)
+                project_info:
+                project_description: The Committee of the IEEE Computer Society that addresses operating system security, data encryption, access-control mechanisms, database protection, network security, and impact of privacy protection legislation.
+                visibility: true  
+              - project_title: IEEE Technical Committee on Data Engineering (TCDE)
+                project_info:
+                project_description: The Committee of the IEEE Computer Society that examines the role of data in the design, development, management, and utilization of information systems.
+                visibility: true  
+              - project_title: IEEE Technical Community on Cloud Computing (TCCLD)
+                project_info:
+                project_description: The Committee of the IEEE Computer Society, that promotes research, education, and industry in cloud computing.
+                visibility: true  
 
 # Education
 author_education_details:
@@ -123,6 +135,7 @@ permalink: pretty
 show_author_work_experiences: true
 show_author_education_details: true
 show_author_project_details: true
+show_author_committee_details: true
 
 # pagination of posts
 paginate: 4
