@@ -38,7 +38,7 @@ author_work_experiences:
               company_logo: salesforce.png
               company_url: https://salesforce.com
               designation: Principal Software Engineer, Data Cloud
-              description: Working on building Data Connectors, Extraction Pipelines and transforming Data Cloud with AI Experiences.
+              description: Working on building Data Connectors, Data Extraction Pipelines and transforming Data Cloud with AI Experiences by connecting Distributed Systems for Salesforce.
               experience: 2017 - 2024*
               visibility: true
             - company_name: UnitedHealth Group Inc
@@ -60,16 +60,23 @@ author_project_details:
               - project_title: IEEE Member
                 project_info: IEEE membership offers access to technical innovation, cutting-edge information and access to data intelligence world wide
                 project_description: IEEE is an integrated multi-functional platform and global network of technology-focused professionals, leveraging IEEE's extensive knowledge base and community of thought-leaders
-                visibility: true  
+                project_url: https://www.ieee.org/membership/index.html
+                visibility: true
               - project_title: Hackathon Raptor Fellow
                 project_info: A Global Community of Technology and AI Experts committed to making a real-world impact through technology.
                 project_description: Hackathon Raptor is a Community of Experts specialized on impactful challenges, top-tier Software Development, efficient Scientific Methods across the Globe, while still contributing to the betterment of the Society.
+                project_url: https://www.raptors.dev/our-members#
                 visibility: true 
               - project_title: Proud Judge of Several International Hackathons on Technology, Innovation and AI Adaptation
                 project_info: Judged several hackathons, which aims to bring together the brightest minds in technology to tackle real-world challenges and develop innovative solutions. 
                 project_description: Judged Hackathons like HackSharks 2.0, HackSharks 3.0, Learn It Global, HackSwift 2024, Innovate Hacks etc
                 project_url: https://hackswift.devpost.com/
                 visibility: true  
+              - project_title: Proud Judge of multiple Prestigious Globee and CODiE Awards
+                project_info: Judged multiple Globee and CODiE awards, which is aimed to celebrate and honor excellence, innovation, and achievement across various industries, thus contributing to the advancement and success of organizations worldwide.
+                project_description: Judged multiple Globee awards such as 2024 Globee Awards in Technology,  2024 Golden Bridge Awards, 2024 Globee Awards for American Business, 2024 Globee Awards for Customer Excellence and SIIA CODiE Awards 2024
+                project_url: https://credential.globeeawards.com/profile/koushikkumarganeeb288473/wallet#gs.9omog6
+                visibility: true 
               - project_title: Reviewed Articles Published in IEEE World Conference on Applied Intelligence and Computing 2024
                 project_info: Reviewed Technology Advancement Articles in AIC2024
                 project_description: The IEEE World Conference on Applied Intelligence and Computing is a premier international forum for researchers, practitioners, and educators to present and discuss the latest advancements in the field of applied intelligence and computing.
