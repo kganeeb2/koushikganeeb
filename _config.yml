@@ -57,19 +57,34 @@ author_work_experiences:
               visibility: true    
 
 author_project_details:
-              - project_title: IEEE Member
-                project_info: IEEE membership offers access to technical innovation, cutting-edge information and access to data intelligence world wide
-                project_description: IEEE is an integrated multi-functional platform and global network of technology-focused professionals, leveraging IEEE's extensive knowledge base and community of thought-leaders
-                project_url: https://www.ieee.org/membership/index.html
-                visibility: true
               - project_title: Hackathon Raptor Fellow
                 project_info: A Global Community of Technology and AI Experts committed to making a real-world impact through technology.
                 project_description: Hackathon Raptor is a Community of Experts specialized on impactful challenges, top-tier Software Development, efficient Scientific Methods across the Globe, while still contributing to the betterment of the Society.
                 project_url: https://www.raptors.dev/our-members#
+                visibility: true
+              - project_title: Scholars Academic and Scientific Society (SAS Society) Fellow
+                project_info: SAS Society is one of the leading publishers for high quality scientific journals.
+                project_description: Scholars Academic and Scientific Society (SAS Society), established in 2011 under the Society Registration Act XXI of 1860 in India, is committed to fostering academic and scientific excellence. As a leading publisher, it offers an extensive array of over 77 monthly scientific journals, serving as a crucial resource for scholars globally.
+                project_url: https://www.sassociety.com/fellow-member-fsass/
+                visibility: true
+              - project_title:  International Organization for Academic and Scientific Development (IOASD) Royal Fellow
+                project_info: IOASD hosts conferences, seminars, workshops and will provide training for academic and scientific programmes, publishes journals and newsletters.
+                project_description: Established in 2023, the International Organization for Academic and Scientific Development (IOASD) is a trailblazing institution dedicated to advancing research, with a portfolio of over 1,100 published articles, renowned for disseminating high-impact research and journals.
+                project_url: https://ioasd.org/royal-fellows/
+                visibility: true
+              - project_title: IEEE Member
+                project_info: IEEE membership offers access to technical innovation, cutting-edge information and access to data intelligence world wide
+                project_description: IEEE is an integrated multi-functional platform and global network of technology-focused professionals, leveraging IEEE's extensive knowledge base and community of thought-leaders.
+                project_url: https://www.ieee.org/membership/index.html
+                visibility: true 
+              - project_title: International Association of Engineers (IAENG) Member
+                project_info: IAENG Promotes advancing the application of engineering techniques from the academics to the industry and innovation across the sector.
+                project_description: The International Association of Engineers (IAENG) is the largest non-profit international association for all engineers and computer scientists.
+                project_url: https://www.iaeng.org/
                 visibility: true 
               - project_title: Proud Judge of Several International Hackathons on Technology, Innovation and AI Adaptation
                 project_info: Judged several hackathons, which aims to bring together the brightest minds in technology to tackle real-world challenges and develop innovative solutions. 
-                project_description: Judged Hackathons like HackSharks 2.0, HackSharks 3.0, Learn It Global, HackSwift 2024, Innovate Hacks etc
+                project_description: Judged Hackathons like HackSharks 2.0, HackSharks 3.0, Learn It Global, HackSwift 2024,BoostHacks, Innovate Hacks etc
                 project_url: https://hackswift.devpost.com/
                 visibility: true  
               - project_title: Proud Judge of multiple Prestigious Globee and CODiE Awards
@@ -77,19 +92,20 @@ author_project_details:
                 project_description: Judged multiple Globee awards such as 2024 Globee Awards in Technology,  2024 Golden Bridge Awards, 2024 Globee Awards for American Business, 2024 Globee Awards for Customer Excellence and SIIA CODiE Awards 2024
                 project_url: https://credential.globeeawards.com/profile/koushikkumarganeeb288473/wallet#gs.9omog6
                 visibility: true 
-              - project_title: Reviewed Articles Published in IEEE World Conference on Applied Intelligence and Computing 2024
-                project_info: Reviewed Technology Advancement Articles in AIC2024
-                project_description: The IEEE World Conference on Applied Intelligence and Computing is a premier international forum for researchers, practitioners, and educators to present and discuss the latest advancements in the field of applied intelligence and computing.
-                project_url: https://scrs.in/conference/aic2024
-                visibility: true
-              - project_title: Reviewed Articles Published in International Conference on Computer, Information and Telecommunication Systems (CITS) 2024
-                project_info: Reviewed Computer and Data Integration Articles in AIC2024
-                project_description: The 2024 International Conference on Computer, Information, and Telecommunication Systems (CITS) serves as a platform for researchers and professionals to exchange ideas and discuss emerging trends in computer science, information technology, and telecommunications.
-                project_url: https://cits.udg.edu/
+              - project_title: Reviewed Several Articles Published in International Conference on Computer, Information and Telecommunication Systems (CITS) and other IEEE Science and Technology and Innovation Conferences
+                project_info: Reviewed Several Computer and Data Integration Articles
+                project_description: Reviewed Several Scholarly articles in International Conference on Computer, Information, and Telecommunication Systems IEEE Forums as it serves as a platform for researchers and professionals to exchange ideas and discuss emerging trends in computer science, information technology, and telecommunications.
+                project_url: https://orcid.org/0009-0002-3751-3195
                 visibility: true
 committee_details:
               - project_title: IEEE Technical Committee on Security and Privacy (TCSP)
                 project_description: The Committee of the IEEE Computer Society that addresses operating system security, data encryption, access-control mechanisms, database protection, network security, and impact of privacy protection legislation.
+                visibility: true  
+              - project_title: 2024 International Conference on Computer, Information, and Telecommunication Systems (CITS) TPC Member
+                project_description: The 2024 International Conference on Computer, Information, and Telecommunication Systems (CITS) serves as a platform for researchers and professionals to exchange ideas and discuss emerging trends in computer science, information technology, and telecommunications.
+                visibility: true  
+              - project_title: IEEE World Conference on Applied Intelligence and Computing 2024 TPC Member
+                project_description: The IEEE World Conference on Applied Intelligence and Computing is a premier international forum for researchers, practitioners, and educators to present and discuss the latest advancements in the field of applied intelligence and computing.
                 visibility: true  
               - project_title: IEEE Technical Committee on Data Engineering (TCDE)
                 project_description: The Committee of the IEEE Computer Society that examines the role of data in the design, development, management, and utilization of information systems.
@@ -97,6 +113,27 @@ committee_details:
               - project_title: IEEE Technical Community on Cloud Computing (TCCLD)
                 project_description: The Committee of the IEEE Computer Society, that promotes research, education, and industry in cloud computing.
                 visibility: true  
+              - project_title: International Journal of Computer Techniques (IJCT) Editorial Board
+                project_description: IJCT is a leading international journals for publication of new ideas, the state of the art research results and fundamental advances in all aspects of computer science and engineering.
+                visibility: true 
+              - project_title: INTERNATIONAL JOURNAL OF CREATIVE RESEARCH THOUGHTS - IJCRT Review Member
+                project_description: The International Journal of Creative Research Thoughts (IJCRT) aims to explore advances in research pertaining to applied, theoretical and experimental Technological studies. The goal is to promote scientific information interchange between researchers, developers, engineers, Faculty, students, and practitioners working in and around the world.
+                visibility: true 
+              - project_title: Intenrational Conference on Data Science and Applications - ICoDSA 2024 TPC Member
+                project_description: Reviewed Several Science and Innovation Papers for the Conference
+                visibility: true 
+              - project_title: International Conference on Body Sensor Networks (IEEE BSN) TPC Member
+                project_description: IEEE BSN is the premier conference in the areas of sensors and systems for digital health.
+                visibility: true 
+              - project_title: International Journal of Artificial Intelligence (AI) in Engineering Fields (IJAIEF) Review Member
+                project_description: IJAIEF is a premier journal with high impact score providing a platform for researcher publications
+                visibility: true 
+              - project_title: IEEE International Conference on Advanced Networks and Telecommunications Systems TPC Member
+                project_description: IEEE ANTS is a premier IEEE conference on advanced networking and telecommunications topics. IEEE ANTS is financially and technically supported by the IEEE Communications Society. 
+                visibility: true 
+              - project_title: 2024 IEEE 21st International Conference on Mobile Ad Hoc and Smart Systems (IEEE MASS 2024)
+                project_description: IEEE MASS is a premier IEEE conference on advanced Mobile Ad Hoc and Smart System. IEEE MASS is financially and technically supported by the IEEE Communications Society. 
+                visibility: true 
 
 # Education
 author_education_details:
