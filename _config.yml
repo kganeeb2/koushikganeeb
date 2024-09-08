@@ -43,7 +43,7 @@ author_work_experiences:
               visibility: true
             - company_name: UnitedHealth Group Inc
               company_logo: uhg.png
-              company_url: https://www.gainsight.com/
+              company_url: https://www.unitedhealthgroup.com/
               designation: Senior Software Engineer
               description: Worked on developing a robust UHOne Dev Infrastructure setup, Clinical Healthcare Applications and Robot for automating the claims adjudication process.
               experience: 2012 - 2016
@@ -92,8 +92,8 @@ author_project_details:
                 project_description: Judged Hackathons like HackSharks 2.0, HackSharks 3.0, Learn It Global, HackSwift 2024,BoostHacks, Innovate Hacks etc
                 project_url: https://hackswift.devpost.com/
                 visibility: true  
-              - project_title: Proud Judge of multiple Prestigious Globee and CODiE Awards
-                project_info: Judged multiple Globee and CODiE awards, which is aimed to celebrate and honor excellence, innovation, and achievement across various industries, thus contributing to the advancement and success of organizations worldwide.
+              - project_title: Proud Judge of multiple Prestigious Globee, Brandon Hall Excellence Awards, Business Intelligence Group and CODiE Awards
+                project_info: Judged multiple Globee, Brandon Hall Excellence Awards, Business Intelligence Group and CODiE Awards, which is aimed to celebrate and honor excellence, innovation, and achievement across various industries, thus contributing to the advancement and success of organizations worldwide.
                 project_description: Judged multiple Globee awards such as 2024 Globee Awards in Technology,  2024 Golden Bridge Awards, 2024 Globee Awards for American Business, 2024 Globee Awards for Customer Excellence and SIIA CODiE Awards 2024
                 project_url: https://credential.globeeawards.com/profile/koushikkumarganeeb288473/wallet#gs.9omog6
                 visibility: true 
@@ -102,7 +102,7 @@ author_project_details:
                 project_description: Judged several nominations for 2024 Business Intelligence Sustainability Awards
                 project_url: https://www.bintelligence.com/
                 visibility: true 
-              - project_title: Reviewed Several Articles Published in International Conference on Computer, Information and Telecommunication Systems (CITS) and other IEEE Science and Technology and Innovation Conferences
+              - project_title: IEEE Reviewer and Technical Program Committee Member of several international conferences
                 project_info: Reviewed Several Computer and Data Integration Articles
                 project_description: Reviewed Several Scholarly articles in International Conference on Computer, Information, and Telecommunication Systems IEEE Forums as it serves as a platform for researchers and professionals to exchange ideas and discuss emerging trends in computer science, information technology, and telecommunications.
                 project_url: https://orcid.org/0009-0002-3751-3195
@@ -126,8 +126,8 @@ committee_details:
               - project_title: Member of IEEE Technical Community on Cloud Computing (TCCLD)
                 project_description: The Committee of the IEEE Computer Society, that promotes research, education, and industry in cloud computing.
                 visibility: true  
-              - project_title: Editorial Board Member of International Journal of Computer Techniques (IJCT)
-                project_description: IJCT is a leading international journals for publication of new ideas, the state of the art research results and fundamental advances in all aspects of computer science and engineering.
+              - project_title: Editorial Review Board International Journal of Intelligent Information Technologies (IJIIT)
+                project_description: IJIIT is a leading international journals for publication of new ideas, the state of the art research results and fundamental advances in all aspects of computer science and engineering.
                 visibility: true 
               - project_title: Reviewer of INTERNATIONAL JOURNAL OF CREATIVE RESEARCH THOUGHTS - IJCRT
                 project_description: The International Journal of Creative Research Thoughts (IJCRT) aims to explore advances in research pertaining to applied, theoretical and experimental Technological studies. The goal is to promote scientific information interchange between researchers, developers, engineers, Faculty, students, and practitioners working in and around the world.
