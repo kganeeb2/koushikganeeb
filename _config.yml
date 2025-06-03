@@ -1,7 +1,7 @@
 title: Koushik Kumar Ganeeb
 subtitle: Koushik Kumar Ganeeb
 description: >- # this means to ignore newlines until "baseurl:"
-  My name is Koushik Kumar Ganeeb, working as a Principal Software Engineer at Salesforce with over 15 years of experience as a Data Architect and Engineering Leader in various sectors of Software Development, I believe I bring a unique perspective and a wealth of knowledge to contribute to the membership community.
+  Mr. Koushik Kumar Ganeeb is a technology leader with deep expertise in Distributed Systems, Artificial Intelligence, Data Engineering, and Massively Parallel Computing. With 15 years of outstanding academic and industry experience, he has consistently worked at the forefront of cutting-edge technologies while actively fostering community growth. As a Principal Software Engineer and Engineering Leader at Salesforce, Mr. Ganeeb is driving innovation and expanding the boundaries of AI.
 
 url: "https://koushikganeeb.com" # the base hostname & protocol for your site, e.g. https://example.github.io
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -24,8 +24,8 @@ urls:
 
 author_logo: koushik.png
 author: Koushik Kumar Ganeeb
-author_bio: Welcome! My name is Koushik Kumar Ganeeb, working as a Principal Software Engineer at Salesforce with over 15 years of experience in Technology & Engineering.
-author_biocommittee: I feel incredibly privileged to contribute my expertise and insights as a member of various prestigious Reviewing and Judging Committees. These committees provide me with the opportunity to evaluate and assess a wide range of projects, initiatives, or submissions, ultimately playing a crucial role in recognizing excellence and promoting standards of quality within their respective fields.
+author_bio: Mr. Koushik Kumar Ganeeb is working as a Engineering Leader at Salesforce, building AI revolution and advancing Engineering Capabilities in the industry. His journey in the ever-evolving tech landscape has been marked by a passion for crafting cutting-edge solutions, driving high-performing teams, and leading complex projects to success. Since May 2017, he has been a Principal Member of Technical Staff at Salesforce, where he has excelled in designing and implementing the Public Cloud Architecture for the Data Factory Service, contributing significantly to Salesforce's Data Cloud architecture. Mr. Ganeeb's work involves managing large-scale data extracts and imports to cloud storages such as S3, Azure Blob, and Oracle. He has developed data extraction pipelines that enhance Salesforce Einstein's AI and intelligence reporting capabilities, processing trillions of transactions daily and driving business growth for several Fortune 100 Companies.
+author_biocommittee: Mr. Ganeeb feels incredibly privileged to contribute his expertise and insights as a member of various prestigious reviewing and judging committees. Through these roles, he has the opportunity to evaluate and assess a wide range of projects, initiatives, and submissions, ultimately playing a crucial part in recognizing excellence and promoting high standards of quality within their respective fields.
 author_email: "kganeeb2@gmail.com"
 author_location: United States of America
 author_website_url: "https://koushikganeeb.com"
