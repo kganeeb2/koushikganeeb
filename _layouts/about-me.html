@@ -138,12 +138,30 @@ layout: clean
 
         <!-- Fellowships -->
         <div class="content-card reveal">
-          <div class="card-label"><i class="fa-solid fa-medal"></i> Fellowships &amp; Memberships</div>
+          <div class="card-label"><i class="fa-solid fa-medal"></i> Fellowships, Memberships &amp; Recognition</div>
           <div class="achieve-grid">
             {% if site.show_author_project_details == true %}
               {% for project in site.author_project_details %}{% if project.visibility == true %}
+              {% assign t = project.project_title | downcase %}
+              {% if t contains 'judge' %}
+                {% assign tag = 'Judge' %}
+              {% elsif t contains 'organizer' or t contains 'organiser' %}
+                {% assign tag = 'Organizer' %}
+              {% elsif t contains 'ambassador' %}
+                {% assign tag = 'Ambassador' %}
+              {% elsif t contains 'reviewer' or t contains 'program committee' or t contains 'tpc' or t contains 'editorial' %}
+                {% assign tag = 'Committee' %}
+              {% elsif t contains 'senior' and t contains 'member' %}
+                {% assign tag = 'Senior Member' %}
+              {% elsif t contains 'member' %}
+                {% assign tag = 'Member' %}
+              {% elsif t contains 'fellow' %}
+                {% assign tag = 'Fellowship' %}
+              {% else %}
+                {% assign tag = 'Recognition' %}
+              {% endif %}
               <div class="achieve-card">
-                <div class="achieve-tag">Fellowship</div>
+                <div class="achieve-tag">{{ tag }}</div>
                 <div class="achieve-title">{{ project.project_title }}</div>
                 <div class="achieve-desc">{{ project.project_description }}</div>
                 {% if project.project_url %}<a href="{{ project.project_url }}" class="achieve-link">Learn more &rarr;</a>{% endif %}
