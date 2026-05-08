@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Koushik Kumar Ganeeb — Preview Redesign</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+/* ── RESET ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+/* ── VARIABLES ── */
+:root {
+  --accent: #0ea5e9;
+  --accent-2: #6366f1;
+  --accent-glow: rgba(14,165,233,0.35);
+  --gradient-hero: linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0c1a2e 100%);
+  --gradient-accent: linear-gradient(135deg,#0ea5e9,#6366f1);
+  --glass-border: rgba(255,255,255,0.08);
+  --glass-bg: rgba(15,23,42,0.7);
+  --bg: #080d1a;
+  --text: rgba(255,255,255,0.75);
+  --text-muted: rgba(255,255,255,0.4);
+  --bold: #fff;
+  --radius-lg: 18px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --shadow-glow: 0 0 40px rgba(14,165,233,0.15),0 20px 60px rgba(0,0,0,0.5);
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.3),0 1px 4px rgba(0,0,0,0.2);
+  --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a { color: var(--accent); text-decoration: none; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10%;
+  height: 56px;
+  backdrop-filter: blur(20px) saturate(180%);
+  background: rgba(10,10,20,0.85);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  box-shadow: 0 1px 40px rgba(0,0,0,0.4);
+}
+
+.nav-brand {
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: -0.04em;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.nav-links { display: flex; gap: 4px; }
+.nav-links a {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  padding: 7px 14px;
+  border-radius: 7px;
+  transition: var(--transition);
+}
+.nav-links a:hover { color: #fff; background: rgba(255,255,255,0.08); }
+
+/* ── HERO ── */
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
+  background: var(--gradient-hero);
+}
+
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(99,102,241,.22) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 60%, rgba(14,165,233,.18) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+/* floating particles */
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 18% 22%, rgba(255,255,255,.18) 0%, transparent 0%),
+    radial-gradient(1px 1px at 72% 12%, rgba(255,255,255,.13) 0%, transparent 0%),
+    radial-gradient(1px 1px at 55% 68%, rgba(255,255,255,.1) 0%, transparent 0%),
+    radial-gradient(1.5px 1.5px at 88% 45%, rgba(255,255,255,.12) 0%, transparent 0%),
+    radial-gradient(1px 1px at 32% 78%, rgba(255,255,255,.08) 0%, transparent 0%),
+    radial-gradient(1px 1px at 8% 60%, rgba(255,255,255,.09) 0%, transparent 0%);
+  pointer-events: none;
+}
+
+.hero > * { position: relative; z-index: 1; }
+
+.badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(14,165,233,.12);
+  border: 1px solid rgba(14,165,233,.3);
+  border-radius: 100px;
+  padding: 6px 18px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.4rem;
+}
+
+.badge-pill .dot {
+  width: 6px; height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%,100%{opacity:1;transform:scale(1);}
+  50%{opacity:.5;transform:scale(1.4);}
+}
+
+.hero-avatar {
+  width: 128px; height: 128px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid transparent;
+  background: var(--gradient-accent) padding-box, var(--gradient-accent) border-box;
+  box-shadow: 0 0 0 5px rgba(14,165,233,.18), 0 20px 60px rgba(0,0,0,.5);
+  margin-bottom: 1.4rem;
+  transition: transform .4s ease, box-shadow .4s ease;
+}
+.hero-avatar:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 0 7px rgba(14,165,233,.28), 0 0 60px rgba(14,165,233,.25);
+}
+
+.hero-name {
+  font-size: clamp(2.4rem,5vw,3.8rem);
+  font-weight: 800;
+  background: linear-gradient(135deg,#fff 0%,rgba(14,165,233,.95) 55%,rgba(99,102,241,.9) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+  margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: rgba(255,255,255,.65);
+  max-width: 640px;
+  line-height: 1.75;
+  margin-bottom: 0.7rem;
+}
+
+.hero-tagline {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,.4);
+  font-weight: 500;
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+.hero-btns { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+.btn-primary-glow {
+  background: var(--gradient-accent);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 13px 30px;
+  border-radius: 100px;
+  box-shadow: 0 4px 24px rgba(14,165,233,.4);
+  transition: var(--transition);
+  cursor: pointer;
+}
+.btn-primary-glow:hover { transform: translateY(-2px); box-shadow: 0 8px 36px rgba(14,165,233,.5); }
+
+.btn-ghost {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  color: rgba(255,255,255,.7);
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 13px 30px;
+  border-radius: 100px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.btn-ghost:hover { background: rgba(255,255,255,.1); border-color: rgba(255,255,255,.2); color: #fff; }
+
+/* stats */
+.hero-stats {
+  display: flex;
+  gap: 44px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3.2rem;
+}
+
+.stat-num {
+  font-size: 2.2rem;
+  font-weight: 800;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  line-height: 1;
+}
+.stat-lbl {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.35);
+  margin-top: 4px;
+}
+
+/* ── MAIN LAYOUT ── */
+.container {
+  max-width: 1100px;
+  margin: 60px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+}
+
+@media(max-width:900px){ .container{ grid-template-columns:1fr; } }
+
+/* ── CARDS ── */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition);
+}
+.card:hover {
+  border-color: rgba(14,165,233,.2);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-2px);
+}
+
+.card-title {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 10px;
+  margin-bottom: 18px;
+}
+
+/* ── PROFILE SIDEBAR ── */
+.profile-img {
+  width: 90px; height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto 12px;
+  border: 2px solid rgba(14,165,233,.3);
+  box-shadow: 0 0 0 4px rgba(14,165,233,.1);
+}
+
+.profile-name {
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--bold);
+  letter-spacing: -.03em;
+  margin-bottom: 4px;
+}
+
+.profile-role {
+  text-align: center;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.social-btn {
+  width: 34px; height: 34px;
+  display: inline-flex;
+  align-items: center; justify-content: center;
+  border-radius: 9px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--glass-border);
+  color: rgba(255,255,255,.55);
+  font-size: 13px;
+  transition: var(--transition);
+}
+.social-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.meta-info { font-size: 0.72rem; color: var(--text-muted); text-align: center; line-height: 2; }
+.meta-info i { color: var(--accent); margin-right: 5px; }
+
+/* ── SKILLS ── */
+.skills-wrap { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; }
+
+.skill-chip {
+  padding: 4px 11px;
+  border-radius: 100px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: .04em;
+  transition: var(--transition);
+  cursor: default;
+}
+.skill-chip:hover { transform: translateY(-1px); }
+
+.chip-mgmt  { background:rgba(99,102,241,.15);border:1px solid rgba(99,102,241,.35);color:#818cf8; }
+.chip-lang  { background:rgba(14,165,233,.12);border:1px solid rgba(14,165,233,.3);color:#38bdf8; }
+.chip-cloud { background:rgba(245,158,11,.12);border:1px solid rgba(245,158,11,.3);color:#fbbf24; }
+.chip-db    { background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);color:#34d399; }
+.chip-devops{ background:rgba(244,63,94,.12);border:1px solid rgba(244,63,94,.3);color:#fb7185; }
+
+.skill-section-label {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.25);
+  width: 100%;
+  margin: 10px 0 2px;
+}
+
+/* ── TIMELINE ── */
+.timeline { position: relative; }
+
+.tl-item {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  position: relative;
+}
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: 43px; top: 58px; bottom: -12px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  opacity: .25;
+}
+.tl-item:last-child::before { display: none; }
+
+.tl-logo {
+  width: 50px; height: 50px;
+  border-radius: 12px;
+  object-fit: contain;
+  background: rgba(255,255,255,.07);
+  border: 1px solid var(--glass-border);
+  padding: 6px;
+  flex-shrink: 0;
+}
+
+.tl-title {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--bold);
+  letter-spacing: -.02em;
+  margin-bottom: 2px;
+}
+.tl-company {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+.tl-period {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  background: rgba(255,255,255,.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 100px;
+  padding: 2px 10px;
+  margin-bottom: 8px;
+}
+.tl-desc {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: var(--text);
+  opacity: .8;
+}
+
+/* ── ACHIEVEMENTS GRID ── */
+.ach-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media(max-width:600px){ .ach-grid{grid-template-columns:1fr;} }
+
+.ach-card {
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  position: relative;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.ach-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  opacity: 0;
+  transition: var(--transition);
+}
+.ach-card:hover::before { opacity: 1; }
+.ach-card:hover {
+  background: rgba(14,165,233,.05);
+  border-color: rgba(14,165,233,.2);
+  transform: translateY(-2px);
+}
+
+.ach-tag {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.3);
+  margin-bottom: 5px;
+}
+.ach-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--bold);
+  line-height: 1.4;
+  margin-bottom: 6px;
+}
+.ach-desc {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,.4);
+  line-height: 1.55;
+  margin-bottom: 8px;
+}
+.ach-link {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--accent);
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.ach-link:hover { gap: 8px; }
+
+/* ── ARTICLES ── */
+.article-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  margin-bottom: 10px;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.article-item:hover {
+  background: rgba(14,165,233,.06);
+  border-color: rgba(14,165,233,.25);
+  transform: translateX(5px);
+}
+.article-item:last-child { margin-bottom: 0; }
+
+.article-thumb {
+  width: 44px; height: 44px;
+  border-radius: 10px;
+  object-fit: cover;
+  background: var(--gradient-accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+  border: 1px solid var(--glass-border);
+}
+
+.article-content { flex: 1; }
+.article-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--bold);
+  line-height: 1.4;
+  margin-bottom: 3px;
+}
+.article-meta {
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.article-badge {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  background: rgba(14,165,233,.15);
+  border: 1px solid rgba(14,165,233,.3);
+  color: var(--accent);
+  border-radius: 100px;
+  padding: 3px 9px;
+  white-space: nowrap;
+}
+
+/* ── COMMITTEE ── */
+.comm-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid var(--glass-border);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  margin-bottom: 10px;
+  transition: var(--transition);
+}
+.comm-item:hover {
+  background: rgba(14,165,233,.05);
+  border-left-color: var(--accent-2);
+}
+.comm-item:last-child { margin-bottom: 0; }
+
+.comm-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+.comm-name { font-size: 0.8rem; font-weight: 700; color: var(--bold); line-height: 1.4; margin-bottom: 3px; }
+.comm-desc { font-size: 0.7rem; color: rgba(255,255,255,.4); line-height: 1.5; }
+
+/* ── SECTION HEADER ── */
+.sec-hdr {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.sec-hdr h2 {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.sec-hdr a {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 100px;
+  background: rgba(255,255,255,.06);
+  border: 1px solid var(--glass-border);
+  color: rgba(255,255,255,.5);
+  transition: var(--transition);
+}
+.sec-hdr a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+/* ── EDUCATION ── */
+.edu-item {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.edu-logo {
+  width: 50px; height: 50px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.07);
+  border: 1px solid var(--glass-border);
+  padding: 6px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+.edu-degree { font-size: 0.9rem; font-weight: 700; color: var(--bold); margin-bottom: 2px; }
+.edu-school { font-size: 0.78rem; font-weight: 600; color: var(--accent); margin-bottom: 4px; }
+.edu-desc { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ── FOOTER ── */
+footer {
+  background: rgba(5,8,20,.9);
+  border-top: 1px solid var(--glass-border);
+  text-align: center;
+  padding: 28px 20px;
+}
+footer p { font-size: 0.72rem; color: rgba(255,255,255,.3); line-height: 1.8; }
+footer a { color: var(--accent); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-brand">Koushik Kumar Ganeeb</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Blogs</a>
+    <a href="#">Contact</a>
+    <a href="#">Committees</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section class="hero">
+  <div class="badge-pill">
+    <span class="dot"></span>
+    Engineering Leader · Salesforce Data Cloud
+  </div>
+
+  <img class="hero-avatar" src="assets/img/KoushikGaneeb_cropped.jpg" alt="Koushik Kumar Ganeeb"
+       onerror="this.style.background='linear-gradient(135deg,#0ea5e9,#6366f1)';this.style.display='block';this.removeAttribute('src')"/>
+
+  <h1 class="hero-name">Koushik Kumar Ganeeb</h1>
+
+  <p class="hero-subtitle">
+    Technology leader driving AI innovation at Salesforce — building Data Connectors, distributed systems, and intelligent pipelines that process trillions of transactions for Fortune 100 companies.
+  </p>
+
+  <p class="hero-tagline">
+    "AI is not just a tool — it's a spark that ignites new possibilities and inspires us to reimagine the future."
+  </p>
+
+  <div class="hero-btns">
+    <a href="https://adplist.org/mentors/koushik-kumar-ganeeb" class="btn-primary-glow">Connect with Me</a>
+    <a href="https://linkedin.com/in/koushikganeeb" class="btn-ghost">View LinkedIn</a>
+  </div>
+
+  <div class="hero-stats">
+    <div style="text-align:center">
+      <span class="stat-num">15+</span>
+      <span class="stat-lbl">Years Experience</span>
+    </div>
+    <div style="text-align:center">
+      <span class="stat-num">6+</span>
+      <span class="stat-lbl">Fellowships</span>
+    </div>
+    <div style="text-align:center">
+      <span class="stat-num">20+</span>
+      <span class="stat-lbl">Committees</span>
+    </div>
+    <div style="text-align:center">
+      <span class="stat-num">10+</span>
+      <span class="stat-lbl">Awards Judged</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── MAIN ── -->
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside>
+
+    <!-- Profile Card -->
+    <div class="card">
+      <img class="profile-img" src="assets/img/KoushikGaneeb_cropped.jpg" alt="Koushik"
+           onerror="this.style.background='linear-gradient(135deg,#0ea5e9,#6366f1)';this.removeAttribute('src')"/>
+      <div class="profile-name">Koushik Kumar Ganeeb</div>
+      <div class="profile-role">Engineering Leader · Salesforce Data Cloud</div>
+
+      <div class="social-links">
+        <a class="social-btn" href="https://twitter.com/kaushikkmr" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a class="social-btn" href="https://linkedin.com/in/koushikganeeb" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a class="social-btn" href="https://github.com/kganeeb2" title="GitHub"><i class="fab fa-github"></i></a>
+        <a class="social-btn" href="https://facebook.com/kmr_kshk" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a class="social-btn" href="https://adplist.org/mentors/koushik-kumar-ganeeb" title="Mentoring"><i class="fas fa-chalkboard-teacher"></i></a>
+        <a class="social-btn" href="https://orcid.org/0009-0002-3751-3195" title="ORCID"><i class="fas fa-flask"></i></a>
+      </div>
+
+      <div class="meta-info">
+        <div><i class="fas fa-map-marker-alt"></i>Charlotte, United States</div>
+        <div><i class="fas fa-envelope"></i>kganeeb2@gmail.com</div>
+        <div><i class="fas fa-link"></i>koushikganeeb.com</div>
+      </div>
+    </div>
+
+    <!-- Skills -->
+    <div class="card">
+      <div class="card-title">Technical Skills</div>
+
+      <div class="skills-wrap">
+        <span class="skill-section-label">Leadership</span>
+        <span class="skill-chip chip-mgmt">Project Management</span>
+        <span class="skill-chip chip-mgmt">Team Leadership</span>
+        <span class="skill-chip chip-mgmt">Agile / Scrum</span>
+
+        <span class="skill-section-label">Languages</span>
+        <span class="skill-chip chip-lang">C# / ASP.NET Core</span>
+        <span class="skill-chip chip-lang">Java</span>
+        <span class="skill-chip chip-lang">Terraform</span>
+        <span class="skill-chip chip-lang">Node.js</span>
+        <span class="skill-chip chip-lang">JavaScript</span>
+
+        <span class="skill-section-label">Cloud</span>
+        <span class="skill-chip chip-cloud">AWS</span>
+        <span class="skill-chip chip-cloud">Azure</span>
+        <span class="skill-chip chip-cloud">Oracle Cloud</span>
+        <span class="skill-chip chip-cloud">HashiCorp Vault</span>
+
+        <span class="skill-section-label">Databases</span>
+        <span class="skill-chip chip-db">SQL Server</span>
+        <span class="skill-chip chip-db">PostgreSQL</span>
+        <span class="skill-chip chip-db">Trino</span>
+        <span class="skill-chip chip-db">Oracle</span>
+
+        <span class="skill-section-label">DevOps</span>
+        <span class="skill-chip chip-devops">Docker</span>
+        <span class="skill-chip chip-devops">Kubernetes</span>
+        <span class="skill-chip chip-devops">Spinnaker</span>
+        <span class="skill-chip chip-devops">Jenkins</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- MAIN COLUMN -->
+  <main>
+
+    <!-- About -->
+    <div class="card">
+      <div class="card-title">About</div>
+      <p style="font-size:0.85rem;line-height:1.8;color:var(--text)">
+        Mr. Koushik Kumar Ganeeb is an Engineering Leader at Salesforce, building AI revolution and advancing Engineering Capabilities in the industry. Since May 2017, he has been a Principal Member of Technical Staff at Salesforce's Data Cloud, designing and implementing Public Cloud Architecture for the Data Factory Service. His work involves managing large-scale data extracts and imports to AWS S3, Azure Blob, and Oracle, developing extraction pipelines that enhance Salesforce Einstein's AI capabilities — processing <strong style="color:var(--accent)">trillions of transactions daily</strong> for Fortune 100 companies.
+      </p>
+    </div>
+
+    <!-- Experience -->
+    <div class="card">
+      <div class="card-title">Professional Experience</div>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <img class="tl-logo" src="assets/img/salesforce.png" alt="Salesforce"
+               onerror="this.style.background='rgba(0,161,223,0.15)';this.removeAttribute('src')"/>
+          <div>
+            <div class="tl-title">Principal Software Engineer, Data Cloud</div>
+            <div class="tl-company">Salesforce</div>
+            <div class="tl-period">2017 — Present</div>
+            <div class="tl-desc">Designs and implements Public Cloud Architecture for Data Factory Service. Builds Data Connectors, Data Extraction Pipelines, and transforms Data Cloud with AI Experiences by connecting distributed systems. Pipelines process trillions of transactions daily for Fortune 100 companies.</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <img class="tl-logo" src="assets/img/uhg.png" alt="UHG"
+               onerror="this.style.background='rgba(0,105,180,0.15)';this.removeAttribute('src')"/>
+          <div>
+            <div class="tl-title">Senior Software Engineer</div>
+            <div class="tl-company">UnitedHealth Group Inc</div>
+            <div class="tl-period">2012 — 2016</div>
+            <div class="tl-desc">Developed robust UHOne Dev Infrastructure, Clinical Healthcare Applications, and an intelligent robot for automating the claims adjudication process.</div>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <img class="tl-logo" src="assets/img/infosys.png" alt="Infosys"
+               onerror="this.style.background='rgba(52,168,83,0.15)';this.removeAttribute('src')"/>
+          <div>
+            <div class="tl-title">Systems Engineer</div>
+            <div class="tl-company">Infosys Technologies Ltd</div>
+            <div class="tl-period">2010 — 2012</div>
+            <div class="tl-desc">Developed new features, critical vulnerability fixes, and query optimization for the Microsoft Channel Incentives Program, improving adaptation rate significantly.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="card">
+      <div class="card-title">Education</div>
+      <div class="edu-item">
+        <img class="edu-logo" src="assets/img/cbit.png" alt="CBIT"
+             onerror="this.style.background='rgba(14,165,233,0.12)';this.removeAttribute('src')"/>
+        <div>
+          <div class="edu-degree">Bachelor of Engineering — Information Technology</div>
+          <div class="edu-school">Chaitanya Bharathi Institute of Technology (CBIT)</div>
+          <div class="edu-desc">Hyderabad, India · cbit.ac.in</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fellowships & Achievements -->
+    <div class="card">
+      <div class="card-title">Fellowships &amp; Professional Memberships</div>
+      <div class="ach-grid">
+
+        <div class="ach-card">
+          <div class="ach-tag">Fellowship</div>
+          <div class="ach-title">Fellow, BCS (FBCS)</div>
+          <div class="ach-desc">UK's prestigious professional body for IT and digital industries, promoting advancement of computing for societal benefit.</div>
+          <a class="ach-link" href="https://www.bcs.org">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">Fellowship</div>
+          <div class="ach-title">Fellow, Hackathon Raptors</div>
+          <div class="ach-desc">Global community of Technology and AI Experts committed to making real-world impact through technology.</div>
+          <a class="ach-link" href="https://www.raptors.dev">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">Fellowship</div>
+          <div class="ach-title">Fellow, SAS Society (FSASS)</div>
+          <div class="ach-desc">Leading publisher of 77+ monthly scientific journals. Society established under the Society Registration Act 1860.</div>
+          <a class="ach-link" href="https://www.sassociety.com">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">Royal Fellowship</div>
+          <div class="ach-title">Royal Fellow, IOASD</div>
+          <div class="ach-desc">International Organization for Academic and Scientific Development — portfolio of 1,100+ published articles since 2023.</div>
+          <a class="ach-link" href="https://ioasd.org">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">IEEE</div>
+          <div class="ach-title">Senior IEEE Member</div>
+          <div class="ach-desc">Institute of Electrical and Electronics Engineers — global network leveraging extensive knowledge base for technology professionals.</div>
+          <a class="ach-link" href="https://www.ieee.org">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">Engineering</div>
+          <div class="ach-title">Member, IAENG</div>
+          <div class="ach-desc">International Association of Engineers — largest non-profit international association for engineers and computer scientists.</div>
+          <a class="ach-link" href="https://www.iaeng.org">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">Gartner · Community</div>
+          <div class="ach-title">Gartner Peer Community Ambassador</div>
+          <div class="ach-desc">Recognized ambassador contributing expert insights to Gartner's global peer network of senior technology executives and decision-makers.</div>
+          <a class="ach-link" href="https://www.gartner.com/peer-community">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">Community · AI</div>
+          <div class="ach-title">AI Collective Organizer — Columbia Region</div>
+          <div class="ach-desc">Organizes engineers, researchers, and business leaders across the Columbia metro area to explore AI frontiers through meetups, workshops, and speaker sessions.</div>
+          <a class="ach-link" href="https://www.aicollective.com/chapters/columbia">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Judging & Awards -->
+    <div class="card">
+      <div class="card-title">Awards &amp; Hackathon Judging</div>
+      <div class="ach-grid">
+
+        <div class="ach-card">
+          <div class="ach-tag">International Hackathons</div>
+          <div class="ach-title">Judge — HackSharks, HackSwift, BoostHacks &amp; more</div>
+          <div class="ach-desc">Judged HackSharks 2.0 &amp; 3.0, Learn It Global, HackSwift 2024, BoostHacks, Innovate Hacks — bringing together brightest minds to tackle real-world challenges.</div>
+          <a class="ach-link" href="https://hackswift.devpost.com">View <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">Globee Awards</div>
+          <div class="ach-title">Judge — Globee, Golden Bridge, CODiE Awards</div>
+          <div class="ach-desc">Judged 2024 Globee Awards in Technology, Golden Bridge Awards, Globee for American Business, Customer Excellence, and SIIA CODiE Awards.</div>
+          <a class="ach-link" href="https://credential.globeeawards.com/profile/koushikkumarganeeb288473/wallet">Credential <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">Excellence Awards</div>
+          <div class="ach-title">Judge — Brandon Hall &amp; Business Intelligence Group</div>
+          <div class="ach-desc">Judged Brandon Hall Excellence Awards and Business Intelligence Group Awards celebrating excellence and innovation across industries.</div>
+          <a class="ach-link" href="https://www.bintelligence.com">View <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+        <div class="ach-card">
+          <div class="ach-tag">Sustainability</div>
+          <div class="ach-title">Judge — BI Sustainability Awards 2024</div>
+          <div class="ach-desc">Evaluated nominations for 2024 Business Intelligence Sustainability Awards — honoring organizations contributing to societal advancement worldwide.</div>
+          <a class="ach-link" href="https://www.bintelligence.com">View <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Committees -->
+    <div class="card">
+      <div class="card-title">IEEE &amp; Technical Committees</div>
+
+      <div class="comm-item">
+        <span class="comm-icon">🔒</span>
+        <div>
+          <div class="comm-name">Member — IEEE Technical Committee on Security &amp; Privacy (TCSP)</div>
+          <div class="comm-desc">Addresses OS security, data encryption, access-control, database protection, network security, and privacy legislation.</div>
+        </div>
+      </div>
+
+      <div class="comm-item">
+        <span class="comm-icon">📊</span>
+        <div>
+          <div class="comm-name">Member — IEEE Technical Committee on Data Engineering (TCDE)</div>
+          <div class="comm-desc">Examines the role of data in design, development, management, and utilization of information systems.</div>
+        </div>
+      </div>
+
+      <div class="comm-item">
+        <span class="comm-icon">☁️</span>
+        <div>
+          <div class="comm-name">Member — IEEE Technical Community on Cloud Computing (TCCLD)</div>
+          <div class="comm-desc">Promotes research, education, and industry in cloud computing.</div>
+        </div>
+      </div>
+
+      <div class="comm-item">
+        <span class="comm-icon">🖥️</span>
+        <div>
+          <div class="comm-name">TPC Member — IEEE CITS 2024 &amp; IEEE Applied Intelligence &amp; Computing 2024</div>
+          <div class="comm-desc">Reviewed research papers on computer science, information technology, applied intelligence, and telecommunications.</div>
+        </div>
+      </div>
+
+      <div class="comm-item">
+        <span class="comm-icon">📝</span>
+        <div>
+          <div class="comm-name">Editorial Board — International Journal of Intelligent Information Technologies (IJIIT)</div>
+          <div class="comm-desc">Leading international journal for new ideas and state-of-the-art research in computer science and engineering.</div>
+        </div>
+      </div>
+
+      <div class="comm-item">
+        <span class="comm-icon">📡</span>
+        <div>
+          <div class="comm-name">TPC Member — IEEE BSN, IEEE ANTS, ICoDSA 2024, SCIS 2024, IEEE MASS 2024</div>
+          <div class="comm-desc">Reviewed papers across body sensor networks, advanced telecommunications, data science applications, sustainable computing, and mobile ad hoc systems.</div>
+        </div>
+      </div>
+
+      <div class="comm-item">
+        <span class="comm-icon">🔬</span>
+        <div>
+          <div class="comm-name">IEEE Reviewer — 20+ International Conferences &amp; Journals</div>
+          <div class="comm-desc">Reviewed scholarly articles across 20+ IEEE and international conferences and journals spanning AI, data engineering, cloud computing, and telecommunications — including IJIIT, IJCRT, and IJAIEF editorial boards.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Recent Articles -->
+    <div class="card">
+      <div class="sec-hdr">
+        <h2>Recent Articles</h2>
+        <a href="/blog">View All</a>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb">📊</div>
+        <div class="article-content">
+          <div class="article-title">Change Data Capture Techniques used in Distributed Systems</div>
+          <div class="article-meta">Jun 2024 · Distributed Systems</div>
+        </div>
+        <span class="article-badge">Data Eng</span>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb">🔄</div>
+        <div class="article-content">
+          <div class="article-title">Data Movement and Processing Practices for Transferring Data at Scale</div>
+          <div class="article-meta">Nov 2023 · Engineering</div>
+        </div>
+        <span class="article-badge">Distributed</span>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb">📡</div>
+        <div class="article-content">
+          <div class="article-title">Data Arrival Patterns used in Several Distributed Channels</div>
+          <div class="article-meta">Nov 2023 · Architecture</div>
+        </div>
+        <span class="article-badge">AI</span>
+      </div>
+
+      <div class="article-item">
+        <div class="article-thumb">🗄️</div>
+        <div class="article-content">
+          <div class="article-title">Understanding Data Forms and Systems used in Distributed Architecture</div>
+          <div class="article-meta">Nov 2023 · Architecture</div>
+        </div>
+        <span class="article-badge">Architecture</span>
+      </div>
+
+    </div>
+
+  </main>
+
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <p>&copy; 2025 <a href="https://koushikganeeb.com">Koushik Kumar Ganeeb</a> · Engineering Leader, Salesforce Data Cloud</p>
+  <p style="margin-top:6px;font-size:0.65rem;">The contents of this website are for informational purposes only and personal perspectives not related to any company.</p>
+</footer>
+
+</body>
+</html>

@@ -1,33 +1,156 @@
 <style>
-/* change cover_img in config.yml */
-.jumbotron {
-    background-color: var(--main-background-color) !important;
-    text-align: center;
-    background-attachment: fixed;
-    background-size: cover;
-    background-position: center;
+.hero-section {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 50%, #0c2340 100%);
+  min-height: 88vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 7rem 2rem 5rem;
+  position: relative;
+  overflow: hidden;
 }
-.jumbotron-btns {
-  display: block;
-  margin-top: 50px;
+.hero-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 40%, rgba(59,130,246,0.2) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 50% at 80% 60%, rgba(99,102,241,0.15) 0%, transparent 55%);
+  pointer-events: none;
 }
+.hero-section::after {
+  content: '';
+  position: absolute; inset: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 18% 22%, rgba(255,255,255,.18) 0%, transparent 0%),
+    radial-gradient(1px 1px at 72% 12%, rgba(255,255,255,.12) 0%, transparent 0%),
+    radial-gradient(1px 1px at 55% 68%, rgba(255,255,255,.09) 0%, transparent 0%),
+    radial-gradient(1.5px 1.5px at 88% 45%, rgba(255,255,255,.11) 0%, transparent 0%),
+    radial-gradient(1px 1px at 32% 78%, rgba(255,255,255,.07) 0%, transparent 0%);
+  pointer-events: none;
+}
+.hero-section > * { position: relative; z-index: 1; }
 
-.jumbotron-heading, .lead {
-  color: var(--bold-color);
+.hero-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.2);
+  border-radius: 100px; padding: 6px 18px;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,.8) !important; -webkit-text-fill-color: rgba(255,255,255,.8) !important;
+  margin-bottom: 1.4rem;
+}
+.hero-pill .hero-dot {
+  width: 6px; height: 6px; background: #3b82f6; border-radius: 50%;
+  animation: hero-blink 2s infinite;
+  box-shadow: 0 0 6px #3b82f6;
+}
+@keyframes hero-blink { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:.4;transform:scale(1.5);} }
+
+.hero-avatar-wrap {
+  margin-bottom: 1.4rem;
+}
+.hero-avatar-img {
+  width: 130px !important; height: 130px !important;
+  border-radius: 50% !important; object-fit: cover !important;
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 4px !important;
+  box-shadow: 0 0 0 6px rgba(59,130,246,.12), 0 20px 60px rgba(0,0,0,.4) !important;
+  transition: transform .4s ease, outline-offset .4s ease !important;
+}
+.hero-avatar-img:hover { transform: scale(1.04) !important; outline-offset: 8px !important; }
+
+.hero-name-text {
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #fff 0%, rgba(147,197,253,.95) 55%, rgba(165,180,252,.9) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: -0.04em; line-height: 1.05;
+  margin-bottom: 0.6rem;
+}
+.hero-role-text {
+  font-size: 1rem; font-weight: 400;
+  color: rgba(255,255,255,.62) !important; -webkit-text-fill-color: rgba(255,255,255,.62) !important;
+  max-width: 580px; line-height: 1.75; margin: 0 auto 0.6rem;
+}
+.hero-quote-text {
+  font-size: 0.8rem; font-style: italic;
+  color: rgba(255,255,255,.35) !important; -webkit-text-fill-color: rgba(255,255,255,.35) !important;
+  max-width: 480px; line-height: 1.7; margin: 0 auto 2rem;
+}
+.hero-cta-wrap {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem;
+}
+.hero-btn-primary {
+  background: linear-gradient(135deg, #3b82f6, #4f46e5) !important;
+  border: none !important; color: #fff !important; -webkit-text-fill-color: #fff !important;
+  font-weight: 700 !important; font-size: 0.78rem !important; letter-spacing: 0.07em !important;
+  text-transform: uppercase !important; padding: 13px 30px !important; border-radius: 100px !important;
+  box-shadow: 0 4px 20px rgba(59,130,246,.4) !important;
+  transition: all 0.25s !important; text-decoration: none !important; display: inline-block !important;
+}
+.hero-btn-primary:hover { transform: translateY(-2px) !important; box-shadow: 0 8px 30px rgba(59,130,246,.5) !important; }
+.hero-btn-ghost {
+  background: rgba(255,255,255,.07) !important; border: 1px solid rgba(255,255,255,.18) !important;
+  color: rgba(255,255,255,.7) !important; -webkit-text-fill-color: rgba(255,255,255,.7) !important;
+  font-weight: 700 !important; font-size: 0.78rem !important; letter-spacing: 0.07em !important;
+  text-transform: uppercase !important; padding: 13px 30px !important; border-radius: 100px !important;
+  transition: all 0.25s !important; text-decoration: none !important; display: inline-block !important;
+}
+.hero-btn-ghost:hover { background: rgba(255,255,255,.13) !important; color: #fff !important; -webkit-text-fill-color: #fff !important; }
+
+.hero-stats-row { display: flex; gap: 44px; flex-wrap: wrap; justify-content: center; }
+.hero-stat-item { text-align: center; }
+.hero-stat-num {
+  display: block; font-size: 2.2rem; font-weight: 800;
+  background: linear-gradient(135deg, #3b82f6, #4f46e5);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1;
+}
+.hero-stat-lbl {
+  display: block; font-size: 0.62rem; font-weight: 600; letter-spacing: .12em;
+  text-transform: uppercase; color: rgba(255,255,255,.32) !important;
+  -webkit-text-fill-color: rgba(255,255,255,.32) !important; margin-top: 4px;
 }
 </style>
 
-<!-- home hero section -->
-<div class="jumbotron">
-  <img class="author-profile-img" src="{{site.url}}{{site.baseurl}}/assets/img/{{site.author_logo}}" />
-  <p class="jumbotron-heading">"AI is not just a tool—it's a spark that ignites new possibilities and inspires us to reimagine the future.", says Mr. {{site.author}} !</p>
+<section class="hero-section">
+  <div class="hero-pill">
+    <span class="hero-dot"></span>
+    Engineering Leader · Salesforce Data Cloud
+  </div>
 
-  <p class="lead" id="typewriteText"></p>
+  <div class="hero-avatar-wrap">
+    <img class="hero-avatar-img" src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}" alt="{{ site.author }}" />
+  </div>
 
-  <!-- uncomment/modify buttons as you want-->
-  <div class="jumbotron-btns">
-    <a href="https://adplist.org/mentors/{{ site.adplist_username }}">
-      <button class="btn btn-md btn-warning"> <strong>Connect</strong> </button>
-    </a>
+  <h1 class="hero-name-text">{{ site.author }}</h1>
+
+  <p class="hero-role-text">Building distributed systems and AI pipelines that process trillions of transactions for Fortune 100 companies.</p>
+
+  <p class="hero-quote-text">"AI is not just a tool — it's a spark that ignites new possibilities and inspires us to reimagine the future."</p>
+
+  <div class="hero-cta-wrap">
+    <a href="https://adplist.org/mentors/{{ site.adplist_username }}" class="hero-btn-primary">Connect with Me</a>
+    <a href="https://linkedin.com/in/{{ site.linkedin_username }}" class="hero-btn-ghost">View LinkedIn</a>
+  </div>
+
+  <div class="hero-stats-row">
+    <div class="hero-stat-item">
+      <span class="hero-stat-num">15+</span>
+      <span class="hero-stat-lbl">Years Experience</span>
     </div>
-</div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num">10+</span>
+      <span class="hero-stat-lbl">Fellowships</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num">20+</span>
+      <span class="hero-stat-lbl">Committees</span>
+    </div>
+    <div class="hero-stat-item">
+      <span class="hero-stat-num">10+</span>
+      <span class="hero-stat-lbl">Awards Judged</span>
+    </div>
+  </div>
+</section>

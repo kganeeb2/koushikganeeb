@@ -22,7 +22,7 @@ urls:
 
 # Edit Author details (For multi authors check _data/authors.yml)
 
-author_logo: koushik.png
+author_logo: KoushikGaneeb_cropped.jpg
 author: Koushik Kumar Ganeeb
 author_bio: Mr. Koushik Kumar Ganeeb is working as a Engineering Leader at Salesforce, building AI revolution and advancing Engineering Capabilities in the industry. His journey in the ever-evolving tech landscape has been marked by a passion for crafting cutting-edge solutions, driving high-performing teams, and leading complex projects to success. Since May 2017, he has been a Principal Member of Technical Staff at Salesforce, where he has excelled in designing and implementing the Public Cloud Architecture for the Data Factory Service, contributing significantly to Salesforce's Data Cloud architecture. Mr. Ganeeb's work involves managing large-scale data extracts and imports to cloud storages such as S3, Azure Blob, and Oracle. He has developed data extraction pipelines that enhance Salesforce Einstein's AI and intelligence reporting capabilities, processing trillions of transactions daily and driving business growth for several Fortune 100 Companies.
 author_biocommittee: Mr. Ganeeb feels incredibly privileged to contribute his expertise and insights as a member of various prestigious reviewing and judging committees. Through these roles, he has the opportunity to evaluate and assess a wide range of projects, initiatives, and submissions, ultimately playing a crucial part in recognizing excellence and promoting high standards of quality within their respective fields.
@@ -37,7 +37,7 @@ author_work_experiences:
             - company_name: Salesforce
               company_logo: salesforce.png
               company_url: https://salesforce.com
-              designation: Principal Software Engineer, Data Cloud
+              designation: Engineering Leader, Data Cloud
               description: Working on building Data Connectors, Data Extraction Pipelines and transforming Data Cloud with AI Experiences by connecting Distributed Systems for Salesforce.
               experience: 2017 - 2024*
               visibility: true
@@ -102,9 +102,29 @@ author_project_details:
                 project_description: Judged several nominations for 2024 Business Intelligence Sustainability Awards
                 project_url: https://www.bintelligence.com/
                 visibility: true 
-              - project_title: IEEE Reviewer and Technical Program Committee Member of several international conferences
-                project_info: Reviewed Several Computer and Data Integration Articles
-                project_description: Reviewed Several Scholarly articles in International Conference on Computer, Information, and Telecommunication Systems IEEE Forums as it serves as a platform for researchers and professionals to exchange ideas and discuss emerging trends in computer science, information technology, and telecommunications.
+              - project_title: Fellow IETE (FIETE)
+                project_info: Fellowship of the Institution of Electronics and Telecommunication Engineers — one of India's most prestigious engineering bodies.
+                project_description: The Institution of Electronics and Telecommunication Engineers (IETE) is India's leading recognised professional society devoted to the advancement of Science and Technology of Electronics, Telecommunication and IT. The IETE Fellowship is awarded to distinguished engineers who have made significant contributions to the field.
+                project_url: https://www.iete.org/
+                visibility: true
+              - project_title: Fellow SCRS — Soft Computing Research Society (FSCRS)
+                project_info: Fellowship of the Soft Computing Research Society recognizing outstanding contributions to soft computing, AI, and intelligent systems research.
+                project_description: The Soft Computing Research Society (SCRS) is a premier international society dedicated to the advancement of soft computing techniques including fuzzy logic, neural networks, evolutionary computation, and machine learning. SCRS Fellowship is awarded to researchers and practitioners who have demonstrated exceptional contributions to the field.
+                project_url: https://scrs.in/
+                visibility: true
+              - project_title: Gartner Peer Community Ambassador
+                project_info: Recognized ambassador in Gartner's global peer community of technology and business leaders.
+                project_description: As a Gartner Peer Community Ambassador, Koushik contributes expert insights and connects with senior technology executives and decision-makers worldwide, sharing real-world experience in AI, distributed systems, and data engineering to elevate the broader tech community.
+                project_url: https://www.gartner.com/peer-community
+                visibility: true
+              - project_title: AI Collective Organizer — Columbia Region
+                project_info: Community organizer driving AI awareness, collaboration, and innovation across the Columbia metropolitan area.
+                project_description: As the AI Collective Organizer for the Columbia region, Koushik brings together engineers, researchers, entrepreneurs, and business leaders to explore the frontiers of Artificial Intelligence — hosting meetups, workshops, and speaker sessions to accelerate AI adoption and community learning.
+                project_url: https://www.aicollective.com/chapters/columbia
+                visibility: true
+              - project_title: IEEE Reviewer and Technical Program Committee Member — 20+ International Conferences
+                project_info: Reviewed scholarly articles across 20+ IEEE and international conferences spanning AI, data engineering, cloud, and telecommunications.
+                project_description: Served as IEEE Reviewer and Technical Program Committee Member across 20+ prestigious international conferences including IEEE CITS, IEEE Applied Intelligence and Computing, ICoDSA, IEEE BSN, IEEE ANTS, IEEE MASS, SCIS, and more — evaluating cutting-edge research in computer science, information technology, telecommunications, and AI.
                 project_url: https://orcid.org/0009-0002-3751-3195
                 visibility: true
 committee_details:
@@ -145,7 +165,13 @@ committee_details:
                 project_description: IEEE ANTS is a premier IEEE conference on advanced networking and telecommunications topics. IEEE ANTS is financially and technically supported by the IEEE Communications Society. 
                 visibility: true 
               - project_title: Reviewer of 2024 IEEE 21st International Conference on Mobile Ad Hoc and Smart Systems (IEEE MASS 2024)
-                project_description: IEEE MASS is a premier IEEE conference on advanced Mobile Ad Hoc and Smart System. IEEE MASS is financially and technically supported by the IEEE Communications Society. 
+                project_description: IEEE MASS is a premier IEEE conference on advanced Mobile Ad Hoc and Smart System. IEEE MASS is financially and technically supported by the IEEE Communications Society.
+                visibility: true
+              - project_title: Technical Program Committee Member of IEEE ICAISET 2026
+                project_description: The IEEE International Conference on Artificial Intelligence, Systems, and Embedded Technology (ICAISET) is a premier venue for researchers and practitioners working at the intersection of AI, intelligent systems, and embedded technology.
+                visibility: true
+              - project_title: Technical Program Committee Member of IEEE McSOC
+                project_description: The IEEE International Symposium on Embedded Multicore/Many-core Systems-on-Chip (McSOC) is a leading IEEE forum for advances in multicore and many-core systems-on-chip design, addressing embedded intelligence and next-generation computing architectures.
                 visibility: true 
 
 # Education

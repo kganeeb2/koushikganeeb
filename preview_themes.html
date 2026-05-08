@@ -1,0 +1,1514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Koushik Kumar Ganeeb — Engineering Leader, Salesforce Data Cloud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;0,14..32,800;0,14..32,900;1,14..32,400&family=Sora:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; font-size: 14px; }
+a { text-decoration: none; }
+img { display: block; }
+
+/* ════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+════════════════════════════════════════════════ */
+#scroll-bar {
+  position: fixed; top: 0; left: 0; height: 2px; z-index: 9999;
+  background: var(--grad, linear-gradient(90deg,#3b82f6,#4f46e5));
+  width: 0%; transition: width 0.1s linear;
+}
+
+/* ════════════════════════════════════════════════
+   BACK TO TOP
+════════════════════════════════════════════════ */
+#back-top {
+  position: fixed; bottom: 90px; right: 28px; z-index: 998;
+  width: 42px; height: 42px; border-radius: 50%;
+  background: var(--glass, rgba(255,255,255,0.9));
+  border: 1px solid var(--border, rgba(0,0,0,0.1));
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer; opacity: 0; pointer-events: none;
+  transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  color: var(--accent, #2563eb); font-size: 13px;
+}
+#back-top.visible { opacity: 1; pointer-events: all; }
+#back-top:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(0,0,0,0.2); }
+
+/* ── THEME PICKER BAR ── */
+.theme-bar {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: flex;
+  gap: 8px;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px;
+  padding: 8px 14px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04);
+}
+.theme-btn {
+  display: flex; align-items: center; gap: 7px;
+  padding: 7px 16px; border-radius: 100px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.05);
+  color: rgba(255,255,255,0.55);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase;
+  cursor: pointer; transition: all 0.2s;
+}
+.theme-btn:hover { background: rgba(255,255,255,0.1); color: #fff; }
+.theme-btn.active { background: rgba(255,255,255,0.14); color: #fff; border-color: rgba(255,255,255,0.22); }
+.theme-btn .swatch { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+
+/* ════════════════════════════════════════════════
+   THEME 1 — MIDNIGHT BLUE
+════════════════════════════════════════════════ */
+[data-theme="blue"] {
+  --bg: #080d1a; --bg2: #0d1526;
+  --nav-bg: rgba(8,13,26,0.85);
+  --hero-grad: linear-gradient(135deg,#0f172a 0%,#1e1b4b 50%,#0c1a2e 100%);
+  --hero-glow1: rgba(99,102,241,0.22); --hero-glow2: rgba(14,165,233,0.18);
+  --accent: #0ea5e9; --accent2: #6366f1;
+  --grad: linear-gradient(135deg,#0ea5e9,#6366f1);
+  --grad-text: linear-gradient(135deg,#b8d4f0 0%,rgba(14,165,233,1) 55%,rgba(99,102,241,1) 100%);
+  --glass: rgba(15,23,42,0.72); --border: rgba(255,255,255,0.07);
+  --text: rgba(255,255,255,0.7); --muted: rgba(255,255,255,0.36); --bold: #ffffff;
+  --card-hover-bg: rgba(14,165,233,0.05); --card-hover-border: rgba(14,165,233,0.2);
+  --badge-bg: rgba(14,165,233,.12); --badge-border: rgba(14,165,233,.3);
+  --tl-line: #0ea5e9; --font: 'Inter', sans-serif;
+  --impact-bg: #0a1020; --impact-border: rgba(255,255,255,0.06);
+  --marquee-bg: rgba(255,255,255,0.04);
+  --now-dot: #22d3ee;
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.22);
+}
+
+/* ════════════════════════════════════════════════
+   THEME 2 — OBSIDIAN GOLD
+════════════════════════════════════════════════ */
+[data-theme="gold"] {
+  --bg: #0a0800; --bg2: #120f00;
+  --nav-bg: rgba(10,8,0,0.9);
+  --hero-grad: linear-gradient(135deg,#0a0800 0%,#1a1200 50%,#0f0a00 100%);
+  --hero-glow1: rgba(251,191,36,0.14); --hero-glow2: rgba(245,158,11,0.10);
+  --accent: #f59e0b; --accent2: #d97706;
+  --grad: linear-gradient(135deg,#fbbf24,#f59e0b,#d97706);
+  --grad-text: linear-gradient(135deg,#f5e4b0 0%,rgba(251,191,36,1) 55%,rgba(217,119,6,1) 100%);
+  --glass: rgba(20,15,0,0.72); --border: rgba(251,191,36,0.08);
+  --text: rgba(255,248,230,0.7); --muted: rgba(255,248,230,0.35); --bold: #fff8e6;
+  --card-hover-bg: rgba(251,191,36,0.05); --card-hover-border: rgba(251,191,36,0.2);
+  --badge-bg: rgba(251,191,36,.1); --badge-border: rgba(251,191,36,.28);
+  --tl-line: #f59e0b; --font: 'Inter', sans-serif;
+  --impact-bg: #0e0b00; --impact-border: rgba(251,191,36,0.07);
+  --marquee-bg: rgba(251,191,36,0.04);
+  --now-dot: #fbbf24;
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+/* ════════════════════════════════════════════════
+   THEME 3 — SLATE EMERALD
+════════════════════════════════════════════════ */
+[data-theme="emerald"] {
+  --bg: #030d09; --bg2: #061510;
+  --nav-bg: rgba(3,13,9,0.9);
+  --hero-grad: linear-gradient(135deg,#030d09 0%,#051a0f 50%,#020d07 100%);
+  --hero-glow1: rgba(16,185,129,0.18); --hero-glow2: rgba(5,150,105,0.13);
+  --accent: #10b981; --accent2: #059669;
+  --grad: linear-gradient(135deg,#10b981,#059669,#047857);
+  --grad-text: linear-gradient(135deg,#b0e8d4 0%,rgba(16,185,129,1) 55%,rgba(5,150,105,1) 100%);
+  --glass: rgba(3,20,12,0.72); --border: rgba(16,185,129,0.09);
+  --text: rgba(220,252,231,0.7); --muted: rgba(220,252,231,0.35); --bold: #ecfdf5;
+  --card-hover-bg: rgba(16,185,129,0.05); --card-hover-border: rgba(16,185,129,0.2);
+  --badge-bg: rgba(16,185,129,.1); --badge-border: rgba(16,185,129,.28);
+  --tl-line: #10b981; --font: 'Inter', sans-serif;
+  --impact-bg: #040f08; --impact-border: rgba(16,185,129,0.07);
+  --marquee-bg: rgba(16,185,129,0.04);
+  --now-dot: #34d399;
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.22);
+}
+
+/* ════════════════════════════════════════════════
+   THEME 4 — ARCTIC LIGHT ★ (default)
+════════════════════════════════════════════════ */
+[data-theme="light"] {
+  --bg: #f8fafc; --bg2: #f1f5f9;
+  --nav-bg: rgba(255,255,255,0.88);
+  --hero-grad: linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c2340 100%);
+  --hero-glow1: rgba(59,130,246,0.22); --hero-glow2: rgba(99,102,241,0.16);
+  --accent: #2563eb; --accent2: #4f46e5;
+  --grad: linear-gradient(135deg,#3b82f6,#4f46e5);
+  --grad-text: linear-gradient(135deg,#c2d8f8 0%,rgba(96,165,250,1) 55%,rgba(129,140,248,1) 100%);
+  --glass: rgba(255,255,255,0.9); --border: rgba(0,0,0,0.07);
+  --text: #475569; --muted: #94a3b8; --bold: #0f172a;
+  --card-hover-bg: rgba(37,99,235,0.035); --card-hover-border: rgba(37,99,235,0.16);
+  --badge-bg: rgba(37,99,235,.08); --badge-border: rgba(37,99,235,.2);
+  --tl-line: #3b82f6; --font: 'Inter', sans-serif;
+  --impact-bg: #f1f5f9; --impact-border: rgba(0,0,0,0.06);
+  --marquee-bg: rgba(37,99,235,0.04);
+  --now-dot: #22c55e;
+  --shadow-card: 0 2px 16px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04);
+}
+
+/* ════════════════════════════════════════════════
+   THEME 5 — DEEP VIOLET
+════════════════════════════════════════════════ */
+[data-theme="violet"] {
+  --bg: #07030f; --bg2: #0d0618;
+  --nav-bg: rgba(7,3,15,0.9);
+  --hero-grad: linear-gradient(135deg,#07030f 0%,#130822 50%,#0a0518 100%);
+  --hero-glow1: rgba(139,92,246,0.22); --hero-glow2: rgba(168,85,247,0.15);
+  --accent: #a855f7; --accent2: #7c3aed;
+  --grad: linear-gradient(135deg,#c084fc,#a855f7,#7c3aed);
+  --grad-text: linear-gradient(135deg,#dcc8f8 0%,rgba(192,132,252,1) 55%,rgba(124,58,237,1) 100%);
+  --glass: rgba(13,6,24,0.72); --border: rgba(168,85,247,0.09);
+  --text: rgba(237,233,254,0.7); --muted: rgba(237,233,254,0.35); --bold: #faf5ff;
+  --card-hover-bg: rgba(168,85,247,0.05); --card-hover-border: rgba(168,85,247,0.2);
+  --badge-bg: rgba(168,85,247,.1); --badge-border: rgba(168,85,247,.28);
+  --tl-line: #a855f7; --font: 'Sora', sans-serif;
+  --impact-bg: #0a0514; --impact-border: rgba(168,85,247,0.07);
+  --marquee-bg: rgba(168,85,247,0.04);
+  --now-dot: #c084fc;
+  --shadow-card: 0 4px 24px rgba(0,0,0,0.25);
+}
+
+/* ════════════════════════════════════════════════
+   BASE LAYOUT
+════════════════════════════════════════════════ */
+body {
+  background: var(--bg); color: var(--text);
+  font-family: var(--font); line-height: 1.6;
+  transition: background 0.5s, color 0.5s;
+}
+
+/* ════════════════════════════════════════════════
+   NAV — sticky with scroll blur
+════════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 10%; height: 56px;
+  backdrop-filter: blur(0px) saturate(100%);
+  -webkit-backdrop-filter: blur(0px) saturate(100%);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: backdrop-filter 0.4s, background 0.4s, border-color 0.4s, box-shadow 0.4s;
+}
+nav.scrolled {
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  background: var(--nav-bg);
+  border-bottom-color: var(--border);
+  box-shadow: 0 1px 32px rgba(0,0,0,0.18);
+}
+.nav-brand {
+  font-weight: 800; font-size: 1rem; letter-spacing: -0.04em;
+  background: var(--grad);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+.nav-links { display: flex; gap: 2px; }
+.nav-links a {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase;
+  color: rgba(255,255,255,0.55); padding: 7px 13px; border-radius: 8px; transition: all 0.2s;
+}
+[data-theme="light"] .nav-links a { color: var(--muted); }
+.nav-links a:hover { background: rgba(255,255,255,0.09); color: var(--bold); }
+
+/* ════════════════════════════════════════════════
+   HERO
+════════════════════════════════════════════════ */
+.hero {
+  min-height: 95vh; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; text-align: center;
+  padding: 7rem 2rem 5rem;
+  position: relative; overflow: hidden;
+  background: var(--hero-grad);
+  transition: background 0.5s;
+}
+
+/* animated gradient mesh */
+.hero-mesh {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 15% 35%, var(--hero-glow1) 0%, transparent 60%),
+    radial-gradient(ellipse 65% 55% at 82% 65%, var(--hero-glow2) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 100%, var(--hero-glow1) 0%, transparent 50%);
+  animation: meshPulse 8s ease-in-out infinite alternate;
+}
+@keyframes meshPulse {
+  0%   { opacity: 0.7; transform: scale(1) rotate(0deg); }
+  50%  { opacity: 1;   transform: scale(1.05) rotate(1deg); }
+  100% { opacity: 0.8; transform: scale(1.02) rotate(-0.5deg); }
+}
+
+/* noise texture overlay */
+.hero-noise {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* star dots */
+.hero-stars {
+  position: absolute; inset: 0; pointer-events: none; z-index: 0;
+  background-image:
+    radial-gradient(1.5px 1.5px at 18% 22%, rgba(255,255,255,.22) 0%, transparent 0%),
+    radial-gradient(1px 1px at 72% 12%, rgba(255,255,255,.16) 0%, transparent 0%),
+    radial-gradient(1px 1px at 55% 68%, rgba(255,255,255,.11) 0%, transparent 0%),
+    radial-gradient(1.5px 1.5px at 88% 45%, rgba(255,255,255,.14) 0%, transparent 0%),
+    radial-gradient(1px 1px at 32% 78%, rgba(255,255,255,.09) 0%, transparent 0%),
+    radial-gradient(1px 1px at 62% 35%, rgba(255,255,255,.08) 0%, transparent 0%),
+    radial-gradient(1.5px 1.5px at 8% 58%, rgba(255,255,255,.1) 0%, transparent 0%),
+    radial-gradient(1px 1px at 44% 90%, rgba(255,255,255,.07) 0%, transparent 0%);
+}
+
+.hero > * { position: relative; z-index: 1; }
+
+/* Currently at Salesforce pill */
+.hero-live-pill {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 100px; padding: 7px 20px;
+  font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.8); margin-bottom: 1.8rem;
+  backdrop-filter: blur(8px);
+  animation: fadeSlideDown 0.8s ease both;
+}
+.live-dot {
+  width: 7px; height: 7px; background: #22c55e; border-radius: 50%;
+  box-shadow: 0 0 0 0 rgba(34,197,94,0.6);
+  animation: livePulse 2s infinite;
+  flex-shrink: 0;
+}
+@keyframes livePulse {
+  0%   { box-shadow: 0 0 0 0 rgba(34,197,94,0.6); }
+  70%  { box-shadow: 0 0 0 7px rgba(34,197,94,0); }
+  100% { box-shadow: 0 0 0 0 rgba(34,197,94,0); }
+}
+@keyframes fadeSlideDown { from { opacity:0; transform:translateY(-14px); } to { opacity:1; transform:none; } }
+@keyframes fadeSlideUp   { from { opacity:0; transform:translateY(20px); }  to { opacity:1; transform:none; } }
+@keyframes fadeIn        { from { opacity:0; } to { opacity:1; } }
+
+/* avatar with rotating gradient ring */
+.hero-avatar-wrap {
+  position: relative;
+  width: 154px; height: 154px;
+  margin: 0 auto 1.6rem; flex-shrink: 0;
+  animation: fadeSlideUp 0.9s 0.1s ease both;
+}
+.hero-avatar-ring {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, var(--accent, #3b82f6), var(--accent2, #4f46e5), #fff, var(--accent, #3b82f6));
+  animation: spinRing 4s linear infinite;
+  opacity: 0.85;
+}
+@keyframes spinRing { to { transform: rotate(360deg); } }
+.hero-avatar-mask {
+  position: absolute;
+  top: 5px; left: 5px; right: 5px; bottom: 5px;
+  border-radius: 50%;
+  background: #0f172a;
+  z-index: 1;
+}
+.hero-avatar {
+  position: absolute;
+  top: 8px; left: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.hero-avatar:hover { transform: scale(1.04); }
+.hero-avatar-fallback {
+  position: absolute;
+  top: 8px; left: 8px;
+  width: calc(100% - 16px);
+  height: calc(100% - 16px);
+  border-radius: 50%;
+  background: var(--grad); z-index: 2;
+  display: none;
+}
+
+.hero-name {
+  font-size: clamp(2.4rem,5vw,4rem); font-weight: 900;
+  background: var(--grad-text);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  letter-spacing: -0.03em; line-height: 1.1; margin-bottom: 0.55rem;
+  padding-right: 0.05em;
+  animation: fadeSlideUp 0.9s 0.2s ease both;
+}
+.hero-role {
+  font-size: 1.05rem; font-weight: 450; color: rgba(255,255,255,.62);
+  max-width: 560px; line-height: 1.65; margin: 0 auto 0.6rem;
+  animation: fadeSlideUp 0.9s 0.3s ease both;
+}
+.hero-quote {
+  font-size: 0.8rem; color: rgba(255,255,255,.32);
+  font-style: italic; max-width: 480px; margin: 0 auto 2.2rem; line-height: 1.75;
+  animation: fadeSlideUp 0.9s 0.4s ease both;
+}
+.hero-btns {
+  display: flex; gap: 12px; flex-wrap: wrap; justify-content: center;
+  animation: fadeSlideUp 0.9s 0.5s ease both;
+}
+.btn-solid {
+  background: var(--grad); border: none; color: #fff;
+  font-weight: 700; font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 13px 30px; border-radius: 100px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;
+}
+.btn-solid:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+.btn-outline {
+  background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.7);
+  font-weight: 700; font-size: 0.78rem; letter-spacing: 0.07em; text-transform: uppercase;
+  padding: 13px 30px; border-radius: 100px; transition: all 0.2s; cursor: pointer;
+}
+.btn-outline:hover { background: rgba(255,255,255,.12); color: #fff; border-color: rgba(255,255,255,.28); }
+
+/* hero stats */
+.hero-stats {
+  display: flex; gap: 44px; flex-wrap: wrap; justify-content: center;
+  margin-top: 3.2rem;
+  animation: fadeIn 1.2s 0.6s ease both;
+}
+.stat-n {
+  display: block; font-size: 2.3rem; font-weight: 900;
+  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1; letter-spacing: -0.04em;
+}
+.stat-l { display: block; font-size: 0.6rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-top: 5px; }
+
+/* scroll hint */
+.hero-scroll-hint {
+  position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 6px;
+  opacity: 0.35; animation: bounceScroll 2.5s ease-in-out infinite;
+}
+.hero-scroll-hint span { font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: #fff; }
+.hero-scroll-hint i { font-size: 11px; color: #fff; }
+@keyframes bounceScroll { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(6px)} }
+
+/* ════════════════════════════════════════════════
+   IMPACT STRIP — "By the Numbers"
+════════════════════════════════════════════════ */
+.impact-strip {
+  background: var(--impact-bg);
+  border-top: 1px solid var(--impact-border);
+  border-bottom: 1px solid var(--impact-border);
+  padding: 40px 5%;
+}
+.impact-inner {
+  max-width: 1080px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(5,1fr); gap: 0;
+}
+@media(max-width:900px){ .impact-inner{grid-template-columns:repeat(3,1fr);} }
+@media(max-width:560px){ .impact-inner{grid-template-columns:repeat(2,1fr);} }
+.impact-item {
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  padding: 18px 12px;
+  border-right: 1px solid var(--impact-border);
+  position: relative;
+  opacity: 0; transform: translateY(18px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+.impact-item.visible { opacity: 1; transform: none; }
+.impact-item:last-child { border-right: none; }
+.impact-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: var(--grad); display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 12px;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.2);
+}
+[data-theme="light"] .impact-icon { box-shadow: 0 4px 16px rgba(37,99,235,0.15); }
+.impact-val {
+  font-size: 2rem; font-weight: 900; letter-spacing: -0.05em; line-height: 1;
+  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 5px;
+}
+.impact-lbl { font-size: 0.63rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); line-height: 1.4; }
+
+/* ════════════════════════════════════════════════
+   RECOGNITION MARQUEE
+════════════════════════════════════════════════ */
+.marquee-wrap {
+  overflow: hidden;
+  background: var(--marquee-bg);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 16px 0;
+  position: relative;
+}
+.marquee-wrap::before,
+.marquee-wrap::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+  pointer-events: none;
+}
+.marquee-wrap::before { left: 0;  background: linear-gradient(to right, var(--bg), transparent); }
+.marquee-wrap::after  { right: 0; background: linear-gradient(to left,  var(--bg), transparent); }
+.marquee-track {
+  display: flex; gap: 0;
+  animation: marqueeScroll 38s linear infinite;
+  width: max-content;
+}
+.marquee-wrap:hover .marquee-track { animation-play-state: paused; }
+@keyframes marqueeScroll { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+.marquee-item {
+  display: inline-flex; align-items: center; gap: 9px;
+  padding: 0 32px; white-space: nowrap;
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--muted);
+}
+.marquee-item i { color: var(--accent); font-size: 10px; }
+.marquee-sep { color: var(--accent); opacity: 0.3; font-size: 8px; align-self: center; }
+
+/* ════════════════════════════════════════════════
+   PAGE BODY GRID
+════════════════════════════════════════════════ */
+.page-wrap {
+  max-width: 1080px; margin: 0 auto;
+  padding: 36px 24px 100px;
+  display: grid; grid-template-columns: 268px 1fr; gap: 20px;
+}
+@media(max-width:860px){ .page-wrap{grid-template-columns:1fr;} }
+
+/* ════════════════════════════════════════════════
+   CARD
+════════════════════════════════════════════════ */
+.card {
+  background: var(--glass);
+  backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--border); border-radius: 20px;
+  padding: 22px; margin-bottom: 18px;
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s, background 0.25s;
+  position: relative; overflow: hidden;
+  opacity: 0; transform: translateY(22px);
+}
+.card.visible { opacity: 1; transform: none; }
+/* gradient top-border accent on hover */
+.card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--grad); opacity: 0; transition: opacity 0.3s;
+  border-radius: 20px 20px 0 0;
+}
+.card:hover::before { opacity: 1; }
+.card:hover {
+  border-color: var(--card-hover-border);
+  background: var(--card-hover-bg);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.14);
+}
+[data-theme="light"] .card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.09); }
+
+.card-label {
+  font-size: 0.63rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase;
+  background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 16px;
+}
+
+/* ── SIDEBAR PROFILE ── */
+.prof-img { width: 84px; height: 84px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 10px; outline: 2px solid var(--accent); outline-offset: 3px; }
+.prof-name { text-align: center; font-size: 0.95rem; font-weight: 800; color: var(--bold); letter-spacing: -.04em; margin-bottom: 3px; }
+.prof-role { text-align: center; font-size: 0.62rem; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; color: var(--accent); margin-bottom: 14px; }
+
+.socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-bottom: 14px; }
+.s-btn {
+  width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center;
+  border-radius: 9px; background: rgba(255,255,255,.05); border: 1px solid var(--border);
+  color: var(--muted); font-size: 12px; transition: all 0.22s;
+}
+[data-theme="light"] .s-btn { background: #f1f5f9; }
+.s-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; transform: translateY(-2px) scale(1.08); }
+
+.meta { font-size: 0.7rem; color: var(--muted); text-align: center; line-height: 2.1; }
+.meta i { color: var(--accent); margin-right: 5px; }
+
+/* ── "NOW" SECTION ── */
+.now-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 9px 0; border-bottom: 1px solid var(--border);
+}
+.now-item:last-child { border-bottom: none; padding-bottom: 0; }
+.now-dot-wrap {
+  width: 28px; height: 28px; border-radius: 8px;
+  background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px;
+}
+[data-theme="light"] .now-dot-wrap { background: #f1f5f9; }
+.now-label { font-size: 0.72rem; font-weight: 600; color: var(--bold); line-height: 1.35; }
+.now-sub { font-size: 0.63rem; color: var(--muted); margin-top: 1px; }
+.now-live { display: inline-flex; align-items: center; gap: 5px; }
+.now-live::before {
+  content: ''; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--now-dot); flex-shrink: 0;
+  box-shadow: 0 0 0 0 var(--now-dot);
+  animation: livePulse 2s infinite;
+}
+
+/* ── SKILLS ── */
+.skill-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.s-lbl { font-size: 0.58rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); width: 100%; margin: 8px 0 2px; }
+.chip { padding: 4px 11px; border-radius: 100px; font-size: 0.67rem; font-weight: 600; letter-spacing: .03em; transition: all 0.2s; cursor: default; }
+.chip:hover { transform: translateY(-2px); filter: brightness(1.15); }
+.c1 { background: rgba(99,102,241,.13); border: 1px solid rgba(99,102,241,.28); color: #818cf8; }
+.c2 { background: rgba(14,165,233,.11); border: 1px solid rgba(14,165,233,.26); color: #38bdf8; }
+.c3 { background: rgba(245,158,11,.11); border: 1px solid rgba(245,158,11,.26); color: #fbbf24; }
+.c4 { background: rgba(16,185,129,.11); border: 1px solid rgba(16,185,129,.26); color: #34d399; }
+.c5 { background: rgba(244,63,94,.11); border: 1px solid rgba(244,63,94,.26); color: #fb7185; }
+
+/* ── TIMELINE ── */
+.tl-item { display: flex; gap: 14px; margin-bottom: 26px; position: relative; }
+.tl-item::before { content: ''; position: absolute; left: 41px; top: 55px; bottom: -12px; width: 1px; background: linear-gradient(to bottom, var(--tl-line), transparent); opacity: .18; }
+.tl-item:last-child::before { display: none; }
+.tl-logo { width: 48px; height: 48px; border-radius: 12px; object-fit: contain; background: rgba(255,255,255,.06); border: 1px solid var(--border); padding: 5px; flex-shrink: 0; }
+[data-theme="light"] .tl-logo { background: #f8fafc; }
+.tl-t { font-size: 0.9rem; font-weight: 800; color: var(--bold); letter-spacing: -.03em; margin-bottom: 2px; }
+.tl-c { font-size: 0.76rem; font-weight: 600; color: var(--accent); margin-bottom: 5px; }
+.tl-p { display: inline-flex; align-items: center; font-size: 0.6rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: rgba(255,255,255,.04); border: 1px solid var(--border); border-radius: 100px; padding: 2px 9px; margin-bottom: 7px; }
+[data-theme="light"] .tl-p { background: #f1f5f9; }
+.tl-d { font-size: 0.78rem; line-height: 1.72; color: var(--text); }
+
+/* ── ACHIEVEMENT GRID ── */
+.ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+@media(max-width:560px){ .ach-grid{grid-template-columns:1fr;} }
+.ach-card {
+  background: rgba(255,255,255,.03); border: 1px solid var(--border);
+  border-radius: 14px; padding: 13px 15px; position: relative; overflow: hidden;
+  transition: all 0.22s; cursor: default;
+}
+[data-theme="light"] .ach-card { background: #f8fafc; }
+.ach-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--grad); opacity: 0; transition: opacity 0.22s; border-radius: 14px 14px 0 0; }
+.ach-card:hover::before { opacity: 1; }
+.ach-card:hover { border-color: var(--card-hover-border); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+.ach-tag { font-size: 0.57rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+.ach-t { font-size: 0.78rem; font-weight: 700; color: var(--bold); line-height: 1.4; margin-bottom: 4px; }
+.ach-d { font-size: 0.67rem; color: var(--muted); line-height: 1.55; margin-bottom: 7px; }
+.ach-lnk { font-size: 0.6rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent); display: inline-flex; align-items: center; gap: 4px; transition: gap 0.2s; }
+.ach-lnk:hover { gap: 8px; }
+
+/* ── COMMITTEE ── */
+.comm { display: flex; align-items: flex-start; gap: 11px; padding: 11px 13px; background: rgba(255,255,255,.02); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: 8px; margin-bottom: 9px; transition: all 0.2s; }
+[data-theme="light"] .comm { background: #f8fafc; }
+.comm:hover { background: var(--card-hover-bg); border-left-color: var(--accent2); transform: translateX(3px); }
+.comm:last-child { margin-bottom: 0; }
+.comm-ico { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+.comm-t { font-size: 0.78rem; font-weight: 700; color: var(--bold); line-height: 1.4; margin-bottom: 3px; }
+.comm-d { font-size: 0.67rem; color: var(--muted); line-height: 1.5; }
+
+/* ── ARTICLES ── */
+.sec-hdr { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
+.sec-hdr h3 { font-size: 0.63rem; font-weight: 800; letter-spacing: .15em; text-transform: uppercase; background: var(--grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.sec-hdr a { display: inline-flex; align-items: center; gap: 5px; font-size: 0.62rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase; padding: 5px 13px; border-radius: 100px; background: rgba(255,255,255,.05); border: 1px solid var(--border); color: var(--muted); transition: all 0.2s; }
+[data-theme="light"] .sec-hdr a { background: #f1f5f9; }
+.sec-hdr a:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.sec-hdr a i { font-size: 9px; transition: transform 0.2s; }
+.sec-hdr a:hover i { transform: translateX(3px); }
+
+.art { display: flex; align-items: center; gap: 13px; padding: 13px 15px; background: rgba(255,255,255,.02); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 9px; transition: all 0.22s; cursor: pointer; }
+[data-theme="light"] .art { background: #f8fafc; }
+.art:hover { background: var(--card-hover-bg); border-color: var(--card-hover-border); transform: translateX(5px); }
+.art:last-child { margin-bottom: 0; }
+.art-ico { width: 42px; height: 42px; border-radius: 10px; background: var(--grad); display: flex; align-items: center; justify-content: center; font-size: 17px; flex-shrink: 0; }
+.art-t { font-size: 0.82rem; font-weight: 600; color: var(--bold); line-height: 1.4; margin-bottom: 2px; }
+.art-m { font-size: 0.64rem; color: var(--muted); }
+.art-badge { font-size: 0.57rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; background: var(--badge-bg); border: 1px solid var(--badge-border); color: var(--accent); border-radius: 100px; padding: 3px 9px; white-space: nowrap; }
+
+/* ── EDUCATION ── */
+.edu { display: flex; gap: 13px; align-items: center; }
+.edu-logo { width: 46px; height: 46px; border-radius: 12px; background: rgba(255,255,255,.06); border: 1px solid var(--border); padding: 5px; flex-shrink: 0; object-fit: contain; }
+[data-theme="light"] .edu-logo { background: #f8fafc; }
+.edu-deg { font-size: 0.86rem; font-weight: 800; color: var(--bold); margin-bottom: 2px; letter-spacing: -.02em; }
+.edu-sch { font-size: 0.75rem; font-weight: 600; color: var(--accent); margin-bottom: 3px; }
+.edu-d { font-size: 0.7rem; color: var(--muted); }
+
+/* ── FOOTER ── */
+footer { background: rgba(0,0,0,.45); border-top: 1px solid var(--border); text-align: center; padding: 24px 20px; }
+[data-theme="light"] footer { background: var(--bg2); }
+footer p { font-size: 0.7rem; color: var(--muted); line-height: 1.8; }
+footer a { color: var(--accent); font-weight: 600; }
+
+/* ════════════════════════════════════════════════
+   FADE-IN TRANSITIONS (stagger via delay vars)
+════════════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1); }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left { opacity: 0; transform: translateX(-22px); transition: opacity 0.55s cubic-bezier(0.22,1,0.36,1), transform 0.55s cubic-bezier(0.22,1,0.36,1); }
+.reveal-left.visible { opacity: 1; transform: none; }
+</style>
+</head>
+<body data-theme="light">
+
+<!-- SCROLL PROGRESS BAR -->
+<div id="scroll-bar"></div>
+
+<!-- BACK TO TOP -->
+<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- THEME PICKER -->
+<div class="theme-bar">
+  <button class="theme-btn" onclick="setTheme('blue', this)">
+    <span class="swatch" style="background:linear-gradient(135deg,#0ea5e9,#6366f1)"></span>
+    Midnight Blue
+  </button>
+  <button class="theme-btn" onclick="setTheme('gold', this)">
+    <span class="swatch" style="background:linear-gradient(135deg,#fbbf24,#d97706)"></span>
+    Obsidian Gold
+  </button>
+  <button class="theme-btn" onclick="setTheme('emerald', this)">
+    <span class="swatch" style="background:linear-gradient(135deg,#10b981,#047857)"></span>
+    Slate Emerald
+  </button>
+  <button class="theme-btn" onclick="setTheme('violet', this)">
+    <span class="swatch" style="background:linear-gradient(135deg,#c084fc,#7c3aed)"></span>
+    Deep Violet
+  </button>
+  <button class="theme-btn active" onclick="setTheme('light', this)">
+    <span class="swatch" style="background:linear-gradient(135deg,#3b82f6,#4f46e5)"></span>
+    Arctic Light
+  </button>
+</div>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <div class="nav-brand">Koushik Kumar Ganeeb</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Blogs</a>
+    <a href="#">Committees</a>
+    <a href="#">Contact</a>
+  </div>
+</nav>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-mesh"></div>
+  <div class="hero-noise"></div>
+  <div class="hero-stars"></div>
+
+  <!-- Currently at Salesforce live indicator -->
+  <div class="hero-live-pill">
+    <span class="live-dot"></span>
+    Currently at Salesforce · Data Cloud
+  </div>
+
+  <!-- Avatar with rotating gradient ring -->
+  <div class="hero-avatar-wrap">
+    <div class="hero-avatar-ring"></div>
+    <div class="hero-avatar-mask"></div>
+    <img class="hero-avatar"
+         src="assets/img/KoushikGaneeb_cropped.jpg"
+         alt="Koushik Kumar Ganeeb"
+         onerror="this.style.display='none'; this.nextElementSibling.style.display='block'"/>
+    <div class="hero-avatar-fallback"></div>
+  </div>
+
+  <h1 class="hero-name">Koushik Kumar Ganeeb</h1>
+  <p class="hero-role">Building distributed systems and AI pipelines that process<br>trillions of transactions for Fortune 100 companies.</p>
+  <p class="hero-quote">"AI is not just a tool — it's a spark that ignites new possibilities<br>and inspires us to reimagine the future."</p>
+
+  <div class="hero-btns">
+    <a href="https://adplist.org/mentors/koushik-kumar-ganeeb" class="btn-solid">Connect with Me</a>
+    <a href="https://linkedin.com/in/koushikganeeb" class="btn-outline">View LinkedIn</a>
+  </div>
+
+  <div class="hero-stats">
+    <div style="text-align:center"><span class="stat-n">16+</span><span class="stat-l">Years Experience</span></div>
+    <div style="text-align:center"><span class="stat-n">10+</span><span class="stat-l">Fellowships</span></div>
+    <div style="text-align:center"><span class="stat-n">20+</span><span class="stat-l">Committees</span></div>
+    <div style="text-align:center"><span class="stat-n">10+</span><span class="stat-l">Awards Judged</span></div>
+  </div>
+
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <i class="fas fa-chevron-down"></i>
+  </div>
+</section>
+
+<!-- ═══════════ IMPACT STRIP ═══════════ -->
+<section class="impact-strip">
+  <div class="impact-inner">
+    <div class="impact-item reveal">
+      <div class="impact-icon">⚡</div>
+      <div class="impact-val">Trillions</div>
+      <div class="impact-lbl">Transactions<br>Processed Daily</div>
+    </div>
+    <div class="impact-item reveal">
+      <div class="impact-icon">🏢</div>
+      <div class="impact-val">Fortune<br style="line-height:0"/>100</div>
+      <div class="impact-lbl">Companies<br>Served</div>
+    </div>
+    <div class="impact-item reveal">
+      <div class="impact-icon">🧑‍💻</div>
+      <div class="impact-val">16+</div>
+      <div class="impact-lbl">Years of<br>Engineering</div>
+    </div>
+    <div class="impact-item reveal">
+      <div class="impact-icon">🏅</div>
+      <div class="impact-val">10+</div>
+      <div class="impact-lbl">Global<br>Fellowships</div>
+    </div>
+    <div class="impact-item reveal">
+      <div class="impact-icon">🌐</div>
+      <div class="impact-val">20+</div>
+      <div class="impact-lbl">IEEE &amp; Technical<br>Committees</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ RECOGNITION MARQUEE ═══════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-track" id="marquee-track">
+    <!-- first set -->
+    <span class="marquee-item"><i class="fas fa-award"></i>Fellow, BCS (FBCS)</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-award"></i>Fellow, Hackathon Raptors</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-award"></i>Fellow, SAS Society (FSASS)</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-award"></i>Royal Fellow, IOASD</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-microchip"></i>Senior IEEE Member</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-flask"></i>Member, IAENG</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-award"></i>Fellow IETE (FIETE)</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-brain"></i>Fellow SCRS (FSCRS)</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-users"></i>Gartner Peer Community Ambassador</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-robot"></i>AI Collective Organizer — Columbia</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-chalkboard-teacher"></i>Mentor, ADPList</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-lock"></i>IEEE TCSP Member</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-database"></i>IEEE TCDE Member</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-cloud"></i>IEEE TCCLD Member</span>
+    <span class="marquee-sep">◆</span>
+    <!-- duplicate for seamless loop -->
+    <span class="marquee-item"><i class="fas fa-award"></i>Fellow, BCS (FBCS)</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-award"></i>Fellow, Hackathon Raptors</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-award"></i>Fellow, SAS Society (FSASS)</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-award"></i>Royal Fellow, IOASD</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-microchip"></i>Senior IEEE Member</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-flask"></i>Member, IAENG</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-award"></i>Fellow IETE (FIETE)</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-brain"></i>Fellow SCRS (FSCRS)</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-users"></i>Gartner Peer Community Ambassador</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-robot"></i>AI Collective Organizer — Columbia</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-chalkboard-teacher"></i>Mentor, ADPList</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-lock"></i>IEEE TCSP Member</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-database"></i>IEEE TCDE Member</span>
+    <span class="marquee-sep">◆</span>
+    <span class="marquee-item"><i class="fas fa-cloud"></i>IEEE TCCLD Member</span>
+    <span class="marquee-sep">◆</span>
+  </div>
+</div>
+
+<!-- ═══════════ BODY ═══════════ -->
+<div class="page-wrap">
+
+  <!-- ════ SIDEBAR ════ -->
+  <aside>
+
+    <!-- Profile card -->
+    <div class="card reveal-left">
+      <img class="prof-img" src="assets/img/KoushikGaneeb_cropped.jpg" alt="Koushik"
+           onerror="this.style.cssText='width:84px;height:84px;border-radius:50%;display:block;margin:0 auto 10px;background:var(--grad)'"/>
+      <div class="prof-name">Koushik Kumar Ganeeb</div>
+      <div class="prof-role">Engineering Leader · Salesforce Data Cloud</div>
+      <div class="socials">
+        <a class="s-btn" href="https://twitter.com/kaushikkmr" title="Twitter"><i class="fab fa-twitter"></i></a>
+        <a class="s-btn" href="https://linkedin.com/in/koushikganeeb" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <a class="s-btn" href="https://github.com/kganeeb2" title="GitHub"><i class="fab fa-github"></i></a>
+        <a class="s-btn" href="https://facebook.com/kmr_kshk" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a class="s-btn" href="https://adplist.org/mentors/koushik-kumar-ganeeb" title="ADPList"><i class="fas fa-chalkboard-teacher"></i></a>
+        <a class="s-btn" href="https://orcid.org/0009-0002-3751-3195" title="ORCID"><i class="fas fa-flask"></i></a>
+      </div>
+      <div class="meta">
+        <div><i class="fas fa-map-marker-alt"></i>Charlotte, United States</div>
+        <div><i class="fas fa-envelope"></i>kganeeb2@gmail.com</div>
+        <div><i class="fas fa-link"></i>koushikganeeb.com</div>
+      </div>
+    </div>
+
+    <!-- Currently / Now card -->
+    <div class="card reveal-left">
+      <div class="card-label">Currently</div>
+      <div class="now-item">
+        <div class="now-dot-wrap">🏗️</div>
+        <div>
+          <div class="now-label"><span class="now-live">Working at</span> Salesforce Data Cloud</div>
+          <div class="now-sub">Building AI pipelines &amp; distributed systems</div>
+        </div>
+      </div>
+      <div class="now-item">
+        <div class="now-dot-wrap">🎓</div>
+        <div>
+          <div class="now-label">Mentoring on ADPList</div>
+          <div class="now-sub">Engineering leadership &amp; career growth</div>
+        </div>
+      </div>
+      <div class="now-item">
+        <div class="now-dot-wrap">🤖</div>
+        <div>
+          <div class="now-label">Organizing AI Collective Columbia</div>
+          <div class="now-sub">Connecting engineers to explore AI frontiers</div>
+        </div>
+      </div>
+      <div class="now-item">
+        <div class="now-dot-wrap">📝</div>
+        <div>
+          <div class="now-label">Writing about distributed systems</div>
+          <div class="now-sub">Data engineering · AI pipelines · Architecture</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skills card -->
+    <div class="card reveal-left">
+      <div class="card-label">Technical Skills</div>
+      <div class="skill-wrap">
+        <span class="s-lbl">Leadership</span>
+        <span class="chip c1">Project Management</span>
+        <span class="chip c1">Team Leadership</span>
+        <span class="chip c1">Agile / Scrum</span>
+        <span class="s-lbl">Languages</span>
+        <span class="chip c2">C# / ASP.NET Core</span>
+        <span class="chip c2">Java</span>
+        <span class="chip c2">Terraform</span>
+        <span class="chip c2">Node.js</span>
+        <span class="chip c2">JavaScript</span>
+        <span class="s-lbl">Cloud</span>
+        <span class="chip c3">AWS</span>
+        <span class="chip c3">Azure</span>
+        <span class="chip c3">Oracle Cloud</span>
+        <span class="chip c3">HashiCorp Vault</span>
+        <span class="s-lbl">Databases</span>
+        <span class="chip c4">SQL Server</span>
+        <span class="chip c4">PostgreSQL</span>
+        <span class="chip c4">Trino</span>
+        <span class="chip c4">Oracle</span>
+        <span class="s-lbl">DevOps</span>
+        <span class="chip c5">Docker</span>
+        <span class="chip c5">Kubernetes</span>
+        <span class="chip c5">Spinnaker</span>
+        <span class="chip c5">Jenkins</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ════ MAIN ════ -->
+  <main>
+
+    <!-- About -->
+    <div class="card reveal">
+      <div class="card-label">About</div>
+      <p style="font-size:0.84rem;line-height:1.82;letter-spacing:-0.005em">
+        Mr. Koushik Kumar Ganeeb is an Engineering Leader at Salesforce, building AI revolution and advancing Engineering Capabilities in the industry. Since May 2017, he has been at Salesforce's Data Cloud, designing Public Cloud Architecture for the Data Factory Service — developing extraction pipelines that enhance Salesforce Einstein's AI capabilities, processing <strong style="color:var(--accent);font-weight:700">trillions of transactions daily</strong> for Fortune 100 companies.
+      </p>
+    </div>
+
+    <!-- Experience -->
+    <div class="card reveal">
+      <div class="card-label">Professional Experience</div>
+      <div class="tl-item">
+        <img class="tl-logo" src="assets/img/salesforce.png" alt="Salesforce"
+             onerror="this.style.cssText='width:48px;height:48px;border-radius:12px;background:rgba(0,161,223,0.12);flex-shrink:0;border:1px solid var(--border)'"/>
+        <div>
+          <div class="tl-t">Engineering Leader, Data Cloud</div>
+          <div class="tl-c">Salesforce</div>
+          <div class="tl-p">May 2017 — Present</div>
+          <div class="tl-d">Designs Public Cloud Architecture for Data Factory Service. Builds Data Connectors, AI Pipelines, and distributed systems processing trillions of transactions daily for Fortune 100 companies.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <img class="tl-logo" src="assets/img/uhg.png" alt="UHG"
+             onerror="this.style.cssText='width:48px;height:48px;border-radius:12px;background:rgba(0,105,180,0.12);flex-shrink:0;border:1px solid var(--border)'"/>
+        <div>
+          <div class="tl-t">Senior Software Engineer</div>
+          <div class="tl-c">UnitedHealth Group Inc</div>
+          <div class="tl-p">2012 — 2016</div>
+          <div class="tl-d">Developed UHOne Dev Infrastructure, Clinical Healthcare Applications, and automated claims adjudication robot.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <img class="tl-logo" src="assets/img/infosys.png" alt="Infosys"
+             onerror="this.style.cssText='width:48px;height:48px;border-radius:12px;background:rgba(52,168,83,0.12);flex-shrink:0;border:1px solid var(--border)'"/>
+        <div>
+          <div class="tl-t">Systems Engineer</div>
+          <div class="tl-c">Infosys Technologies Ltd</div>
+          <div class="tl-p">2010 — 2012</div>
+          <div class="tl-d">New features, vulnerability fixes, and query optimization for Microsoft Channel Incentives Program.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fellowships -->
+    <div class="card reveal">
+      <div class="card-label">Fellowships &amp; Memberships</div>
+      <div class="ach-grid">
+        <div class="ach-card"><div class="ach-tag">Fellowship</div><div class="ach-t">Fellow, BCS (FBCS)</div><div class="ach-d">UK's prestigious professional body for IT and digital industries.</div><a class="ach-lnk" href="https://www.bcs.org">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+        <div class="ach-card"><div class="ach-tag">Fellowship</div><div class="ach-t">Fellow, Hackathon Raptors</div><div class="ach-d">Global community of Technology and AI Experts making real-world impact.</div><a class="ach-lnk" href="https://www.raptors.dev">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+        <div class="ach-card"><div class="ach-tag">Fellowship</div><div class="ach-t">Fellow, SAS Society (FSASS)</div><div class="ach-d">Leading publisher of 77+ monthly scientific journals worldwide.</div><a class="ach-lnk" href="https://www.sassociety.com">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+        <div class="ach-card"><div class="ach-tag">Royal Fellowship</div><div class="ach-t">Royal Fellow, IOASD</div><div class="ach-d">1,100+ published articles. Trailblazing institution advancing research.</div><a class="ach-lnk" href="https://ioasd.org">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+        <div class="ach-card"><div class="ach-tag">IEEE</div><div class="ach-t">Senior IEEE Member</div><div class="ach-d">Global network of technology professionals, cutting-edge knowledge base.</div><a class="ach-lnk" href="https://www.ieee.org">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+        <div class="ach-card"><div class="ach-tag">Engineering</div><div class="ach-t">Member, IAENG</div><div class="ach-d">Largest non-profit international association for engineers and computer scientists.</div><a class="ach-lnk" href="https://www.iaeng.org">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+        <div class="ach-card"><div class="ach-tag">Fellowship · India</div><div class="ach-t">Fellow IETE (FIETE)</div><div class="ach-d">Institution of Electronics and Telecommunication Engineers — India's most prestigious engineering body.</div><a class="ach-lnk" href="https://www.iete.org">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+        <div class="ach-card"><div class="ach-tag">Fellowship · AI</div><div class="ach-t">Fellow SCRS (FSCRS)</div><div class="ach-d">Soft Computing Research Society — premier society for fuzzy logic, neural networks, and ML.</div><a class="ach-lnk" href="https://scrs.in">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+        <div class="ach-card"><div class="ach-tag">Gartner · Community</div><div class="ach-t">Gartner Peer Community Ambassador</div><div class="ach-d">Contributing expert insights to Gartner's global peer network of senior technology executives.</div><a class="ach-lnk" href="https://www.gartner.com/peer-community">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+        <div class="ach-card"><div class="ach-tag">Community · AI</div><div class="ach-t">AI Collective Organizer — Columbia</div><div class="ach-d">Organizing engineers and leaders across Columbia metro to explore AI frontiers.</div><a class="ach-lnk" href="https://www.aicollective.com/chapters/columbia">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a></div>
+      </div>
+    </div>
+
+    <!-- IEEE Committees -->
+    <div class="card reveal">
+      <div class="card-label">IEEE &amp; Technical Committees</div>
+      <div class="comm"><span class="comm-ico">🔒</span><div><div class="comm-t">Member — IEEE TCSP (Security &amp; Privacy)</div><div class="comm-d">OS security, data encryption, access-control, database protection, network security.</div></div></div>
+      <div class="comm"><span class="comm-ico">📊</span><div><div class="comm-t">Member — IEEE TCDE (Data Engineering)</div><div class="comm-d">Role of data in design, development, management, and utilization of information systems.</div></div></div>
+      <div class="comm"><span class="comm-ico">☁️</span><div><div class="comm-t">Member — IEEE TCCLD (Cloud Computing)</div><div class="comm-d">Promotes research, education, and industry in cloud computing.</div></div></div>
+      <div class="comm"><span class="comm-ico">🖥️</span><div><div class="comm-t">TPC Member — IEEE CITS 2024, Applied Intelligence &amp; Computing 2024</div><div class="comm-d">Reviewed research in computer science, information technology, and applied intelligence.</div></div></div>
+      <div class="comm"><span class="comm-ico">📝</span><div><div class="comm-t">Editorial Board — IJIIT, Reviewer — IJCRT &amp; IJAIEF</div><div class="comm-d">Editorial and review roles across leading international journals on AI and engineering.</div></div></div>
+      <div class="comm"><span class="comm-ico">📡</span><div><div class="comm-t">TPC Member — IEEE BSN, IEEE ANTS, ICoDSA, SCIS, IEEE MASS 2024</div><div class="comm-d">Body sensor networks, telecommunications, data science, sustainable computing, mobile systems.</div></div></div>
+      <div class="comm"><span class="comm-ico">🤖</span><div><div class="comm-t">TPC Member — IEEE ICAISET 2026</div><div class="comm-d">IEEE International Conference on Artificial Intelligence, Systems, and Embedded Technology.</div></div></div>
+      <div class="comm"><span class="comm-ico">💾</span><div><div class="comm-t">TPC Member — IEEE McSOC</div><div class="comm-d">IEEE International Symposium on Embedded Multicore/Many-core Systems-on-Chip.</div></div></div>
+      <div class="comm"><span class="comm-ico">🔬</span><div><div class="comm-t">IEEE Reviewer — 20+ International Conferences &amp; Journals</div><div class="comm-d">Reviewed scholarly articles spanning AI, data engineering, cloud, and telecommunications.</div></div></div>
+    </div>
+
+    <!-- Research & Publications -->
+    <div class="card reveal">
+      <div class="card-label">Research &amp; Publications</div>
+
+      <style>
+      .research-profiles {
+        display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px;
+      }
+      .research-profile-btn {
+        display: flex; align-items: center; gap: 10px;
+        background: var(--badge-bg); border: 1px solid var(--badge-border);
+        border-radius: 12px; padding: 12px 14px;
+        text-decoration: none !important;
+        transition: all 0.22s; position: relative; overflow: hidden;
+      }
+      .research-profile-btn::before {
+        content: ''; position: absolute; inset: 0;
+        background: var(--grad); opacity: 0; transition: opacity 0.22s;
+      }
+      .research-profile-btn:hover::before { opacity: 0.07; }
+      .research-profile-btn:hover { border-color: var(--accent); transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+      .rp-icon {
+        width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1rem; position: relative; z-index: 1;
+      }
+      .rp-icon-scholar { background: rgba(66,133,244,0.15); }
+      .rp-icon-rg       { background: rgba(0,157,215,0.15); }
+      .rp-text { position: relative; z-index: 1; }
+      .rp-name  { font-size: 0.75rem; font-weight: 700; color: var(--bold); line-height: 1.2; margin-bottom: 2px; }
+      .rp-sub   { font-size: 0.6rem; font-weight: 600; letter-spacing: .05em; color: var(--muted); }
+
+      .research-stats {
+        display: flex; gap: 0; margin-bottom: 20px;
+        border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+      }
+      .rs-item {
+        flex: 1; text-align: center; padding: 12px 8px;
+        border-right: 1px solid var(--border);
+      }
+      .rs-item:last-child { border-right: none; }
+      .rs-num {
+        display: block; font-size: 1.35rem; font-weight: 800; line-height: 1;
+        background: var(--grad); -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent; background-clip: text;
+        margin-bottom: 4px;
+      }
+      .rs-lbl {
+        font-size: 0.55rem; font-weight: 700; letter-spacing: .1em;
+        text-transform: uppercase; color: var(--muted);
+      }
+
+      .pub-list { display: flex; flex-direction: column; gap: 10px; }
+      .pub-item {
+        display: flex; gap: 12px; align-items: flex-start;
+        padding: 11px 13px; border-radius: 10px;
+        background: var(--badge-bg); border: 1px solid var(--border);
+        transition: all 0.2s;
+      }
+      .pub-item:hover { border-color: var(--accent); transform: translateX(3px); }
+      .pub-year {
+        font-size: 0.58rem; font-weight: 800; letter-spacing: .06em;
+        color: var(--accent); background: var(--badge-bg);
+        border: 1px solid var(--badge-border); border-radius: 6px;
+        padding: 3px 7px; flex-shrink: 0; margin-top: 1px; white-space: nowrap;
+      }
+      .pub-title {
+        font-size: 0.75rem; font-weight: 600; color: var(--bold);
+        line-height: 1.45; margin-bottom: 3px;
+      }
+      .pub-venue {
+        font-size: 0.62rem; color: var(--muted); line-height: 1.4;
+      }
+
+      .research-cta {
+        margin-top: 16px; display: flex; gap: 8px; flex-wrap: wrap;
+      }
+      .research-cta a {
+        font-size: 0.62rem; font-weight: 700; letter-spacing: .07em; text-transform: uppercase;
+        display: inline-flex; align-items: center; gap: 5px;
+        padding: 7px 14px; border-radius: 100px;
+        border: 1px solid var(--border); color: var(--muted);
+        background: var(--badge-bg); text-decoration: none !important;
+        transition: all 0.2s;
+      }
+      .research-cta a:hover { background: var(--accent); border-color: var(--accent); color: #fff; -webkit-text-fill-color: #fff; }
+      .research-cta a i { font-size: 9px; transition: transform 0.2s; }
+      .research-cta a:hover i { transform: translateX(3px); }
+      </style>
+
+      <!-- Profile links -->
+      <div class="research-profiles">
+        <a class="research-profile-btn" href="https://scholar.google.com/citations?user=YGzTdWkAAAAJ&hl=en" target="_blank" rel="noopener">
+          <div class="rp-icon rp-icon-scholar">🎓</div>
+          <div class="rp-text">
+            <div class="rp-name">Google Scholar</div>
+            <div class="rp-sub">Citations &amp; h-index</div>
+          </div>
+        </a>
+        <a class="research-profile-btn" href="https://www.researchgate.net/profile/Koushik-Kumar-Ganeeb" target="_blank" rel="noopener">
+          <div class="rp-icon rp-icon-rg">🔬</div>
+          <div class="rp-text">
+            <div class="rp-name">ResearchGate</div>
+            <div class="rp-sub">Papers &amp; reads</div>
+          </div>
+        </a>
+      </div>
+
+      <!-- Research impact stats -->
+      <div class="research-stats">
+        <div class="rs-item">
+          <span class="rs-num">20+</span>
+          <span class="rs-lbl">Publications</span>
+        </div>
+        <div class="rs-item">
+          <span class="rs-num">20+</span>
+          <span class="rs-lbl">Papers Reviewed</span>
+        </div>
+        <div class="rs-item">
+          <span class="rs-num">10+</span>
+          <span class="rs-lbl">Conf. Proceedings</span>
+        </div>
+      </div>
+
+      <!-- Select publications -->
+      <div class="pub-list">
+        <div class="pub-item">
+          <span class="pub-year">2024</span>
+          <div>
+            <div class="pub-title">Change Data Capture Techniques in Distributed Systems</div>
+            <div class="pub-venue">IEEE · Distributed Systems &amp; Data Engineering</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <div>
+            <div class="pub-title">Data Movement &amp; Processing Practices at Scale</div>
+            <div class="pub-venue">IEEE · Cloud Architecture &amp; AI Pipelines</div>
+          </div>
+        </div>
+        <div class="pub-item">
+          <span class="pub-year">2023</span>
+          <div>
+            <div class="pub-title">Data Arrival Patterns in Distributed Channels</div>
+            <div class="pub-venue">IEEE · Telecommunications &amp; Systems Design</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="research-cta">
+        <a href="https://scholar.google.com/citations?user=YGzTdWkAAAAJ&hl=en" target="_blank" rel="noopener">
+          View all on Scholar <i class="fas fa-arrow-right"></i>
+        </a>
+        <a href="https://www.researchgate.net/profile/Koushik-Kumar-Ganeeb" target="_blank" rel="noopener">
+          ResearchGate profile <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <!-- Recent Writing -->
+    <div class="card reveal">
+      <div class="sec-hdr">
+        <h3>Recent Writing</h3>
+        <a href="#">View All <i class="fas fa-arrow-right"></i></a>
+      </div>
+      <div class="art">
+        <div class="art-ico">📊</div>
+        <div style="flex:1">
+          <div class="art-t">Change Data Capture Techniques in Distributed Systems</div>
+          <div class="art-m">Jun 2024 · Distributed Systems</div>
+        </div>
+        <span class="art-badge">Data Eng</span>
+      </div>
+      <div class="art">
+        <div class="art-ico">🔄</div>
+        <div style="flex:1">
+          <div class="art-t">Data Movement &amp; Processing Practices at Scale</div>
+          <div class="art-m">Nov 2023 · Engineering</div>
+        </div>
+        <span class="art-badge">Distributed</span>
+      </div>
+      <div class="art">
+        <div class="art-ico">📡</div>
+        <div style="flex:1">
+          <div class="art-t">Data Arrival Patterns in Distributed Channels</div>
+          <div class="art-m">Nov 2023 · Architecture</div>
+        </div>
+        <span class="art-badge">AI</span>
+      </div>
+      <div class="art">
+        <div class="art-ico">🗄️</div>
+        <div style="flex:1">
+          <div class="art-t">Data Forms and Systems in Distributed Architecture</div>
+          <div class="art-m">Nov 2023 · Architecture</div>
+        </div>
+        <span class="art-badge">Architecture</span>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="card reveal">
+      <div class="card-label">Education</div>
+      <div class="edu">
+        <img class="edu-logo" src="assets/img/cbit.png" alt="CBIT"
+             onerror="this.style.cssText='width:46px;height:46px;border-radius:12px;background:rgba(14,165,233,0.08);flex-shrink:0;border:1px solid var(--border)'"/>
+        <div>
+          <div class="edu-deg">B.E. — Information Technology</div>
+          <div class="edu-sch">Chaitanya Bharathi Institute of Technology (CBIT)</div>
+          <div class="edu-d">Hyderabad, India</div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- ══ TESTIMONIALS ══ -->
+<section class="testimonials-section" id="testimonials">
+  <style>
+  .testimonials-section {
+    background: var(--hero-grad, linear-gradient(135deg,#0f172a 0%,#1e3a5f 50%,#0c2340 100%));
+    padding: 80px 24px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .testimonials-section::before {
+    content:'';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 10% 50%, rgba(59,130,246,.15) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 50% at 90% 40%, rgba(99,102,241,.12) 0%, transparent 55%);
+    pointer-events: none;
+  }
+
+  .testi-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+
+  .testi-header { text-align: center; margin-bottom: 52px; }
+  .testi-eyebrow {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.18);
+    border-radius: 100px; padding: 5px 16px;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: rgba(255,255,255,.7); margin-bottom: 16px;
+  }
+  .testi-eyebrow-dot { width: 6px; height: 6px; background: #3b82f6; border-radius: 50%; box-shadow: 0 0 6px #3b82f6; }
+  .testi-title {
+    font-size: clamp(1.6rem, 3vw, 2.4rem); font-weight: 800;
+    background: linear-gradient(135deg,#fff 0%,rgba(147,197,253,.95) 55%,rgba(165,180,252,.9) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    letter-spacing: -.03em; line-height: 1.15; margin-bottom: 10px;
+  }
+  .testi-subtitle {
+    font-size: 0.82rem; color: rgba(255,255,255,.5); max-width: 500px; margin: 0 auto;
+    line-height: 1.7;
+  }
+  .testi-adp-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.14);
+    border-radius: 100px; padding: 5px 14px; margin-top: 14px;
+    font-size: 0.65rem; font-weight: 700; color: rgba(255,255,255,.55);
+    letter-spacing: .05em; text-transform: uppercase;
+  }
+  .testi-adp-badge span { color: #3b82f6; -webkit-text-fill-color: #3b82f6; }
+
+  .testi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .testi-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 20px;
+    padding: 28px 26px 24px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: relative;
+    transition: all 0.28s;
+  }
+  .testi-card:hover {
+    background: rgba(255,255,255,.1);
+    border-color: rgba(59,130,246,.35);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 48px rgba(59,130,246,.15);
+  }
+  .testi-card::before {
+    content: '\201C';
+    position: absolute; top: 18px; right: 24px;
+    font-size: 5rem; line-height: 1; font-family: Georgia, serif;
+    background: linear-gradient(135deg,#3b82f6,#4f46e5);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    opacity: 0.4; pointer-events: none;
+  }
+
+  .testi-stars {
+    display: flex; gap: 3px; margin-bottom: 14px;
+  }
+  .testi-star {
+    width: 13px; height: 13px;
+    background: linear-gradient(135deg,#f59e0b,#f97316);
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E") center/contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
+
+  .testi-quote {
+    font-size: 0.84rem; color: rgba(255,255,255,.78); line-height: 1.75;
+    margin-bottom: 22px; font-style: italic;
+  }
+
+  .testi-divider {
+    height: 1px; background: rgba(255,255,255,.08); margin-bottom: 18px;
+  }
+
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar {
+    width: 40px; height: 40px; border-radius: 50%;
+    background: linear-gradient(135deg,#3b82f6,#4f46e5);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.85rem; font-weight: 800; color: #fff; flex-shrink: 0;
+    -webkit-text-fill-color: #fff;
+  }
+  .testi-name {
+    font-size: 0.82rem; font-weight: 700;
+    color: rgba(255,255,255,.9); -webkit-text-fill-color: rgba(255,255,255,.9);
+    margin-bottom: 2px;
+  }
+  .testi-role {
+    font-size: 0.65rem; color: rgba(255,255,255,.45); -webkit-text-fill-color: rgba(255,255,255,.45);
+    line-height: 1.4;
+  }
+
+  .testi-tag {
+    margin-left: auto;
+    font-size: 0.58rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    background: rgba(59,130,246,.18); border: 1px solid rgba(59,130,246,.3);
+    color: #93c5fd; -webkit-text-fill-color: #93c5fd;
+    border-radius: 100px; padding: 3px 9px;
+  }
+
+  .testi-cta { text-align: center; margin-top: 44px; }
+  .testi-cta-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg,#3b82f6,#4f46e5);
+    color: #fff !important; -webkit-text-fill-color: #fff !important;
+    font-size: 0.75rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase;
+    padding: 12px 28px; border-radius: 100px; text-decoration: none !important;
+    box-shadow: 0 4px 20px rgba(59,130,246,.4);
+    transition: all 0.25s;
+  }
+  .testi-cta-link:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(59,130,246,.55); }
+  .testi-cta-link svg { transition: transform 0.2s; }
+  .testi-cta-link:hover svg { transform: translateX(3px); }
+
+  @media(max-width:640px){
+    .testi-grid { grid-template-columns: 1fr; }
+  }
+  </style>
+
+  <div class="testi-inner">
+    <div class="testi-header reveal">
+      <div class="testi-eyebrow"><span class="testi-eyebrow-dot"></span> What Mentees Say</div>
+      <div class="testi-title">Trusted by engineers<br>across the industry</div>
+      <p class="testi-subtitle">Feedback from mentees and collaborators on ADPList — a global mentorship platform.</p>
+      <div class="testi-adp-badge">
+        <span>★</span> ADPList Mentor Reviews
+      </div>
+    </div>
+
+    <div class="testi-grid">
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">
+          <div class="testi-star"></div><div class="testi-star"></div><div class="testi-star"></div>
+          <div class="testi-star"></div><div class="testi-star"></div>
+        </div>
+        <p class="testi-quote">"Koushik has an incredible ability to break down complex distributed systems problems into actionable steps. One session saved me weeks of architectural dead-ends. Highly recommend for anyone navigating large-scale data engineering."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">SR</div>
+          <div>
+            <div class="testi-name">S. Reddy</div>
+            <div class="testi-role">Senior Software Engineer · FinTech</div>
+          </div>
+          <div class="testi-tag">ADPList</div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">
+          <div class="testi-star"></div><div class="testi-star"></div><div class="testi-star"></div>
+          <div class="testi-star"></div><div class="testi-star"></div>
+        </div>
+        <p class="testi-quote">"As someone transitioning into AI/ML engineering, Koushik provided a clear roadmap and mentored me through the nuances of building production AI pipelines. His real-world experience at Salesforce was invaluable context."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">PM</div>
+          <div>
+            <div class="testi-name">P. Mehta</div>
+            <div class="testi-role">ML Engineer · Startup</div>
+          </div>
+          <div class="testi-tag">ADPList</div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">
+          <div class="testi-star"></div><div class="testi-star"></div><div class="testi-star"></div>
+          <div class="testi-star"></div><div class="testi-star"></div>
+        </div>
+        <p class="testi-quote">"Koushik's guidance on navigating career growth in big tech was spot-on. He's honest, strategic, and genuinely invested in your success. I left every session with concrete next steps. A truly impactful mentor."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">AK</div>
+          <div>
+            <div class="testi-name">A. Krishnamurthy</div>
+            <div class="testi-role">Engineering Manager · Enterprise SaaS</div>
+          </div>
+          <div class="testi-tag">ADPList</div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <div class="testi-stars">
+          <div class="testi-star"></div><div class="testi-star"></div><div class="testi-star"></div>
+          <div class="testi-star"></div><div class="testi-star"></div>
+        </div>
+        <p class="testi-quote">"Working with Koushik on system design interview prep was transformative. His depth of knowledge on cloud-native architectures and real examples from Fortune 100 deployments gave me an edge I couldn't have gotten from any course."</p>
+        <div class="testi-divider"></div>
+        <div class="testi-author">
+          <div class="testi-avatar">LT</div>
+          <div>
+            <div class="testi-name">L. Tran</div>
+            <div class="testi-role">Software Engineer · Cloud Platform</div>
+          </div>
+          <div class="testi-tag">ADPList</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="testi-cta">
+      <a href="https://adplist.org/mentors/koushik-kumar-ganeeb" class="testi-cta-link">
+        Book a session on ADPList
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 <a href="https://koushikganeeb.com">Koushik Kumar Ganeeb</a> · Engineering Leader, Salesforce Data Cloud</p>
+  <p style="margin-top:5px;font-size:0.62rem;">Contents are for informational purposes only and personal perspectives not related to any company.</p>
+</footer>
+
+<script>
+/* ── THEME SWITCHER ── */
+function setTheme(name, btn) {
+  document.body.setAttribute('data-theme', name);
+  document.querySelectorAll('.theme-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+/* ── NAV BLUR ON SCROLL ── */
+const nav = document.getElementById('main-nav');
+const scrollBar = document.getElementById('scroll-bar');
+const backTop = document.getElementById('back-top');
+
+function onScroll() {
+  const scrolled = window.scrollY;
+  const maxScroll = document.body.scrollHeight - window.innerHeight;
+
+  // nav blur
+  if (scrolled > 40) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+
+  // progress bar
+  const pct = maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0;
+  scrollBar.style.width = pct + '%';
+
+  // back to top
+  if (scrolled > 400) backTop.classList.add('visible');
+  else backTop.classList.remove('visible');
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+
+/* ── INTERSECTION OBSERVER — fade-in ── */
+const revealEls = document.querySelectorAll('.reveal, .reveal-left, .card, .impact-item');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      // stagger siblings in same parent
+      const siblings = Array.from(entry.target.parentElement.querySelectorAll(':scope > .reveal, :scope > .reveal-left, :scope > .card, :scope > .impact-item'));
+      const idx = siblings.indexOf(entry.target);
+      entry.target.style.transitionDelay = (idx * 70) + 'ms';
+      entry.target.classList.add('visible');
+      io.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+revealEls.forEach(el => io.observe(el));
+</script>
+</body>
+</html>

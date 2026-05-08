@@ -1,147 +1,100 @@
 ---
 layout: default
 ---
+<style>
+.committee-wrap { display: grid; grid-template-columns: 280px 1fr; gap: 22px; padding: 32px 0 60px; }
+@media(max-width:860px){ .committee-wrap{ grid-template-columns: 1fr; } }
+
+.comm-section-card {
+  background: #fff; border: 1px solid rgba(0,0,0,0.07); border-radius: 18px;
+  padding: 26px; margin-bottom: 20px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.25s;
+}
+.comm-section-card:hover { border-color: rgba(37,99,235,.16); box-shadow: 0 8px 32px rgba(37,99,235,.08); transform: translateY(-2px); }
+
+.comm-section-label {
+  font-size: 0.65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+  background: linear-gradient(135deg, #3b82f6, #4f46e5);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  border-bottom: 1px solid rgba(0,0,0,0.07); padding-bottom: 10px; margin-bottom: 18px;
+  display: block;
+}
+
+/* sidebar same as about */
+.comm-prof-card { text-align: center; }
+.comm-prof-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 12px; outline: 2px solid #2563eb; outline-offset: 3px; box-shadow: 0 4px 20px rgba(37,99,235,.15); }
+.comm-prof-name { font-size: 1rem; font-weight: 700; color: #0f172a !important; letter-spacing: -.03em; margin-bottom: 4px; }
+.comm-prof-role { font-size: 0.65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #2563eb !important; -webkit-text-fill-color: #2563eb !important; margin-bottom: 14px; }
+.comm-socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-bottom: 14px; }
+.comm-social-btn { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: 9px; background: #f1f5f9; border: 1px solid rgba(0,0,0,0.07); color: #64748b !important; -webkit-text-fill-color: #64748b !important; font-size: 13px; transition: all 0.2s; text-decoration: none !important; }
+.comm-social-btn:hover { background: #2563eb !important; border-color: #2563eb !important; color: #fff !important; -webkit-text-fill-color: #fff !important; transform: translateY(-2px); }
+.comm-meta { font-size: 0.72rem; color: #64748b !important; -webkit-text-fill-color: #64748b !important; line-height: 2.1; }
+.comm-meta i { color: #2563eb !important; margin-right: 5px; }
+.comm-meta a { color: #64748b !important; -webkit-text-fill-color: #64748b !important; text-decoration: none !important; }
+
+/* committee items */
+.comm-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: #f8fafc; border: 1px solid rgba(0,0,0,0.07);
+  border-left: 3px solid #3b82f6; border-radius: 9px;
+  padding: 14px 16px; margin-bottom: 10px; transition: all 0.22s;
+}
+.comm-item:hover { background: rgba(37,99,235,.03); border-left-color: #4f46e5; }
+.comm-item:last-child { margin-bottom: 0; }
+.comm-item-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
+.comm-item-name { font-size: 0.82rem; font-weight: 700; color: #0f172a !important; line-height: 1.4; margin-bottom: 3px; }
+.comm-item-desc { font-size: 0.72rem; color: #64748b !important; -webkit-text-fill-color: #64748b !important; line-height: 1.55; }
+
+.comm-intro { font-size: 0.84rem; line-height: 1.8; color: #475569 !important; margin-bottom: 18px; }
+</style>
+
 <div class="col-lg-12">
-<div class="row">
-  <div class="col-lg-4">
-    <div class="card" id="profile-card">
-      <a href="/">
-        <img src="{{site.url}}{{site.baseurl}}/assets/img/{{ site.author_logo }}" class="profile-img" />
-      </a>
-      <h1 class="profile-name">{{ site.title }}</h1>
-      <p class="profile-bio">{{ site.subtitle }}</p>
-      {% if site.github_username %} {%- include github_follow_button.html -%} {%
-      endif %}
+  <div class="committee-wrap">
 
-      <p class="profile-links">
-        {% if site.twitter_username %}
-        <a
-          class="social-link"
-          href="http://twitter.com/{{ site.twitter_username }}"
-        >
-          <i class="fab fa-twitter"></i>
-        </a>
-        {% endif %} {% if site.facebook_username %}
-        <a
-          class="social-link"
-          href="http://facebook.com/{{ site.facebook_username }}"
-        >
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        {% endif %} {% if site.instagram_username %}
-        <a
-          class="social-link"
-          href="http://instagram.com/{{ site.instagram_username }}"
-        >
-          <i class="fab fa-instagram"></i>
-        </a>
-        {% endif %} {% if site.adplist_username %}
-        <a
-          class="social-link"
-          href="https://adplist.org/mentors/{{ site.adplist_username }}"
-        >
-          <i class="fab fa-instagram"></i>
-        </a>
-        {% endif %} {% if site.medium_username %}
-        <a
-          class="social-link"
-          href="http://medium.com/@{{ site.medium_username }}"
-        >
-          <i class="fab fa-medium-m"></i>
-        </a>
-        {% endif %} {% if site.github_username %}
-        <a
-          class="social-link"
-          href="http://github.com/{{ site.github_username }}"
-        >
-          <i class="fab fa-github"></i>
-        </a>
-        {% endif %} {% if site.behance_username %}
-        <a
-          class="social-link"
-          href="http://behance.net/{{ site.behance_username }}"
-        >
-          <i class="fab fa-behance"></i>
-        </a>
-        {% endif %} {% if site.linkedin_username %}
-        <a
-          class="social-link"
-          href="http://linkedin.com/in/{{ site.linkedin_username }}"
-        >
-          <i class="fab fa-linkedin-in"></i>
-        </a>
-        {% endif %} {% if site.telegram_username %}
-        <a class="social-link" href="http://t.me/{{ site.telegram_username }}">
-          <i class="fab fa-telegram-plane"></i>
-        </a>
-        {% endif %} {% if site.dribbble_username %}
-        <a
-          class="social-link"
-          href="https://dribbble.com/{{ site.dribbble_username }}"
-        >
-          <i class="fab fa-dribbble"></i>
-        </a>
-        {% endif %} {% if site.flickr_username %}
-        <a
-          class="social-link"
-          href="https://www.flickr.com/photos/{{ site.flickr_username }}"
-        >
-          <i class="fab fa-flickr"></i>
-        </a>
-        {% endif %}
-      </p>
-
-      {% if site.author_location %}
-      <h6><a href="https://www.google.com/maps/search/?api=1&query={{ site.author_location }}" class="social-link"><i class="fas fa-map-marker-alt"></i> {{ site.author_location }}</a></h6>
-      {% endif %} {% if site.author_email %}
-      <h6><a href="mailto:{{ site.author_email }}"><i class="fas fa-envelope" class="social-link"></i> {{ site.author_email }}</a></h6>
-      {% endif %} {% if site.author_website_url %}
-      <h6><a href="{{ site.author_website_url }}"><i class="fas fa-link" class="social-link"></i> {{ site.author_website_url }}</a></h6>
-      {% endif %}
-    </div>
-
-    <div class="card">
-      <h1>Skills</h1>
-
-      {%- include author_skills.html -%}
-    </div>
-
-    {% if site.wakatime_username %}
-    <div class="card">
-      <h1>Coding Activity</h1>
-
-      {%- include coding_activity.html -%}
-    </div>
-    {% endif %}
-  </div>
-  <div class="col-lg-8">
-    {% if site.author_bio %}
-    <div class="card">
-      <h1 class="card-title">Committees</h1>
-      <p>{{ site.author_biocommittee }}</p>
-    </div>
-    {% endif %} {% if site.show_author_committee_details == true %}
-    <div id="author_projects" class="card">
-      <h1 class="card-title">Prestigious Member of the Committees</h1>
-      <br />
-      {% for project in site.committee_details %} {% if project.visibility
-      == true %}
-      <div class="row" id="project-card">
-        <div class="col-md-12 center">
-          <h4 class="experience-title">{{ project.project_title }}</h4>
-          <p class="experience-desc">{{ project.project_description }}</p>
-          {% if project.project_url %}
-          <p>
-            <a class="project-link" href="{{project.project_url}}"
-              >{{ project.project_url}}</a
-            >
-          </p>
-          {% endif %}
+    <!-- SIDEBAR -->
+    <aside>
+      <div class="comm-section-card comm-prof-card">
+        <a href="/"><img class="comm-prof-avatar" src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}" alt="{{ site.author }}" /></a>
+        <div class="comm-prof-name">{{ site.title }}</div>
+        <div class="comm-prof-role">Engineering Leader · Salesforce Data Cloud</div>
+        <div class="comm-socials">
+          {% if site.twitter_username %}<a class="comm-social-btn" href="http://twitter.com/{{ site.twitter_username }}"><i class="fab fa-twitter"></i></a>{% endif %}
+          {% if site.linkedin_username %}<a class="comm-social-btn" href="http://linkedin.com/in/{{ site.linkedin_username }}"><i class="fab fa-linkedin-in"></i></a>{% endif %}
+          {% if site.github_username %}<a class="comm-social-btn" href="http://github.com/{{ site.github_username }}"><i class="fab fa-github"></i></a>{% endif %}
+          {% if site.facebook_username %}<a class="comm-social-btn" href="http://facebook.com/{{ site.facebook_username }}"><i class="fab fa-facebook-f"></i></a>{% endif %}
+          {% if site.adplist_username %}<a class="comm-social-btn" href="https://adplist.org/mentors/{{ site.adplist_username }}"><i class="fas fa-chalkboard-teacher"></i></a>{% endif %}
+        </div>
+        <div class="comm-meta">
+          {% if site.author_location %}<div><i class="fas fa-map-marker-alt"></i>{{ site.author_location }}</div>{% endif %}
+          {% if site.author_email %}<div><i class="fas fa-envelope"></i><a href="mailto:{{ site.author_email }}">{{ site.author_email }}</a></div>{% endif %}
         </div>
       </div>
-      <br />
-      {% endif %} {% endfor %}
-    </div>
-    {% endif %}
-</div>
+
+      <div class="comm-section-card">
+        <span class="comm-section-label">Technical Skills</span>
+        {%- include author_skills.html -%}
+      </div>
+    </aside>
+
+    <!-- MAIN -->
+    <main>
+      <div class="comm-section-card">
+        <span class="comm-section-label">Committees &amp; Review Roles</span>
+        <p class="comm-intro">{{ site.author_biocommittee }}</p>
+
+        {% if site.show_author_committee_details == true %}
+          {% for project in site.committee_details %}{% if project.visibility == true %}
+          <div class="comm-item">
+            <span class="comm-item-icon">🔬</span>
+            <div>
+              <div class="comm-item-name">{{ project.project_title }}</div>
+              <div class="comm-item-desc">{{ project.project_description }}</div>
+            </div>
+          </div>
+          {% endif %}{% endfor %}
+        {% endif %}
+      </div>
+    </main>
+
+  </div>
 </div>
