@@ -1,11 +1,16 @@
-<form action="https://getform.io/f/{{ site.getform_endpoint }}" enctype="multipart/form-data" method="POST">
+<form action="https://api.web3forms.com/submit" method="POST" id="contact-form">
+  <input type="hidden" name="access_key" value="7e7b7bf2-d86b-42b5-a7f6-68b91606bd96"/>
+  <input type="hidden" name="subject" value="New message from koushikganeeb.com"/>
+  <input type="hidden" name="redirect" value="false"/>
+  <input type="checkbox" name="botcheck" style="display:none"/>
+
   <div class="form-group">
     <label class="form-label" for="contact-name">Your Name</label>
-    <input class="form-input" type="text" id="contact-name" name="name" placeholder="John Doe"/>
+    <input class="form-input" type="text" id="contact-name" name="name" placeholder="John Doe" required/>
   </div>
   <div class="form-group">
     <label class="form-label" for="contact-email">Your Email</label>
-    <input class="form-input" type="email" id="contact-email" name="email" placeholder="john@example.com"/>
+    <input class="form-input" type="email" id="contact-email" name="email" placeholder="john@example.com" required/>
   </div>
   <div class="form-group">
     <label class="form-label" for="contact-subject">Subject</label>
@@ -13,10 +18,51 @@
   </div>
   <div class="form-group">
     <label class="form-label" for="contact-message">Message</label>
-    <textarea class="form-input" id="contact-message" name="message" placeholder="Tell me about your project or what you'd like to discuss..."></textarea>
+    <textarea class="form-input" id="contact-message" name="message" placeholder="Tell me about your project or what you'd like to discuss..." required></textarea>
   </div>
+
   <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">
     <i class="fa-solid fa-paper-plane"></i> Send Message
   </button>
-  <p class="form-note"><i class="fa-solid fa-shield-halved"></i> Form powered by Getform &mdash; your data is safe.</p>
+  <p class="form-note" id="form-result" style="display:none;margin-top:0.75rem;"></p>
+  <p class="form-note"><i class="fa-solid fa-shield-halved"></i> Your data is safe &mdash; powered by Web3Forms.</p>
 </form>
+
+<script>
+(function(){
+  var form = document.getElementById('contact-form');
+  var result = document.getElementById('form-result');
+  if (!form) return;
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    var btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending...';
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(form)
+    })
+    .then(function(res){ return res.json(); })
+    .then(function(data){
+      result.style.display = 'block';
+      if (data.success) {
+        result.style.color = '#10b981';
+        result.innerHTML = '<i class="fa-solid fa-circle-check"></i> Message sent! I\'ll get back to you soon.';
+        form.reset();
+      } else {
+        result.style.color = '#ef4444';
+        result.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Something went wrong. Please try again.';
+      }
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+    })
+    .catch(function(){
+      result.style.display = 'block';
+      result.style.color = '#ef4444';
+      result.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i> Network error. Please try again.';
+      btn.disabled = false;
+      btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Send Message';
+    });
+  });
+})();
+</script>
