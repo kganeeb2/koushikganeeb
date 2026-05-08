@@ -592,8 +592,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .achievement-info {
   font-size: 0.72rem !important;
-  color: rgba(255,255,255,0.45) !important;
-  -webkit-text-fill-color: rgba(255,255,255,0.45) !important;
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
   line-height: 1.55 !important;
   margin-bottom: 8px !important;
 }
@@ -658,8 +658,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .committee-desc {
   font-size: 0.72rem !important;
-  color: rgba(255,255,255,0.45) !important;
-  -webkit-text-fill-color: rgba(255,255,255,0.45) !important;
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
   line-height: 1.55 !important;
 }
 
@@ -737,10 +737,10 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700 !important;
   letter-spacing: 0.06em !important;
   text-transform: uppercase !important;
-  background: rgba(255,255,255,0.06) !important;
-  border: 1px solid var(--glass-border) !important;
-  color: rgba(255,255,255,0.6) !important;
-  -webkit-text-fill-color: rgba(255,255,255,0.6) !important;
+  background: #f1f5f9 !important;
+  border: 1px solid rgba(0,0,0,0.1) !important;
+  color: #475569 !important;
+  -webkit-text-fill-color: #475569 !important;
   border-radius: 100px !important;
   padding: 6px 16px !important;
   transition: var(--transition) !important;
@@ -856,11 +856,50 @@ a:hover { color: var(--accent-2) !important; }
   background: #f8fafc !important;
 }
 
+/* ── BREAK HERO OUT OF BOOTSTRAP CONTAINER ── */
+/* full-width layout wraps content in .container-fluid which adds 15px padding */
+.container-fluid {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
+/* hero-section needs to bleed full viewport width */
+.hero-section {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+}
+
+/* constrain content back inside hero */
+.hero-section > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* re-add padding for non-hero content */
+.col-lg-8.offset-md-2 {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* ── ABOUT / COMMITTEE PAGE LAYOUT ── */
+/* The about-me and committee layouts use col-lg-12 — remove Bootstrap card margin conflicts */
+.about-wrap .section-card,
+.committee-wrap .comm-section-card {
+  margin: 0 0 20px 0 !important;
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 768px) {
   .jumbotron { padding: 5rem 1.5rem 4rem !important; min-height: 70vh !important; }
-  .hero-name { font-size: 2rem !important; }
-  .hero-stats { gap: 24px; margin-top: 2rem; }
+  .hero-section { min-height: 70vh !important; }
+  .hero-name-text { font-size: 2rem !important; }
+  .hero-stats-row { gap: 24px; margin-top: 2rem; }
   .achievement-grid { grid-template-columns: 1fr; }
 }
 
