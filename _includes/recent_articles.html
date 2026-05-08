@@ -1,44 +1,74 @@
+<style>
+.home-content { max-width:960px; margin:0 auto; padding:56px 24px 80px; }
+.recent-hdr {
+  display:flex; align-items:center; justify-content:space-between; margin-bottom:28px;
+}
+.recent-hdr h2 {
+  font-size:0.65rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
+  background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+.recent-hdr a {
+  font-size:0.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+  color:var(--muted); border:1px solid var(--border); border-radius:100px;
+  padding:5px 14px; transition:all 0.2s; text-decoration:none !important;
+  background:var(--badge-bg);
+}
+.recent-hdr a:hover { background:var(--accent); border-color:var(--accent); color:#fff; -webkit-text-fill-color:#fff; }
+.post-grid {
+  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px;
+}
+.post-card {
+  background:var(--card-bg); border:1px solid var(--border); border-radius:18px;
+  padding:20px; transition:all 0.25s; position:relative; overflow:hidden;
+  text-decoration:none !important; display:block;
+  opacity:0; transform:translateY(22px);
+}
+.post-card.visible { opacity:1; transform:none; transition:opacity 0.5s ease, transform 0.5s ease; }
+.post-card::before {
+  content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--grad); opacity:0; transition:opacity 0.25s;
+}
+.post-card:hover::before { opacity:1; }
+.post-card:hover {
+  border-color:rgba(37,99,235,.2); transform:translateY(-4px);
+  box-shadow:0 12px 40px rgba(0,0,0,.1); text-decoration:none !important;
+}
+.post-icon {
+  width:40px; height:40px; border-radius:10px; background:var(--badge-bg);
+  border:1px solid var(--border); display:flex; align-items:center;
+  justify-content:center; font-size:1.1rem; margin-bottom:14px;
+}
+.post-cat {
+  font-size:0.58rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--accent); -webkit-text-fill-color:var(--accent); margin-bottom:6px;
+}
+.post-title {
+  font-size:0.88rem; font-weight:700; line-height:1.45;
+  color:var(--bold); -webkit-text-fill-color:var(--bold); margin-bottom:8px;
+}
+.post-date { font-size:0.62rem; color:var(--muted); -webkit-text-fill-color:var(--muted); }
+.post-read {
+  display:inline-flex; align-items:center; gap:4px;
+  font-size:0.62rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--accent); -webkit-text-fill-color:var(--accent); margin-top:14px;
+}
+</style>
+
 <section id="recent-articles">
-  <div id="recent-articles-header">
-    <div id="recent-articles-title">
-      <h1 class="card-title">Recent Articles</h1>
-    </div>
-    <div id="recent-articles-show-all">
-      <a class="btn btn-lg btn-dark" href="/blog"> View All </a>
-    </div>
+  <div class="recent-hdr">
+    <h2>Recent Articles</h2>
+    <a href="{{ site.baseurl }}/blog">View All <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
   </div>
-  <br />
-
-  <ul>
-    {% for post in site.posts limit:5 %}
-    <li class="article-card">
-      <a href="{{post.url}}" class="article-card-link">
-        <div id="article-container">
-          <div id="article-img">
-            {% if post.author %}
-              {% assign author = post.author %}
-              {% if author %}
-               {% assign author_data = site.data.authors[author] %}
-               <img
-                src="{{site.url}}{{site.baseurl}}/assets/img/authors/{{author_data.avatar}}"
-                width="50px"
-                height="50px"
-             />
-              {% endif %}
-            {% endif %}
-
-          </div>
-          <div id="article-link">
-              <p class="recent-article-link">{{post.title}} <span style="color: #ccc; font-size: 15px;"> - <i><time datetime="{{ post.date }}" itemprop="datePublished">{{ post.date | date: "%b %-d, %Y" }}</time></i></span></p>
-            </div>
-            <div id="article-alert">
-            {% for cat in post.category limit:1 %}
-             <button class="btn btn-sm btn-dark">{{cat}}</button>
-            {% endfor %}
-            </div>
-        </div>
-      </a>
-    </li>
+  <div class="post-grid">
+    {% assign icons = "📊,🔄,📡,🗄️" | split: "," %}
+    {% for post in site.posts limit:4 %}
+    <a href="{{ post.url | prepend: site.baseurl }}" class="post-card reveal">
+      <div class="post-icon">{{ icons[forloop.index0] }}</div>
+      <div class="post-cat">{{ post.category | first | default: "Engineering" }}</div>
+      <div class="post-title">{{ post.title }}</div>
+      <div class="post-date">{{ post.date | date: "%b %-d, %Y" }}</div>
+      <div class="post-read">Read article <i class="fas fa-arrow-right" style="font-size:9px"></i></div>
+    </a>
     {% endfor %}
-  </ul>
+  </div>
 </section>
