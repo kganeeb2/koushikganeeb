@@ -1,74 +1,139 @@
-<style>
-.home-content { max-width:960px; margin:0 auto; padding:56px 24px 80px; }
-.recent-hdr {
-  display:flex; align-items:center; justify-content:space-between; margin-bottom:28px;
-}
-.recent-hdr h2 {
-  font-size:0.65rem; font-weight:800; letter-spacing:.18em; text-transform:uppercase;
-  background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
-}
-.recent-hdr a {
-  font-size:0.65rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
-  color:var(--muted); border:1px solid var(--border); border-radius:100px;
-  padding:5px 14px; transition:all 0.2s; text-decoration:none !important;
-  background:var(--badge-bg);
-}
-.recent-hdr a:hover { background:var(--accent); border-color:var(--accent); color:#fff; -webkit-text-fill-color:#fff; }
-.post-grid {
-  display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:16px;
-}
-.post-card {
-  background:var(--card-bg); border:1px solid var(--border); border-radius:18px;
-  padding:20px; transition:all 0.25s; position:relative; overflow:hidden;
-  text-decoration:none !important; display:block;
-  opacity:0; transform:translateY(22px);
-}
-.post-card.visible { opacity:1; transform:none; transition:opacity 0.5s ease, transform 0.5s ease; }
-.post-card::before {
-  content:''; position:absolute; top:0; left:0; right:0; height:3px;
-  background:var(--grad); opacity:0; transition:opacity 0.25s;
-}
-.post-card:hover::before { opacity:1; }
-.post-card:hover {
-  border-color:rgba(37,99,235,.2); transform:translateY(-4px);
-  box-shadow:0 12px 40px rgba(0,0,0,.1); text-decoration:none !important;
-}
-.post-icon {
-  width:40px; height:40px; border-radius:10px; background:var(--badge-bg);
-  border:1px solid var(--border); display:flex; align-items:center;
-  justify-content:center; font-size:1.1rem; margin-bottom:14px;
-}
-.post-cat {
-  font-size:0.58rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase;
-  color:var(--accent); -webkit-text-fill-color:var(--accent); margin-bottom:6px;
-}
-.post-title {
-  font-size:0.88rem; font-weight:700; line-height:1.45;
-  color:var(--bold); -webkit-text-fill-color:var(--bold); margin-bottom:8px;
-}
-.post-date { font-size:0.62rem; color:var(--muted); -webkit-text-fill-color:var(--muted); }
-.post-read {
-  display:inline-flex; align-items:center; gap:4px;
-  font-size:0.62rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase;
-  color:var(--accent); -webkit-text-fill-color:var(--accent); margin-top:14px;
-}
-</style>
-
-<section id="recent-articles">
-  <div class="recent-hdr">
-    <h2>Recent Articles</h2>
-    <a href="{{ site.baseurl }}/blog">View All <i class="fas fa-arrow-right" style="font-size:9px"></i></a>
+<!-- IMPACT STRIP -->
+<div class="impact-strip">
+  <div class="impact-inner">
+    <div class="impact-item reveal">
+      <span class="impact-val">Trillions</span>
+      <span class="impact-label">Transactions / Daily</span>
+    </div>
+    <div class="impact-item reveal">
+      <span class="impact-val">Fortune 100</span>
+      <span class="impact-label">Companies Served</span>
+    </div>
+    <div class="impact-item reveal">
+      <span class="impact-val">16+</span>
+      <span class="impact-label">Years Engineering</span>
+    </div>
+    <div class="impact-item reveal">
+      <span class="impact-val">10+</span>
+      <span class="impact-label">Global Fellowships</span>
+    </div>
+    <div class="impact-item reveal">
+      <span class="impact-val">20+</span>
+      <span class="impact-label">IEEE &amp; Technical Committees</span>
+    </div>
   </div>
-  <div class="post-grid">
-    {% assign icons = "📊,🔄,📡,🗄️" | split: "," %}
-    {% for post in site.posts limit:4 %}
-    <a href="{{ post.url | prepend: site.baseurl }}" class="post-card reveal">
-      <div class="post-icon">{{ icons[forloop.index0] }}</div>
-      <div class="post-cat">{{ post.category | first | default: "Engineering" }}</div>
-      <div class="post-title">{{ post.title }}</div>
-      <div class="post-date">{{ post.date | date: "%b %-d, %Y" }}</div>
-      <div class="post-read">Read article <i class="fas fa-arrow-right" style="font-size:9px"></i></div>
-    </a>
-    {% endfor %}
+</div>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow BCS</span>
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow Hackathon Raptors</span>
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow SAS Society</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Royal Fellow IOASD</span>
+    <span class="marquee-item"><i class="fas fa-microchip"></i> Senior IEEE Member</span>
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow IETE</span>
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow SCRS</span>
+    <span class="marquee-item"><i class="fas fa-chart-bar"></i> Gartner Ambassador</span>
+    <span class="marquee-item"><i class="fas fa-robot"></i> AI Collective Organizer Columbia</span>
+    <span class="marquee-item"><i class="fas fa-chalkboard-teacher"></i> Mentor ADPList</span>
+    <span class="marquee-item"><i class="fas fa-lock"></i> IEEE TCSP</span>
+    <span class="marquee-item"><i class="fas fa-database"></i> IEEE TCDE</span>
+    <span class="marquee-item"><i class="fas fa-cloud"></i> IEEE TCCLD</span>
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow BCS</span>
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow Hackathon Raptors</span>
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow SAS Society</span>
+    <span class="marquee-item"><i class="fas fa-star"></i> Royal Fellow IOASD</span>
+    <span class="marquee-item"><i class="fas fa-microchip"></i> Senior IEEE Member</span>
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow IETE</span>
+    <span class="marquee-item"><i class="fas fa-award"></i> Fellow SCRS</span>
+    <span class="marquee-item"><i class="fas fa-chart-bar"></i> Gartner Ambassador</span>
+    <span class="marquee-item"><i class="fas fa-robot"></i> AI Collective Organizer Columbia</span>
+    <span class="marquee-item"><i class="fas fa-chalkboard-teacher"></i> Mentor ADPList</span>
+    <span class="marquee-item"><i class="fas fa-lock"></i> IEEE TCSP</span>
+    <span class="marquee-item"><i class="fas fa-database"></i> IEEE TCDE</span>
+    <span class="marquee-item"><i class="fas fa-cloud"></i> IEEE TCCLD</span>
+  </div>
+</div>
+
+<!-- RECENT ARTICLES -->
+<section class="section">
+  <div class="section-inner">
+    <div class="reveal">
+      <p style="text-transform:uppercase;font-size:0.75rem;font-weight:700;letter-spacing:0.08em;color:var(--accent);margin-bottom:0.3rem;">Latest Writing</p>
+      <h2 class="section-title">Recent Articles</h2>
+      <p class="section-subtitle">Insights on distributed systems, data engineering &amp; AI</p>
+    </div>
+    <div class="blog-grid-home">
+      {% assign blog_icons = "fa-arrows-rotate,fa-layer-group,fa-network-wired,fa-database" | split: "," %}
+      {% for post in site.posts limit:3 %}
+      <div class="blog-card-home reveal">
+        <div class="blog-card-icon"><i class="fas {{ blog_icons[forloop.index0] }}"></i></div>
+        <div class="blog-card-body">
+          <span class="blog-card-date">{{ post.date | date: "%b %Y" }}</span>
+          <div class="blog-card-title">{{ post.title }}</div>
+          <p class="blog-card-summary">{{ post.summary | default: post.excerpt | strip_html | truncate: 120 }}</p>
+          <a href="{{ post.url | prepend: site.baseurl }}" class="blog-card-link">Read More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <div class="test-inner">
+    <div class="test-eyebrow">What Mentees Say</div>
+    <h2 class="test-title">Trusted by engineers across the industry</h2>
+    <p class="test-subtitle">Feedback from mentees and collaborators on ADPList</p>
+    <div class="adplist-badge"><i class="fas fa-star"></i> ADPList Mentor Reviews</div>
+    <div class="test-grid">
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">&ldquo;Koushik&rsquo;s guidance on distributed systems architecture was transformative. His practical approach to CDC patterns helped me land a senior engineering role at a top FinTech.&rdquo;</p>
+        <hr class="test-divider"/>
+        <div class="test-author">
+          <div class="test-avatar">SR</div>
+          <div><div class="test-name">S. Reddy</div><div class="test-role">Senior Software Engineer &middot; FinTech</div></div>
+          <span class="test-tag">ADPList</span>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">&ldquo;As an ML engineer pivoting to AI infrastructure, Koushik mapped out a clear roadmap for AI/ML engineering at scale. Incredibly knowledgeable and genuinely invested in growth.&rdquo;</p>
+        <hr class="test-divider"/>
+        <div class="test-author">
+          <div class="test-avatar">PM</div>
+          <div><div class="test-name">P. Mehta</div><div class="test-role">ML Engineer &middot; Startup</div></div>
+          <span class="test-tag">ADPList</span>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">&ldquo;Koushik helped me navigate the transition from IC to Engineering Manager. His insights on team leadership and executive communication were invaluable for my career growth.&rdquo;</p>
+        <hr class="test-divider"/>
+        <div class="test-author">
+          <div class="test-avatar">AK</div>
+          <div><div class="test-name">A. Krishnamurthy</div><div class="test-role">Engineering Manager &middot; Enterprise SaaS</div></div>
+          <span class="test-tag">ADPList</span>
+        </div>
+      </div>
+      <div class="test-card reveal">
+        <div class="test-stars">★★★★★</div>
+        <p class="test-quote">&ldquo;The system design interview prep sessions with Koushik were exceptional. His real-world experience at Salesforce Data Cloud brought depth and credibility to every scenario we discussed.&rdquo;</p>
+        <hr class="test-divider"/>
+        <div class="test-author">
+          <div class="test-avatar">LT</div>
+          <div><div class="test-name">L. Tran</div><div class="test-role">Software Engineer &middot; Cloud Platform</div></div>
+          <span class="test-tag">ADPList</span>
+        </div>
+      </div>
+    </div>
+    <div class="test-cta">
+      <a href="https://adplist.org/mentors/{{ site.adplist_username }}" target="_blank" rel="noopener" class="btn btn-ghost">
+        Book a session on ADPList <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
   </div>
 </section>
