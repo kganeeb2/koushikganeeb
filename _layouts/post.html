@@ -1,42 +1,94 @@
 ---
-layout: default
+layout: clean
 ---
-
-<div class="row justify-content-center" id="blog-post-container">
-  <div class="col-lg-10">
-    {%- include blog_post_article.html -%}
-     {%- include blog_post_comments.html-%}
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header">About {{site.author}}</div>
-      <div class="card-body">
-        <p class="author_bio">{{ site.author_bio }}</p>
-        {%- include github_star_button.html -%}
-      </div>
+<div class="post-hero-strip">
+  <div class="post-hero-inner">
+    <a href="{{ site.url }}{{ site.baseurl }}/blog" class="post-back-link"><i class="fa-solid fa-arrow-left"></i> Blog</a>
+    <div class="post-cat-row">
+      {% for cat in page.categories %}<span class="blog-cat-badge">{{ cat }}</span>{% endfor %}
+      {% assign words = content | number_of_words %}
+      {% assign mins = words | divided_by: 200 | plus: 1 %}
+      <span class="post-read-time"><i class="fa-solid fa-clock"></i> {{ mins }} min read</span>
     </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header">Categories</div>
-      <div class="card-body text-dark">
-        {%- include blog_categories.html -%}
-      </div>
-    </div>
-  </div>
-  <div class="col-md-4">
-    <div class="card">
-      <div class="card-header">Useful Links</div>
-      <div class="card-body text-dark">
-        {% for i in site.urls %}
-        <li>
-          <a href="{{ site.url}}{{site.baseurl}}{{ i.url }}">{{ i.text }}</a>
-        </li>
-        {% endfor %}
-      </div>
+    <h1 class="post-hero-title">{{ page.title }}</h1>
+    <div class="post-hero-meta">
+      <span><i class="fa-regular fa-calendar"></i> {{ page.date | date: "%B %-d, %Y" }}</span>
+      <span><i class="fa-solid fa-user"></i> {{ site.author }}</span>
     </div>
   </div>
 </div>
 
+<div class="post-layout">
+  <!-- ARTICLE -->
+  <article class="post-article">
+    <div class="post-content-card">
+      <div class="prose">
+        {{ content }}
+      </div>
+    </div>
+
+    <!-- Tags -->
+    {% if page.categories %}
+    <div class="post-tags-row">
+      {% for cat in page.categories %}
+      <span class="post-tag">{{ cat }}</span>
+      {% endfor %}
+    </div>
+    {% endif %}
+  </article>
+
+  <!-- SIDEBAR -->
+  <aside class="post-sidebar">
+    <!-- Author -->
+    <div class="post-sidebar-widget reveal">
+      <div class="psw-title">About the Author</div>
+      <div class="author-mini">
+        <div class="author-mini-avatar">
+          <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}" alt="{{ site.author }}"
+               onerror="this.style.display='none';this.parentElement.textContent='KG'"/>
+        </div>
+        <div>
+          <div class="author-mini-name">{{ site.author }}</div>
+          <div class="author-mini-role">Engineering Leader &middot; Salesforce</div>
+        </div>
+      </div>
+      <p class="author-mini-bio">Building distributed systems and AI pipelines at Salesforce Data Cloud. Senior IEEE Member. Mentor on ADPList.</p>
+      <div class="author-mini-socials">
+        {% if site.linkedin_username %}<a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="social-icon-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>{% endif %}
+        {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
+        <a href="https://scholar.google.com/citations?user=YGzTdWkAAAAJ&hl=en" target="_blank" class="social-icon-btn" title="Google Scholar"><i class="fa-brands fa-google"></i></a>
+      </div>
+    </div>
+
+    <!-- Recent Posts -->
+    <div class="post-sidebar-widget reveal">
+      <div class="psw-title">Recent Posts</div>
+      {% assign recent = site.posts | where_exp: "p", "p.url != page.url" | limit: 4 %}
+      {% for p in recent %}
+      <div class="recent-post-item">
+        <a href="{{ p.url | prepend: site.baseurl }}">{{ p.title | truncate: 52 }}</a>
+        <div class="recent-post-meta">
+          <span>{{ p.date | date: "%b %Y" }}</span>
+          {% assign rw = p.content | number_of_words %}{% assign rm = rw | divided_by: 200 | plus: 1 %}
+          <span>{{ rm }} min</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <!-- Categories -->
+    <div class="post-sidebar-widget reveal">
+      <div class="psw-title">Categories</div>
+      {% assign cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
+      {% for cat in cats %}
+        {% assign cat_trimmed = cat | strip %}
+        {% assign cat_count = 0 %}
+        {% for p in site.posts %}{% if p.categories contains cat_trimmed %}{% assign cat_count = cat_count | plus: 1 %}{% endif %}{% endfor %}
+        <div class="category-item">
+          <span>{{ cat_trimmed }}</span>
+          <span class="cat-count">{{ cat_count }}</span>
+        </div>
+      {% endfor %}
+    </div>
+  </aside>
+</div>
