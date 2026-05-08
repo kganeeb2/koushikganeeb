@@ -1,7 +1,8 @@
 $(document).ready(()=> modeSwitcher() )
 
 if ( !localStorage.getItem('color-theme') ){
-	document.documentElement.setAttribute('data-theme', 'dark');
+	document.documentElement.setAttribute('data-theme', 'light');
+	localStorage.setItem('color-theme', 'light');
 }
 else{
 	document.documentElement.setAttribute('data-theme', localStorage.getItem('color-theme'));

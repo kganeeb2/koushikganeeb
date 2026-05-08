@@ -856,42 +856,47 @@ a:hover { color: var(--accent-2) !important; }
   background: #f8fafc !important;
 }
 
-/* ── BREAK HERO OUT OF BOOTSTRAP CONTAINER ── */
-/* full-width layout wraps content in .container-fluid which adds 15px padding */
+/* ── LAYOUT OVERRIDES ── */
+
+/* devlopr limits .main-container to 70% on desktop — undo for full-width pages */
+.main-container {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Bootstrap container-fluid adds 15px padding — remove for hero full-bleed */
 .container-fluid {
   padding-left: 0 !important;
   padding-right: 0 !important;
 }
 
-/* hero-section needs to bleed full viewport width */
+/* hero-section bleeds full viewport width */
 .hero-section {
+  width: 100% !important;
+  max-width: 100% !important;
   margin-left: 0 !important;
   margin-right: 0 !important;
-  width: 100vw !important;
-  position: relative !important;
-  left: 50% !important;
-  right: 50% !important;
-  margin-left: -50vw !important;
-  margin-right: -50vw !important;
+  box-sizing: border-box !important;
 }
 
-/* constrain content back inside hero */
-.hero-section > * {
-  position: relative;
-  z-index: 1;
-}
-
-/* re-add padding for non-hero content */
+/* restore padding for content below hero */
 .col-lg-8.offset-md-2 {
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
 }
 
 /* ── ABOUT / COMMITTEE PAGE LAYOUT ── */
-/* The about-me and committee layouts use col-lg-12 — remove Bootstrap card margin conflicts */
+/* remove Bootstrap .card margin from our custom layout cards */
 .about-wrap .section-card,
 .committee-wrap .comm-section-card {
   margin: 0 0 20px 0 !important;
+}
+
+/* col-lg-12 wrapper for about/committee pages — add breathing room */
+.about-wrap,
+.committee-wrap {
+  padding-left: 16px !important;
+  padding-right: 16px !important;
 }
 
 /* ── RESPONSIVE ── */
