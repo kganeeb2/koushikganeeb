@@ -4,7 +4,7 @@ title:  "Understanding Data Forms and Systems used in Distributed Architecture"
 summary: "Understanding Data Forms and Systems used in Distributed Architecture"
 author: kganeeb
 date: '2023-11-01 14:35:23 +0530'
-category: Data, Forms, Distributed Systems, Deltas, Incremental, Full
+categories: [Data Engineering, Distributed Systems]
 keywords: Data Capture, Databases, SQL, CDC, Incremental, Full, Distributed Systems, Import, Export, relational
 permalink: /blog/understanding-data-forms/
 usemathjax: true

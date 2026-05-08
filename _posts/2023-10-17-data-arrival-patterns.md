@@ -4,7 +4,7 @@ title:  "Data Arrival Patterns used in Several Distributed Channels"
 summary: "Data Arrival Patterns used in Several Distributed Channels"
 author: kganeeb
 date: '2023-11-04 14:35:23 +0530'
-category: Data Arrival, Patterns, Transactions
+categories: [Data Engineering, Distributed Systems]
 keywords: Data Capture, Arrival, Databases, SQL, Data Movement, Channels, realtime
 permalink: /blog/data-arrival-patterns/
 usemathjax: true

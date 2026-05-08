@@ -42,9 +42,16 @@ layout: clean
       <div class="widget-title">Categories</div>
       {% assign cats = site.posts | map: 'categories' | join: ',' | split: ',' | uniq | sort %}
       {% for cat in cats %}
+        {% assign cat_trimmed = cat | strip %}
+        {% assign cat_count = 0 %}
+        {% for p in site.posts %}
+          {% if p.categories contains cat_trimmed %}
+            {% assign cat_count = cat_count | plus: 1 %}
+          {% endif %}
+        {% endfor %}
       <div class="category-item">
-        <span>{{ cat }}</span>
-        <span class="cat-count">{{ site.posts | where_exp: "p", "p.categories contains cat" | size }}</span>
+        <span>{{ cat_trimmed }}</span>
+        <span class="cat-count">{{ cat_count }}</span>
       </div>
       {% endfor %}
     </div>

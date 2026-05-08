@@ -4,7 +4,7 @@ title: "Modernising Legacy Systems: Choosing Between Refactor, Replatform, and R
 summary: "A practical decision framework for engineering teams navigating the three paths out of monolithic architecture — when each strategy pays off, and the trade-offs that actually matter in production."
 author: kganeeb
 date: '2026-02-10 09:00:00 +0000'
-category: Architecture, Distributed Systems, Engineering Leadership
+categories: [Architecture, Engineering Leadership]
 keywords: legacy modernisation, refactoring, replatforming, microservices, monolith migration, distributed systems, cloud migration, software architecture
 permalink: /blog/modernising-legacy-systems-refactor-replatform-replace/
 usemathjax: false
