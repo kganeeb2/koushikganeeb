@@ -876,18 +876,18 @@ textarea.form-input{min-height:120px;resize:vertical;}
 /* ============================================================
    BACK TO TOP
    ============================================================ */
-#back-top {
+#back-to-top {
   position:fixed;bottom:90px;right:28px;z-index:998;
   width:42px;height:42px;border-radius:50%;
-  background:var(--card-bg);border:1px solid var(--border);
+  background:var(--grad);color:#fff;
   display:flex;align-items:center;justify-content:center;
   cursor:pointer;opacity:0;pointer-events:none;
   transition:opacity 0.3s,transform 0.3s;
-  box-shadow:0 4px 20px rgba(0,0,0,0.15);
-  color:var(--accent);font-size:13px;
+  box-shadow:0 4px 16px rgba(0,0,0,0.2);
+  border:none;font-size:13px;
 }
-#back-top.visible{opacity:1;pointer-events:all;}
-#back-top:hover{transform:translateY(-3px);}
+#back-to-top.visible{opacity:1;pointer-events:all;}
+#back-to-top:hover{transform:translateY(-3px);}
 
 /* ============================================================
    REVEAL ANIMATION
@@ -918,7 +918,7 @@ textarea.form-input{min-height:120px;resize:vertical;}
 <body>
 
 <div id="progress-bar"></div>
-<button id="back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-arrow-up"></i></button>
+<button id="back-to-top" aria-label="Back to top"><i class="fas fa-chevron-up"></i></button>
 <nav id="main-nav">
   <div class="nav-inner">
     <a class="nav-brand" href="{{ site.url }}{{ site.baseurl }}/">{{ site.title }}</a>
@@ -937,42 +937,94 @@ textarea.form-input{min-height:120px;resize:vertical;}
 
 <footer>
   <div class="footer-inner">
-    <p>&copy; 2025 <a href="https://koushikganeeb.com">{{ site.author }}</a> &middot; Engineering Leader, Salesforce Data Cloud</p>
-    <p class="footer-legal">The contents of this website are for informational purposes only and personal perspectives not related to any company.</p>
+    <p class="footer-copy">&copy; 2025 <a href="https://koushikganeeb.com">{{ site.author }}</a> &middot; Engineering Leader, Salesforce Data Cloud</p>
+    <p class="footer-disclaimer">The contents of this website are for informational purposes only and personal perspectives not related to any company.</p>
+    <div class="footer-socials">
+      <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" class="social-icon-btn" title="Twitter"><i class="fa-brands fa-twitter"></i></a>
+      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="social-icon-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+      <a href="https://github.com/{{ site.github_username }}" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://adplist.org/mentors/{{ site.adplist_username }}" target="_blank" class="social-icon-btn" title="ADPList"><i class="fa-solid fa-chalkboard-teacher"></i></a>
+      <a href="https://scholar.google.com/citations?user=YGzTdWkAAAAJ&hl=en" target="_blank" class="social-icon-btn" title="Google Scholar"><i class="fa-brands fa-google"></i></a>
+    </div>
   </div>
 </footer>
 
+<!-- THEME SWITCHER -->
+<div id="theme-bar">
+  <span class="theme-label">Theme</span>
+  <div class="theme-dot active" data-t="light" title="Arctic Light">
+    <span class="theme-tooltip">Arctic Light</span>
+  </div>
+  <div class="theme-dot" data-t="blue" title="Midnight Blue">
+    <span class="theme-tooltip">Midnight Blue</span>
+  </div>
+  <div class="theme-dot" data-t="gold" title="Obsidian Gold">
+    <span class="theme-tooltip">Obsidian Gold</span>
+  </div>
+  <div class="theme-dot" data-t="emerald" title="Slate Emerald">
+    <span class="theme-tooltip">Slate Emerald</span>
+  </div>
+  <div class="theme-dot" data-t="violet" title="Deep Violet">
+    <span class="theme-tooltip">Deep Violet</span>
+  </div>
+</div>
+
 <script>
-// Progress bar
-const progressBar = document.getElementById('progress-bar');
-const backTop = document.getElementById('back-top');
-function onScroll() {
-  const scrolled = window.scrollY;
-  const maxScroll = document.body.scrollHeight - window.innerHeight;
-  if (progressBar) progressBar.style.width = (maxScroll > 0 ? (scrolled/maxScroll)*100 : 0) + '%';
-  if (backTop) { if (scrolled > 400) backTop.classList.add('visible'); else backTop.classList.remove('visible'); }
+(function(){
+  // Progress bar + back-to-top + nav scroll
+  const progressBar = document.getElementById('progress-bar');
+  const backTop = document.getElementById('back-to-top');
   const nav = document.getElementById('main-nav');
-  if (nav) { if (scrolled > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); }
-}
-window.addEventListener('scroll', onScroll, {passive:true});
-// Mobile nav
-document.getElementById('nav-menu-btn').addEventListener('click', function() {
-  document.getElementById('nav-links').classList.toggle('open');
-});
-// IntersectionObserver fade-in
-const revealEls = document.querySelectorAll('.reveal, .reveal-left');
-const io = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      const siblings = Array.from(entry.target.parentElement.querySelectorAll(':scope > .reveal, :scope > .reveal-left'));
-      const idx = siblings.indexOf(entry.target);
-      entry.target.style.transitionDelay = (idx * 70) + 'ms';
-      entry.target.classList.add('visible');
-      io.unobserve(entry.target);
-    }
+  window.addEventListener('scroll', function() {
+    const scrolled = window.scrollY;
+    const maxScroll = document.body.scrollHeight - window.innerHeight;
+    if (progressBar) progressBar.style.width = (maxScroll > 0 ? (scrolled/maxScroll)*100 : 0) + '%';
+    if (backTop) { if (scrolled > 400) backTop.classList.add('visible'); else backTop.classList.remove('visible'); }
+    if (nav) { if (scrolled > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); }
+  }, {passive:true});
+  if (backTop) backTop.addEventListener('click', function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+
+  // Mobile nav
+  var menuBtn = document.getElementById('nav-menu-btn');
+  if (menuBtn) menuBtn.addEventListener('click', function() {
+    document.getElementById('nav-links').classList.toggle('open');
   });
-}, {threshold: 0.08, rootMargin: '0px 0px -40px 0px'});
-revealEls.forEach(el => io.observe(el));
+
+  // IntersectionObserver fade-in
+  var revealEls = document.querySelectorAll('.reveal, .reveal-left');
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        var siblings = Array.from(entry.target.parentElement.querySelectorAll(':scope > .reveal, :scope > .reveal-left'));
+        var idx = siblings.indexOf(entry.target);
+        entry.target.style.transitionDelay = (idx * 70) + 'ms';
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.08, rootMargin: '0px 0px -40px 0px'});
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  // Theme switcher
+  var themeDots = document.querySelectorAll('.theme-dot');
+  themeDots.forEach(function(dot) {
+    dot.addEventListener('click', function() {
+      var t = dot.dataset.t;
+      document.documentElement.setAttribute('data-theme', t);
+      themeDots.forEach(function(d){ d.classList.remove('active'); });
+      dot.classList.add('active');
+      try { localStorage.setItem('portfolio-theme', t); } catch(e){}
+    });
+  });
+  // Restore saved theme
+  try {
+    var saved = localStorage.getItem('portfolio-theme');
+    if (saved) {
+      document.documentElement.setAttribute('data-theme', saved);
+      themeDots.forEach(function(d){ d.classList.toggle('active', d.dataset.t === saved); });
+    }
+  } catch(e){}
+})();
 </script>
 </body>
 </html>

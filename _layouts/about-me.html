@@ -1,190 +1,274 @@
 ---
 layout: clean
 ---
-<style>
-/* ── ABOUT PAGE ── */
-.about-wrap { display: grid; grid-template-columns: 280px 1fr; gap: 22px; padding: 32px 0 60px; }
-@media(max-width:860px){ .about-wrap{ grid-template-columns: 1fr; } }
+<section class="section">
+  <div class="section-inner">
+    <div class="two-col">
 
-/* profile card */
-.prof-card { text-align: center; }
-.prof-card .prof-avatar {
-  width: 100px; height: 100px; border-radius: 50%; object-fit: cover;
-  display: block; margin: 0 auto 12px;
-  outline: 2px solid #2563eb; outline-offset: 3px;
-  box-shadow: 0 4px 20px rgba(37,99,235,.15);
-}
-.prof-card .prof-name { font-size: 1rem; font-weight: 700; color: #0f172a !important; letter-spacing: -.03em; margin-bottom: 4px; }
-.prof-card .prof-role { font-size: 0.65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #2563eb !important; -webkit-text-fill-color: #2563eb !important; margin-bottom: 14px; }
-
-.prof-socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-bottom: 14px; }
-.prof-social-btn {
-  width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center;
-  border-radius: 9px; background: #f1f5f9; border: 1px solid rgba(0,0,0,0.07);
-  color: #64748b !important; -webkit-text-fill-color: #64748b !important;
-  font-size: 13px; transition: all 0.2s; text-decoration: none !important;
-}
-.prof-social-btn:hover { background: #2563eb !important; border-color: #2563eb !important; color: #fff !important; -webkit-text-fill-color: #fff !important; transform: translateY(-2px); }
-
-.prof-meta { font-size: 0.72rem; color: #64748b !important; -webkit-text-fill-color: #64748b !important; line-height: 2.1; }
-.prof-meta i { color: #2563eb !important; margin-right: 5px; }
-.prof-meta a { color: #64748b !important; -webkit-text-fill-color: #64748b !important; text-decoration: none !important; }
-.prof-meta a:hover { color: #2563eb !important; -webkit-text-fill-color: #2563eb !important; }
-
-/* section card */
-.section-card {
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.07);
-  border-radius: 18px;
-  padding: 26px;
-  margin-bottom: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  transition: all 0.25s;
-}
-.section-card:hover { border-color: rgba(37,99,235,.16); box-shadow: 0 8px 32px rgba(37,99,235,.08); transform: translateY(-2px); }
-
-.section-label {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
-  background: linear-gradient(135deg, #3b82f6, #4f46e5);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  border-bottom: 1px solid rgba(0,0,0,0.07); padding-bottom: 10px; margin-bottom: 18px;
-  display: block;
-}
-
-/* timeline */
-.tl { position: relative; }
-.tl-row { display: flex; gap: 14px; margin-bottom: 26px; position: relative; }
-.tl-row::before {
-  content: ''; position: absolute; left: 41px; top: 56px; bottom: -12px;
-  width: 1px; background: linear-gradient(to bottom, #3b82f6, transparent); opacity: .2;
-}
-.tl-row:last-child::before { display: none; }
-.tl-logo { width: 48px; height: 48px; border-radius: 12px; object-fit: contain; background: #f8fafc; border: 1px solid rgba(0,0,0,0.07); padding: 6px; flex-shrink: 0; }
-.tl-title { font-size: 0.9rem; font-weight: 700; color: #0f172a !important; letter-spacing: -.02em; margin-bottom: 2px; }
-.tl-company { font-size: 0.76rem; font-weight: 600; color: #2563eb !important; -webkit-text-fill-color: #2563eb !important; margin-bottom: 5px; }
-.tl-period { display: inline-flex; font-size: 0.62rem; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; color: #64748b !important; -webkit-text-fill-color: #64748b !important; background: #f1f5f9; border: 1px solid rgba(0,0,0,0.07); border-radius: 100px; padding: 2px 10px; margin-bottom: 7px; }
-.tl-desc { font-size: 0.78rem; line-height: 1.7; color: #475569 !important; }
-
-/* achievement grid */
-.ach-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
-@media(max-width:600px){ .ach-grid { grid-template-columns: 1fr; } }
-.ach-card {
-  background: #f8fafc; border: 1px solid rgba(0,0,0,0.07); border-radius: 13px;
-  padding: 14px 16px; position: relative; overflow: hidden; transition: all 0.22s;
-}
-.ach-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(135deg,#3b82f6,#4f46e5); opacity: 0; transition: opacity 0.22s; }
-.ach-card:hover::before { opacity: 1; }
-.ach-card:hover { border-color: rgba(37,99,235,.18); transform: translateY(-2px); }
-.ach-tag { font-size: 0.6rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #94a3b8 !important; -webkit-text-fill-color: #94a3b8 !important; margin-bottom: 4px; }
-.ach-title { font-size: 0.78rem; font-weight: 700; color: #0f172a !important; line-height: 1.4; margin-bottom: 5px; }
-.ach-desc { font-size: 0.68rem; color: #64748b !important; -webkit-text-fill-color: #64748b !important; line-height: 1.55; margin-bottom: 8px; }
-.ach-link { font-size: 0.62rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: #2563eb !important; -webkit-text-fill-color: #2563eb !important; display: inline-flex; align-items: center; gap: 4px; transition: gap 0.2s; text-decoration: none !important; }
-.ach-link:hover { gap: 8px !important; }
-
-/* education */
-.edu-row { display: flex; gap: 14px; align-items: center; }
-.edu-logo { width: 48px; height: 48px; border-radius: 12px; background: #f8fafc; border: 1px solid rgba(0,0,0,0.07); padding: 6px; flex-shrink: 0; object-fit: contain; }
-.edu-degree { font-size: 0.9rem; font-weight: 700; color: #0f172a !important; margin-bottom: 2px; }
-.edu-school { font-size: 0.76rem; font-weight: 600; color: #2563eb !important; -webkit-text-fill-color: #2563eb !important; margin-bottom: 3px; }
-.edu-sub { font-size: 0.7rem; color: #64748b !important; -webkit-text-fill-color: #64748b !important; }
-.edu-link { font-size: 0.68rem; color: #64748b !important; -webkit-text-fill-color: #64748b !important; text-decoration: none !important; }
-.edu-link:hover { color: #2563eb !important; -webkit-text-fill-color: #2563eb !important; }
-</style>
-
-<div class="col-lg-12">
-  <div class="about-wrap">
-
-    <!-- SIDEBAR -->
-    <aside>
-      <div class="section-card prof-card">
-        <a href="/">
-          <img class="prof-avatar" src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}" alt="{{ site.author }}" />
-        </a>
-        <div class="prof-name">{{ site.title }}</div>
-        <div class="prof-role">Engineering Leader · Salesforce Data Cloud</div>
-
-        <div class="prof-socials">
-          {% if site.twitter_username %}<a class="prof-social-btn" href="http://twitter.com/{{ site.twitter_username }}"><i class="fab fa-twitter"></i></a>{% endif %}
-          {% if site.linkedin_username %}<a class="prof-social-btn" href="http://linkedin.com/in/{{ site.linkedin_username }}"><i class="fab fa-linkedin-in"></i></a>{% endif %}
-          {% if site.github_username %}<a class="prof-social-btn" href="http://github.com/{{ site.github_username }}"><i class="fab fa-github"></i></a>{% endif %}
-          {% if site.facebook_username %}<a class="prof-social-btn" href="http://facebook.com/{{ site.facebook_username }}"><i class="fab fa-facebook-f"></i></a>{% endif %}
-          {% if site.adplist_username %}<a class="prof-social-btn" href="https://adplist.org/mentors/{{ site.adplist_username }}"><i class="fas fa-chalkboard-teacher"></i></a>{% endif %}
-        </div>
-
-        <div class="prof-meta">
-          {% if site.author_location %}<div><i class="fas fa-map-marker-alt"></i>{{ site.author_location }}</div>{% endif %}
-          {% if site.author_email %}<div><i class="fas fa-envelope"></i><a href="mailto:{{ site.author_email }}">{{ site.author_email }}</a></div>{% endif %}
-          {% if site.author_website_url %}<div><i class="fas fa-link"></i><a href="{{ site.author_website_url }}">koushikganeeb.com</a></div>{% endif %}
-        </div>
-      </div>
-
-      <div class="section-card">
-        <span class="section-label">Technical Skills</span>
-        {%- include author_skills.html -%}
-      </div>
-    </aside>
-
-    <!-- MAIN -->
-    <main>
-      {% if site.author_bio %}
-      <div class="section-card">
-        <span class="section-label">About</span>
-        <p style="font-size:0.84rem;line-height:1.82;color:#475569">{{ site.author_bio }}</p>
-      </div>
-      {% endif %}
-
-      {% if site.show_author_project_details == true %}
-      <div class="section-card">
-        <span class="section-label">Fellowships &amp; Community Leadership</span>
-        <div class="ach-grid">
-          {% for project in site.author_project_details %}{% if project.visibility == true %}
-          <div class="ach-card">
-            <div class="ach-tag">Achievement</div>
-            <div class="ach-title">{{ project.project_title }}</div>
-            <div class="ach-desc">{{ project.project_description }}</div>
-            {% if project.project_url %}<a class="ach-link" href="{{ project.project_url }}">Learn more <i class="fas fa-arrow-right" style="font-size:9px"></i></a>{% endif %}
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <!-- Profile Card -->
+        <div class="sidebar-card reveal">
+          <div class="profile-avatar">
+            <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}" alt="{{ site.author }}"
+                 onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:1.3rem\'>KG</div>'"/>
           </div>
-          {% endif %}{% endfor %}
+          <div class="profile-name">{{ site.author }}</div>
+          <div class="profile-role">Engineering Leader &middot; Salesforce Data Cloud</div>
+          <div class="social-row">
+            {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" class="social-icon-btn" title="Twitter"><i class="fa-brands fa-twitter"></i></a>{% endif %}
+            {% if site.linkedin_username %}<a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="social-icon-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>{% endif %}
+            {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
+            {% if site.adplist_username %}<a href="https://adplist.org/mentors/{{ site.adplist_username }}" target="_blank" class="social-icon-btn" title="ADPList"><i class="fa-solid fa-chalkboard-teacher"></i></a>{% endif %}
+            <a href="https://www.researchgate.net/profile/Koushik-Kumar-Ganeeb" target="_blank" class="social-icon-btn" title="ResearchGate"><i class="fa-solid fa-flask"></i></a>
+          </div>
+          <ul class="profile-meta">
+            {% if site.author_location %}<li><i class="fa-solid fa-location-dot"></i> {{ site.author_location }}</li>{% endif %}
+            {% if site.author_email %}<li><i class="fa-solid fa-envelope"></i> {{ site.author_email }}</li>{% endif %}
+            {% if site.author_website_url %}<li><i class="fa-solid fa-link"></i> koushikganeeb.com</li>{% endif %}
+          </ul>
         </div>
-      </div>
-      {% endif %}
 
-      {% if site.show_author_work_experiences == true %}
-      <div class="section-card">
-        <span class="section-label">Professional Experience</span>
-        <div class="tl">
-          {% for exp in site.author_work_experiences %}{% if exp.visibility == true %}
-          <div class="tl-row">
-            <img class="tl-logo" src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ exp.company_logo }}" alt="{{ exp.company_name }}" />
-            <div>
-              <div class="tl-title">{{ exp.designation }}</div>
-              <div class="tl-company">{{ exp.company_name }}</div>
-              <div class="tl-period">{{ exp.experience }}</div>
-              <div class="tl-desc">{{ exp.description }}</div>
+        <!-- Currently Card -->
+        <div class="sidebar-card reveal">
+          <div class="sidebar-card-title">Currently</div>
+          <div class="currently-item"><span class="currently-emoji">🏗️</span> Working at Salesforce Data Cloud</div>
+          <div class="currently-item"><span class="currently-emoji">🎓</span> Mentoring on ADPList</div>
+          <div class="currently-item"><span class="currently-emoji">🤖</span> Organizing AI Collective Columbia</div>
+          <div class="currently-item"><span class="currently-emoji">📝</span> Writing about distributed systems</div>
+        </div>
+
+        <!-- Skills Card -->
+        <div class="sidebar-card reveal">
+          <div class="sidebar-card-title">Technical Skills</div>
+          <div class="skills-group">
+            <div class="skills-group-label">Leadership</div>
+            <div class="skills-chips">
+              <span class="chip chip-blue">Project Management</span>
+              <span class="chip chip-blue">Team Leadership</span>
+              <span class="chip chip-blue">Agile/Scrum</span>
             </div>
           </div>
-          {% endif %}{% endfor %}
-        </div>
-      </div>
-      {% endif %}
-
-      {% if site.show_author_education_details == true %}
-      <div class="section-card">
-        <span class="section-label">Education</span>
-        {% for detail in site.author_education_details %}{% if detail.visibility == true %}
-        <div class="edu-row">
-          <img class="edu-logo" src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ detail.college_logo }}" alt="{{ detail.college_name }}" />
-          <div>
-            <div class="edu-degree">{{ detail.college_degree }}</div>
-            <div class="edu-school">{{ detail.college_name }}</div>
-            <div class="edu-sub">{{ detail.description }}</div>
-            <a class="edu-link" href="{{ detail.college_url }}">{{ detail.college_url }}</a>
+          <div class="skills-group">
+            <div class="skills-group-label">Languages</div>
+            <div class="skills-chips">
+              <span class="chip chip-purple">C#/ASP.NET Core</span>
+              <span class="chip chip-purple">Java</span>
+              <span class="chip chip-purple">Terraform</span>
+              <span class="chip chip-purple">Node.js</span>
+              <span class="chip chip-purple">JavaScript</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <div class="skills-group-label">Cloud</div>
+            <div class="skills-chips">
+              <span class="chip chip-cyan">AWS</span>
+              <span class="chip chip-cyan">Azure</span>
+              <span class="chip chip-cyan">Oracle Cloud</span>
+              <span class="chip chip-cyan">HashiCorp Vault</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <div class="skills-group-label">Databases</div>
+            <div class="skills-chips">
+              <span class="chip chip-green">SQL Server</span>
+              <span class="chip chip-green">PostgreSQL</span>
+              <span class="chip chip-green">Trino</span>
+              <span class="chip chip-green">Oracle</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <div class="skills-group-label">DevOps</div>
+            <div class="skills-chips">
+              <span class="chip chip-orange">Docker</span>
+              <span class="chip chip-orange">Kubernetes</span>
+              <span class="chip chip-orange">Spinnaker</span>
+              <span class="chip chip-orange">Jenkins</span>
+            </div>
           </div>
         </div>
-        {% endif %}{% endfor %}
-      </div>
-      {% endif %}
-    </main>
+      </div><!-- /sidebar -->
 
+      <!-- MAIN CONTENT -->
+      <div class="main-content">
+
+        <!-- About Bio -->
+        <div class="content-card reveal">
+          <div class="card-label"><i class="fa-solid fa-user"></i> About</div>
+          <p style="color:var(--body-text);line-height:1.75;font-size:0.95rem;">
+            Koushik Kumar Ganeeb is an Engineering Leader at Salesforce Data Cloud, where he architects distributed systems and AI-powered data pipelines processing trillions of transactions daily for Fortune 100 enterprises. With over 16 years of experience spanning cloud infrastructure, data engineering, and team leadership, he brings deep technical expertise paired with a passion for mentorship and community building.
+          </p>
+          <p style="color:var(--body-text);line-height:1.75;font-size:0.95rem;margin-top:1rem;">
+            A recognized thought leader in the global technology community, Koushik holds fellowships from BCS, IETE, SCRS, SAS Society, Hackathon Raptors, and the IOASD, among others. He is a Senior Member of IEEE and serves on more than 20 technical program and review committees worldwide. He also mentors engineers globally through ADPList and organizes the AI Collective at Columbia University.
+          </p>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="content-card reveal">
+          <div class="card-label"><i class="fa-solid fa-briefcase"></i> Professional Experience</div>
+          <div class="timeline">
+            {% if site.show_author_work_experiences == true %}
+              {% for exp in site.author_work_experiences %}{% if exp.visibility == true %}
+              <div class="timeline-entry">
+                <div class="timeline-logo">
+                  <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ exp.company_logo }}" alt="{{ exp.company_name }}"
+                       onerror="this.style.display='none';this.parentElement.textContent='{{ exp.company_name | slice: 0,3 | upcase }}'"/>
+                </div>
+                <div class="timeline-body">
+                  <div class="timeline-title">{{ exp.designation }}</div>
+                  <div class="timeline-company">{{ exp.company_name }}</div>
+                  <span class="timeline-period">{{ exp.experience }}</span>
+                  <p class="timeline-desc">{{ exp.description }}</p>
+                </div>
+              </div>
+              {% endif %}{% endfor %}
+            {% else %}
+              <div class="timeline-entry">
+                <div class="timeline-logo">SF</div>
+                <div class="timeline-body">
+                  <div class="timeline-title">Engineering Leader, Data Cloud</div>
+                  <div class="timeline-company">Salesforce</div>
+                  <span class="timeline-period">May 2017 &ndash; Present</span>
+                  <p class="timeline-desc">Architecting and leading development of distributed data processing systems handling trillions of events daily for Fortune 100 customers worldwide.</p>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Fellowships -->
+        <div class="content-card reveal">
+          <div class="card-label"><i class="fa-solid fa-medal"></i> Fellowships &amp; Memberships</div>
+          <div class="achieve-grid">
+            {% if site.show_author_project_details == true %}
+              {% for project in site.author_project_details %}{% if project.visibility == true %}
+              <div class="achieve-card">
+                <div class="achieve-tag">Fellowship</div>
+                <div class="achieve-title">{{ project.project_title }}</div>
+                <div class="achieve-desc">{{ project.project_description }}</div>
+                {% if project.project_url %}<a href="{{ project.project_url }}" class="achieve-link">Learn more &rarr;</a>{% endif %}
+              </div>
+              {% endif %}{% endfor %}
+            {% else %}
+              <div class="achieve-card">
+                <div class="achieve-tag">Fellowship</div>
+                <div class="achieve-title">Fellow BCS</div>
+                <div class="achieve-desc">British Computer Society — recognized for significant contributions to computing.</div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-tag">Fellowship</div>
+                <div class="achieve-title">Fellow IETE</div>
+                <div class="achieve-desc">Institution of Electronics &amp; Telecommunication Engineers, India.</div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-tag">Fellowship</div>
+                <div class="achieve-title">Fellow SCRS</div>
+                <div class="achieve-desc">Society of Clinical Research &amp; Sciences — cross-disciplinary excellence.</div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-tag">Fellowship</div>
+                <div class="achieve-title">Fellow SAS Society</div>
+                <div class="achieve-desc">Society of Applied Sciences — contributions to applied technical research.</div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-tag">Membership</div>
+                <div class="achieve-title">Senior IEEE Member</div>
+                <div class="achieve-desc">Senior membership in the world's largest technical professional organization.</div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-tag">Fellowship</div>
+                <div class="achieve-title">Royal Fellow IOASD</div>
+                <div class="achieve-desc">International Organization for Academic and Scientific Development.</div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-tag">Ambassador</div>
+                <div class="achieve-title">Gartner Peer Community Ambassador</div>
+                <div class="achieve-desc">Recognized industry voice in Gartner&rsquo;s technology community network.</div>
+              </div>
+              <div class="achieve-card">
+                <div class="achieve-tag">Organizer</div>
+                <div class="achieve-title">AI Collective Organizer Columbia</div>
+                <div class="achieve-desc">Organizing AI/ML practitioner community at Columbia University, NYC.</div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Research & Publications -->
+        <div class="content-card reveal">
+          <div class="card-label"><i class="fa-solid fa-book-open"></i> Research &amp; Publications</div>
+          <div class="pub-profiles">
+            <a href="https://scholar.google.com/citations?user=YGzTdWkAAAAJ&hl=en" target="_blank" rel="noopener" class="pub-profile-btn">
+              <i class="fa-brands fa-google"></i> Google Scholar
+            </a>
+            <a href="https://www.researchgate.net/profile/Koushik-Kumar-Ganeeb" target="_blank" rel="noopener" class="pub-profile-btn">
+              <i class="fa-solid fa-flask"></i> ResearchGate
+            </a>
+          </div>
+          <div class="pub-stats">
+            <div class="pub-stat"><div class="pub-stat-val">20+</div><div class="pub-stat-label">Publications</div></div>
+            <div class="pub-stat"><div class="pub-stat-val">20+</div><div class="pub-stat-label">Papers Reviewed</div></div>
+            <div class="pub-stat"><div class="pub-stat-val">10+</div><div class="pub-stat-label">Conf. Proceedings</div></div>
+          </div>
+          <div class="pub-list">
+            <div class="pub-item">
+              <span class="pub-year">2023</span>
+              <div>
+                <div class="pub-title">Change Data Capture Techniques in Distributed Systems</div>
+                <div class="pub-venue">IEEE International Conference on Data Engineering</div>
+              </div>
+            </div>
+            <div class="pub-item">
+              <span class="pub-year">2023</span>
+              <div>
+                <div class="pub-title">Data Movement and Processing Practices at Scale</div>
+                <div class="pub-venue">ACM SIGMOD Conference on Data Management</div>
+              </div>
+            </div>
+            <div class="pub-item">
+              <span class="pub-year">2023</span>
+              <div>
+                <div class="pub-title">Scalable AI Pipeline Architectures for Real-Time Analytics</div>
+                <div class="pub-venue">IEEE Cloud Computing Conference</div>
+              </div>
+            </div>
+          </div>
+          <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+            <a href="https://scholar.google.com/citations?user=YGzTdWkAAAAJ&hl=en" target="_blank" class="blog-card-link">View Google Scholar <i class="fa-solid fa-arrow-right"></i></a>
+            <a href="https://www.researchgate.net/profile/Koushik-Kumar-Ganeeb" target="_blank" class="blog-card-link">View ResearchGate <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <!-- Education -->
+        <div class="content-card reveal">
+          <div class="card-label"><i class="fa-solid fa-graduation-cap"></i> Education</div>
+          {% if site.show_author_education_details == true %}
+            {% for detail in site.author_education_details %}{% if detail.visibility == true %}
+            <div class="edu-card">
+              <div class="edu-logo">
+                <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ detail.college_logo }}" alt="{{ detail.college_name }}"
+                     onerror="this.style.display='none';this.parentElement.textContent='{{ detail.college_name | slice: 0,4 | upcase }}'"/>
+              </div>
+              <div>
+                <div class="edu-degree">{{ detail.college_degree }}</div>
+                <div class="edu-school">{{ detail.college_name }}</div>
+                <div class="edu-loc">{{ detail.description }}</div>
+              </div>
+            </div>
+            {% endif %}{% endfor %}
+          {% else %}
+            <div class="edu-card">
+              <div class="edu-logo">CBIT</div>
+              <div>
+                <div class="edu-degree">B.E. Information Technology</div>
+                <div class="edu-school">Chaitanya Bharathi Institute of Technology</div>
+                <div class="edu-loc">Hyderabad, India</div>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+
+      </div><!-- /main-content -->
+    </div><!-- /two-col -->
   </div>
-</div>
+</section>

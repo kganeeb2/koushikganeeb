@@ -1,18 +1,56 @@
 ---
-layout: default
+layout: clean
 ---
+<div class="page-hero-strip">
+  <div class="page-hero-inner">
+    <h1 class="page-hero-title">Get In Touch</h1>
+    <p class="page-hero-sub">Whether you want to collaborate, discuss technology, or book a mentoring session</p>
+  </div>
 </div>
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        <div class="col-10 m10">
-            <div class="card">
-                <h1 class="card-title"> Contact us </h1>
-                <!-- Replace with contact-getform or contact-formspree -->
-                    {%- include contact-getform.html -%}
-            </div>
-        </div>
+
+<div class="contact-layout">
+  <!-- Contact info -->
+  <div class="contact-info-cards">
+    <div class="contact-card reveal">
+      <div class="contact-icon"><i class="fa-solid fa-location-dot"></i></div>
+      <div>
+        <div class="contact-label">Location</div>
+        <div class="contact-value">Charlotte, United States</div>
+      </div>
     </div>
+    <div class="contact-card reveal">
+      <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+      <div>
+        <div class="contact-label">Email</div>
+        <div class="contact-value"><a href="mailto:{{ site.author_email }}">{{ site.author_email }}</a></div>
+      </div>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-icon"><i class="fa-solid fa-globe"></i></div>
+      <div>
+        <div class="contact-label">Website</div>
+        <div class="contact-value"><a href="https://koushikganeeb.com" target="_blank">koushikganeeb.com</a></div>
+      </div>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+      <div>
+        <div class="contact-label">LinkedIn</div>
+        <div class="contact-value"><a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank">linkedin.com/in/{{ site.linkedin_username }}</a></div>
+      </div>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-icon"><i class="fa-solid fa-chalkboard-teacher"></i></div>
+      <div>
+        <div class="contact-label">ADPList</div>
+        <div class="contact-value"><a href="https://adplist.org/mentors/{{ site.adplist_username }}" target="_blank">Book a mentoring session</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact form -->
+  <div class="contact-form-card reveal">
+    <div class="form-title">Send a Message</div>
+    {%- include contact-getform.html -%}
+  </div>
 </div>
-
-
-

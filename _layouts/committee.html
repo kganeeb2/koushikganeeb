@@ -1,100 +1,195 @@
 ---
 layout: clean
 ---
-<style>
-.committee-wrap { display: grid; grid-template-columns: 280px 1fr; gap: 22px; padding: 32px 0 60px; }
-@media(max-width:860px){ .committee-wrap{ grid-template-columns: 1fr; } }
-
-.comm-section-card {
-  background: #fff; border: 1px solid rgba(0,0,0,0.07); border-radius: 18px;
-  padding: 26px; margin-bottom: 20px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05); transition: all 0.25s;
-}
-.comm-section-card:hover { border-color: rgba(37,99,235,.16); box-shadow: 0 8px 32px rgba(37,99,235,.08); transform: translateY(-2px); }
-
-.comm-section-label {
-  font-size: 0.65rem; font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
-  background: linear-gradient(135deg, #3b82f6, #4f46e5);
-  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
-  border-bottom: 1px solid rgba(0,0,0,0.07); padding-bottom: 10px; margin-bottom: 18px;
-  display: block;
-}
-
-/* sidebar same as about */
-.comm-prof-card { text-align: center; }
-.comm-prof-avatar { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 12px; outline: 2px solid #2563eb; outline-offset: 3px; box-shadow: 0 4px 20px rgba(37,99,235,.15); }
-.comm-prof-name { font-size: 1rem; font-weight: 700; color: #0f172a !important; letter-spacing: -.03em; margin-bottom: 4px; }
-.comm-prof-role { font-size: 0.65rem; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: #2563eb !important; -webkit-text-fill-color: #2563eb !important; margin-bottom: 14px; }
-.comm-socials { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; margin-bottom: 14px; }
-.comm-social-btn { width: 34px; height: 34px; display: inline-flex; align-items: center; justify-content: center; border-radius: 9px; background: #f1f5f9; border: 1px solid rgba(0,0,0,0.07); color: #64748b !important; -webkit-text-fill-color: #64748b !important; font-size: 13px; transition: all 0.2s; text-decoration: none !important; }
-.comm-social-btn:hover { background: #2563eb !important; border-color: #2563eb !important; color: #fff !important; -webkit-text-fill-color: #fff !important; transform: translateY(-2px); }
-.comm-meta { font-size: 0.72rem; color: #64748b !important; -webkit-text-fill-color: #64748b !important; line-height: 2.1; }
-.comm-meta i { color: #2563eb !important; margin-right: 5px; }
-.comm-meta a { color: #64748b !important; -webkit-text-fill-color: #64748b !important; text-decoration: none !important; }
-
-/* committee items */
-.comm-item {
-  display: flex; align-items: flex-start; gap: 14px;
-  background: #f8fafc; border: 1px solid rgba(0,0,0,0.07);
-  border-left: 3px solid #3b82f6; border-radius: 9px;
-  padding: 14px 16px; margin-bottom: 10px; transition: all 0.22s;
-}
-.comm-item:hover { background: rgba(37,99,235,.03); border-left-color: #4f46e5; }
-.comm-item:last-child { margin-bottom: 0; }
-.comm-item-icon { font-size: 1rem; flex-shrink: 0; margin-top: 1px; }
-.comm-item-name { font-size: 0.82rem; font-weight: 700; color: #0f172a !important; line-height: 1.4; margin-bottom: 3px; }
-.comm-item-desc { font-size: 0.72rem; color: #64748b !important; -webkit-text-fill-color: #64748b !important; line-height: 1.55; }
-
-.comm-intro { font-size: 0.84rem; line-height: 1.8; color: #475569 !important; margin-bottom: 18px; }
-</style>
-
-<div class="col-lg-12">
-  <div class="committee-wrap">
-
-    <!-- SIDEBAR -->
-    <aside>
-      <div class="comm-section-card comm-prof-card">
-        <a href="/"><img class="comm-prof-avatar" src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}" alt="{{ site.author }}" /></a>
-        <div class="comm-prof-name">{{ site.title }}</div>
-        <div class="comm-prof-role">Engineering Leader · Salesforce Data Cloud</div>
-        <div class="comm-socials">
-          {% if site.twitter_username %}<a class="comm-social-btn" href="http://twitter.com/{{ site.twitter_username }}"><i class="fab fa-twitter"></i></a>{% endif %}
-          {% if site.linkedin_username %}<a class="comm-social-btn" href="http://linkedin.com/in/{{ site.linkedin_username }}"><i class="fab fa-linkedin-in"></i></a>{% endif %}
-          {% if site.github_username %}<a class="comm-social-btn" href="http://github.com/{{ site.github_username }}"><i class="fab fa-github"></i></a>{% endif %}
-          {% if site.facebook_username %}<a class="comm-social-btn" href="http://facebook.com/{{ site.facebook_username }}"><i class="fab fa-facebook-f"></i></a>{% endif %}
-          {% if site.adplist_username %}<a class="comm-social-btn" href="https://adplist.org/mentors/{{ site.adplist_username }}"><i class="fas fa-chalkboard-teacher"></i></a>{% endif %}
-        </div>
-        <div class="comm-meta">
-          {% if site.author_location %}<div><i class="fas fa-map-marker-alt"></i>{{ site.author_location }}</div>{% endif %}
-          {% if site.author_email %}<div><i class="fas fa-envelope"></i><a href="mailto:{{ site.author_email }}">{{ site.author_email }}</a></div>{% endif %}
-        </div>
-      </div>
-
-      <div class="comm-section-card">
-        <span class="comm-section-label">Technical Skills</span>
-        {%- include author_skills.html -%}
-      </div>
-    </aside>
-
-    <!-- MAIN -->
-    <main>
-      <div class="comm-section-card">
-        <span class="comm-section-label">Committees &amp; Review Roles</span>
-        <p class="comm-intro">{{ site.author_biocommittee }}</p>
-
-        {% if site.show_author_committee_details == true %}
-          {% for project in site.committee_details %}{% if project.visibility == true %}
-          <div class="comm-item">
-            <span class="comm-item-icon">🔬</span>
-            <div>
-              <div class="comm-item-name">{{ project.project_title }}</div>
-              <div class="comm-item-desc">{{ project.project_description }}</div>
-            </div>
-          </div>
-          {% endif %}{% endfor %}
-        {% endif %}
-      </div>
-    </main>
-
+<div class="page-hero-strip">
+  <div class="page-hero-inner">
+    <h1 class="page-hero-title">Committees &amp; Review Roles</h1>
+    <p class="page-hero-sub">IEEE technical committees, program committees, and peer review contributions</p>
   </div>
 </div>
+
+<section class="section">
+  <div class="section-inner">
+    <div class="two-col">
+
+      <!-- SIDEBAR -->
+      <div class="sidebar">
+        <div class="sidebar-card reveal">
+          <div class="profile-avatar">
+            <img src="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}" alt="{{ site.author }}"
+                 onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:100%;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:1.3rem\'>KG</div>'"/>
+          </div>
+          <div class="profile-name">{{ site.author }}</div>
+          <div class="profile-role">Engineering Leader &middot; Salesforce Data Cloud</div>
+          <div class="social-row">
+            {% if site.twitter_username %}<a href="https://twitter.com/{{ site.twitter_username }}" target="_blank" class="social-icon-btn" title="Twitter"><i class="fa-brands fa-twitter"></i></a>{% endif %}
+            {% if site.linkedin_username %}<a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" class="social-icon-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>{% endif %}
+            {% if site.github_username %}<a href="https://github.com/{{ site.github_username }}" target="_blank" class="social-icon-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>{% endif %}
+            {% if site.adplist_username %}<a href="https://adplist.org/mentors/{{ site.adplist_username }}" target="_blank" class="social-icon-btn" title="ADPList"><i class="fa-solid fa-chalkboard-teacher"></i></a>{% endif %}
+          </div>
+          <ul class="profile-meta">
+            {% if site.author_location %}<li><i class="fa-solid fa-location-dot"></i> {{ site.author_location }}</li>{% endif %}
+            {% if site.author_email %}<li><i class="fa-solid fa-envelope"></i> {{ site.author_email }}</li>{% endif %}
+            {% if site.author_website_url %}<li><i class="fa-solid fa-link"></i> koushikganeeb.com</li>{% endif %}
+          </ul>
+        </div>
+
+        <div class="sidebar-card reveal">
+          <div class="sidebar-card-title">Technical Skills</div>
+          <div class="skills-group">
+            <div class="skills-group-label">Leadership</div>
+            <div class="skills-chips">
+              <span class="chip chip-blue">Project Management</span>
+              <span class="chip chip-blue">Team Leadership</span>
+              <span class="chip chip-blue">Agile/Scrum</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <div class="skills-group-label">Languages</div>
+            <div class="skills-chips">
+              <span class="chip chip-purple">C#/ASP.NET Core</span>
+              <span class="chip chip-purple">Java</span>
+              <span class="chip chip-purple">Terraform</span>
+              <span class="chip chip-purple">Node.js</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <div class="skills-group-label">Cloud</div>
+            <div class="skills-chips">
+              <span class="chip chip-cyan">AWS</span>
+              <span class="chip chip-cyan">Azure</span>
+              <span class="chip chip-cyan">Oracle Cloud</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <div class="skills-group-label">Databases</div>
+            <div class="skills-chips">
+              <span class="chip chip-green">SQL Server</span>
+              <span class="chip chip-green">PostgreSQL</span>
+              <span class="chip chip-green">Trino</span>
+            </div>
+          </div>
+          <div class="skills-group">
+            <div class="skills-group-label">DevOps</div>
+            <div class="skills-chips">
+              <span class="chip chip-orange">Docker</span>
+              <span class="chip chip-orange">Kubernetes</span>
+              <span class="chip chip-orange">Jenkins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAIN CONTENT -->
+      <div class="main-content">
+        <div class="content-card reveal">
+          <div class="card-label"><i class="fa-solid fa-users-gear"></i> Committee Roles</div>
+          <p style="color:var(--body-text);font-size:0.95rem;line-height:1.7;margin-bottom:1.5rem;">
+            As a Senior IEEE Member and recognized technical leader, Koushik serves on numerous IEEE technical committees, conference program committees, and journal review boards. His committee work spans data engineering, security &amp; privacy, cloud computing, and AI systems, contributing to the advancement of industry standards and academic research.
+          </p>
+          <div class="committee-list">
+            {% if site.show_author_committee_details == true %}
+              {% for project in site.committee_details %}{% if project.visibility == true %}
+              <div class="committee-item">
+                <span class="committee-item-icon">🔬</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">{{ project.project_title }}</div>
+                  <div class="committee-item-sub">{{ project.project_description }}</div>
+                </div>
+              </div>
+              {% endif %}{% endfor %}
+            {% else %}
+              <div class="committee-item">
+                <span class="committee-item-icon">🔒</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">IEEE TCSP — Technical Committee on Security &amp; Privacy</div>
+                  <div class="committee-item-sub">Active member of IEEE TC on Security and Privacy in computing systems.</div>
+                </div>
+              </div>
+              <div class="committee-item">
+                <span class="committee-item-icon">📊</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">IEEE TCDE — Technical Committee on Data Engineering</div>
+                  <div class="committee-item-sub">Contributing to data engineering research standards and publications.</div>
+                </div>
+              </div>
+              <div class="committee-item">
+                <span class="committee-item-icon">☁️</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">IEEE TCCLD — Technical Committee on Cloud Computing</div>
+                  <div class="committee-item-sub">Active member focusing on cloud infrastructure and distributed systems.</div>
+                </div>
+              </div>
+              <div class="committee-item">
+                <span class="committee-item-icon">🖥️</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">TPC Member — IEEE CITS 2024</div>
+                  <div class="committee-item-sub">Technical Program Committee, International Conference on Computer, Information &amp; Telecommunication Systems.</div>
+                </div>
+              </div>
+              <div class="committee-item">
+                <span class="committee-item-icon">📝</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">Editorial Board IJIIT / Reviewer IJCRT</div>
+                  <div class="committee-item-sub">Editorial and peer review roles at international journals.</div>
+                </div>
+              </div>
+              <div class="committee-item">
+                <span class="committee-item-icon">📡</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">TPC Member — IEEE BSN / ANTS / ICoDSA / SCIS / MASS</div>
+                  <div class="committee-item-sub">Multi-conference technical program committee member across networking and systems conferences.</div>
+                </div>
+              </div>
+              <div class="committee-item">
+                <span class="committee-item-icon">🤖</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">TPC Member — IEEE ICAISET 2026</div>
+                  <div class="committee-item-sub">International Conference on Artificial Intelligence, Software Engineering &amp; Technology.</div>
+                </div>
+              </div>
+              <div class="committee-item">
+                <span class="committee-item-icon">💾</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">TPC Member — IEEE McSOC</div>
+                  <div class="committee-item-sub">Multicore SoC design and embedded systems conference program committee.</div>
+                </div>
+              </div>
+              <div class="committee-item">
+                <span class="committee-item-icon">🔬</span>
+                <div class="committee-item-body">
+                  <div class="committee-item-title">IEEE Reviewer — 20+ Conferences</div>
+                  <div class="committee-item-sub">Peer reviewer for over 20 IEEE-sponsored international conferences and workshops.</div>
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </div>
+
+        <!-- Conference table -->
+        <div class="content-card reveal">
+          <div class="card-label"><i class="fa-solid fa-calendar-check"></i> Conference Program Committee</div>
+          <table class="conf-table">
+            <thead>
+              <tr>
+                <th>Conference</th>
+                <th>Year</th>
+                <th>Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>IEEE ICAISET</td><td>2026</td><td><span class="role-pill">TPC Member</span></td></tr>
+              <tr><td>IEEE McSOC</td><td>Ongoing</td><td><span class="role-pill">TPC Member</span></td></tr>
+              <tr><td>IEEE CITS</td><td>2024</td><td><span class="role-pill">TPC Member</span></td></tr>
+              <tr><td>IEEE BSN</td><td>Ongoing</td><td><span class="role-pill">TPC Member</span></td></tr>
+              <tr><td>IEEE ANTS</td><td>Ongoing</td><td><span class="role-pill">TPC Member</span></td></tr>
+              <tr><td>ICoDSA</td><td>Ongoing</td><td><span class="role-pill">TPC Member</span></td></tr>
+              <tr><td>IEEE MASS</td><td>2024</td><td><span class="role-pill">TPC Member</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- /two-col -->
+  </div>
+</section>
