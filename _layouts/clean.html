@@ -1005,6 +1005,36 @@ textarea.form-input{min-height:120px;resize:vertical;}
   }, {threshold: 0.08, rootMargin: '0px 0px -40px 0px'});
   revealEls.forEach(function(el){ io.observe(el); });
 
+  // Animated counters — fire once when stats scroll into view
+  var counterEls = document.querySelectorAll('.counter');
+  if (counterEls.length) {
+    var counterDone = false;
+    var counterIO = new IntersectionObserver(function(entries) {
+      if (counterDone) return;
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          counterDone = true;
+          counterIO.disconnect();
+          counterEls.forEach(function(el) {
+            var end = parseInt(el.dataset.target, 10);
+            var suffix = el.dataset.suffix || '';
+            var duration = 1200;
+            var startTime = null;
+            function step(ts) {
+              if (!startTime) startTime = ts;
+              var progress = Math.min((ts - startTime) / duration, 1);
+              var eased = 1 - Math.pow(1 - progress, 3);
+              el.textContent = Math.floor(eased * end) + (progress >= 1 ? suffix : '');
+              if (progress < 1) requestAnimationFrame(step);
+            }
+            requestAnimationFrame(step);
+          });
+        }
+      });
+    }, {threshold: 0.5});
+    counterIO.observe(counterEls[0].closest('.hero-stats'));
+  }
+
   // Theme switcher
   var themeDots = document.querySelectorAll('.theme-dot');
   themeDots.forEach(function(dot) {
