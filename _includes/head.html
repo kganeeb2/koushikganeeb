@@ -41,6 +41,8 @@
   <meta content="{{ site.url }}/about/" property="article:author" />
   {% endif %} {% if page.thumbnail %}
   <meta content="{{ site.url }}{{ page.thumbnail }}" property="og:image" />
+  {% else %}
+  <meta content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}" property="og:image" />
   {% endif %} {% if page.categories %} {% for category in page.categories
   limit:1 %}
   <meta content="{{ category }}" property="article:section" />
@@ -65,12 +67,8 @@
   <meta name="twitter:description" content="{{ page.summary }}" />
   {% else %}
   <meta name="twitter:description" content="{{ site.description }}" />
-  {% endif %} {% if page.header-img %}
-  <meta
-    name="twitter:image:src"
-    content="{{ site.url }}{{ page.thumbnail }}"
-  />
   {% endif %}
+  <meta name="twitter:image:src" content="{% if page.thumbnail %}{{ site.url }}{{ page.thumbnail }}{% else %}{{ site.url }}{{ site.baseurl }}/assets/img/{{ site.author_logo }}{% endif %}" />
 
   <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/css/main.css" />
   <!-- <link rel="stylesheet" href="{{site.url}}{{site.baseurl}}/assets/css/custom-style.css" /> -->
