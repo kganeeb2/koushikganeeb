@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" style="max-width:100%;display:block;">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#475569"/>
+    </marker>
+    <marker id="arr-blue" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#3b82f6"/>
+    </marker>
+    <marker id="arr-gold" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#f59e0b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="420" fill="#0f172a" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="800" height="40" fill="#1e293b" rx="12"/>
+  <rect x="0" y="26" width="800" height="14" fill="#1e293b"/>
+  <text x="400" y="26" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" letter-spacing="0.3">Change Data Capture Architecture — Log-Based CDC with Debezium and Kafka</text>
+
+  <!-- ── Source DB ── -->
+  <text x="22" y="60" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">SOURCE DATABASE</text>
+  <rect x="14" y="68" width="148" height="130" rx="8" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="88" y="90" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#93c5fd">PostgreSQL</text>
+  <text x="88" y="106" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Logical replication slot</text>
+
+  <rect x="24" y="114" width="128" height="22" rx="4" fill="#0f172a" stroke="#3b82f6" stroke-width="0.8"/>
+  <text x="88" y="129" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#93c5fd">orders (INSERT)</text>
+  <rect x="24" y="140" width="128" height="22" rx="4" fill="#0f172a" stroke="#3b82f6" stroke-width="0.8"/>
+  <text x="88" y="155" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#93c5fd">customers (UPDATE)</text>
+  <rect x="24" y="166" width="128" height="22" rx="4" fill="#0f172a" stroke="#3b82f6" stroke-width="0.8"/>
+  <text x="88" y="181" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#93c5fd">products (DELETE)</text>
+
+  <text x="88" y="207" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#475569">WAL / transaction log</text>
+
+  <!-- Arrow: DB → Debezium -->
+  <line x1="162" y1="133" x2="194" y2="133" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+  <text x="178" y="128" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7" fill="#64748b">WAL</text>
+
+  <!-- ── Debezium ── -->
+  <text x="200" y="60" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">CDC AGENT</text>
+  <rect x="194" y="68" width="120" height="130" rx="8" fill="#3d0a0a" stroke="#ef4444" stroke-width="1.5"/>
+  <text x="254" y="90" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fca5a5">Debezium</text>
+  <text x="254" y="106" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Kafka Connect source</text>
+
+  <rect x="204" y="114" width="100" height="20" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="254" y="128" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fca5a5">Read WAL offset</text>
+  <rect x="204" y="138" width="100" height="20" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="254" y="152" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fca5a5">Decode row changes</text>
+  <rect x="204" y="162" width="100" height="20" rx="4" fill="#0f172a" stroke="#ef4444" stroke-width="0.8"/>
+  <text x="254" y="176" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fca5a5">Emit Avro events</text>
+
+  <text x="254" y="207" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#475569">before / after image</text>
+
+  <!-- Arrow: Debezium → Kafka -->
+  <line x1="314" y1="133" x2="346" y2="133" stroke="#f59e0b" stroke-width="1.5" marker-end="url(#arr-gold)"/>
+  <text x="330" y="128" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7" fill="#64748b">events</text>
+
+  <!-- ── Kafka ── -->
+  <text x="352" y="60" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">MESSAGE BUS</text>
+  <rect x="346" y="68" width="130" height="130" rx="8" fill="#3d2200" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="411" y="90" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fcd34d">Apache Kafka</text>
+  <text x="411" y="106" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Schema Registry (Avro)</text>
+
+  <rect x="356" y="114" width="110" height="18" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="411" y="127" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fcd34d">topic: db.orders</text>
+  <rect x="356" y="136" width="110" height="18" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="411" y="149" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fcd34d">topic: db.customers</text>
+  <rect x="356" y="158" width="110" height="18" rx="4" fill="#0f172a" stroke="#f59e0b" stroke-width="0.8"/>
+  <text x="411" y="171" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#fcd34d">topic: db.products</text>
+
+  <text x="411" y="207" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#475569">durable, replayable log</text>
+
+  <!-- Arrow: Kafka → Stream Processor -->
+  <line x1="476" y1="133" x2="506" y2="133" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── Stream Processor ── -->
+  <text x="512" y="60" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">STREAM PROCESSOR</text>
+  <rect x="506" y="68" width="120" height="130" rx="8" fill="#2d1a5e" stroke="#a855f7" stroke-width="1.5"/>
+  <text x="566" y="90" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#d8b4fe">Apache Flink</text>
+  <text x="566" y="106" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Kafka Streams · Spark</text>
+
+  <rect x="516" y="114" width="100" height="20" rx="4" fill="#0f172a" stroke="#a855f7" stroke-width="0.8"/>
+  <text x="566" y="128" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#d8b4fe">Filter / route</text>
+  <rect x="516" y="138" width="100" height="20" rx="4" fill="#0f172a" stroke="#a855f7" stroke-width="0.8"/>
+  <text x="566" y="152" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#d8b4fe">Join &amp; enrich</text>
+  <rect x="516" y="162" width="100" height="20" rx="4" fill="#0f172a" stroke="#a855f7" stroke-width="0.8"/>
+  <text x="566" y="176" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#d8b4fe">Aggregate / ML</text>
+
+  <text x="566" y="207" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#475569">stateful windowed ops</text>
+
+  <!-- Arrow: Processor → Targets -->
+  <line x1="626" y1="100" x2="650" y2="88" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="626" y1="133" x2="650" y2="133" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="626" y1="166" x2="650" y2="178" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── Targets ── -->
+  <text x="656" y="60" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">TARGETS</text>
+  <rect x="650" y="68" width="136" height="36" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+  <text x="718" y="82" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#93c5fd">Target OLTP DB</text>
+  <text x="718" y="97" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">MySQL · PostgreSQL replica</text>
+
+  <rect x="650" y="112" width="136" height="36" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="718" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#6ee7b7">Data Warehouse</text>
+  <text x="718" y="141" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Snowflake · BigQuery</text>
+
+  <rect x="650" y="156" width="136" height="36" rx="6" fill="#3d2200" stroke="#f59e0b" stroke-width="1"/>
+  <text x="718" y="170" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fcd34d">Search / Cache</text>
+  <text x="718" y="185" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Elasticsearch · Redis</text>
+
+  <!-- ── Side panel: CDC Methods ── -->
+  <rect x="14" y="228" width="772" height="148" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="400" y="248" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="1">THREE MAIN CDC TECHNIQUES</text>
+
+  <!-- Log-based -->
+  <rect x="26" y="258" width="236" height="106" rx="8" fill="#0f172a" stroke="#ef4444" stroke-width="1"/>
+  <text x="144" y="276" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fca5a5">Log-Based CDC</text>
+  <text x="144" y="293" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Reads database transaction log (WAL,</text>
+  <text x="144" y="305" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">binlog). Zero impact on source DB.</text>
+  <text x="144" y="320" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Captures all DML: INSERT · UPDATE · DELETE.</text>
+  <text x="144" y="337" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Tools: Debezium, AWS DMS, Oracle GoldenGate</text>
+  <text x="144" y="354" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#10b981">Recommended for high-throughput prod systems</text>
+
+  <!-- Trigger-based -->
+  <rect x="282" y="258" width="236" height="106" rx="8" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+  <text x="400" y="276" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#fcd34d">Trigger-Based CDC</text>
+  <text x="400" y="293" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">DB triggers on INSERT / UPDATE / DELETE</text>
+  <text x="400" y="305" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">write change rows into a shadow table.</text>
+  <text x="400" y="320" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Simple to implement. Adds write overhead.</text>
+  <text x="400" y="337" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Works on any relational DB without special</text>
+  <text x="400" y="352" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">replication features.</text>
+
+  <!-- Timestamp-based -->
+  <rect x="538" y="258" width="236" height="106" rx="8" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+  <text x="656" y="276" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#93c5fd">Timestamp-Based CDC</text>
+  <text x="656" y="293" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Polls for rows where updated_at &gt; last</text>
+  <text x="656" y="305" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">watermark. Requires indexed timestamp column.</text>
+  <text x="656" y="320" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Misses hard deletes. Suitable for append-only</text>
+  <text x="656" y="335" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">or soft-delete schemas.</text>
+  <text x="656" y="350" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748b">Tools: Fivetran HWM, custom Airflow DAGs</text>
+
+  <!-- Caption -->
+  <text x="400" y="411" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#475569">Log-based CDC is the gold standard: non-intrusive, sub-second latency, captures all change types including deletes</text>
+</svg>

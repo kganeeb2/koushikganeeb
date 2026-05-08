@@ -16,6 +16,11 @@ Data Movement techniques are essential for transferring data between various sys
 
 Here are some common data movement techniques:
 
+<figure class="post-diagram">
+  <img src="/assets/img/posts/data-movement-etl.svg" alt="ETL and data movement pipeline architecture" />
+  <figcaption>A complete data movement pipeline combining batch ETL and real-time streaming paths into unified target storage</figcaption>
+</figure>
+
 ## 1.ETL (Extract, Transform, Load):
 ■ Extract: Data is first extracted from the source system. This can involve querying databases, API calls, or file exports.
 ■ Transform: Data is transformed to fit the format and structure required by the target system. This may include data cleaning, aggregation, and conversion.

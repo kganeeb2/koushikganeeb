@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 440" style="max-width:100%;display:block;">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="440" fill="#0f172a" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="800" height="40" fill="#1e293b" rx="12"/>
+  <rect x="0" y="26" width="800" height="14" fill="#1e293b"/>
+  <text x="400" y="26" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" letter-spacing="0.3">Modern Data Ecosystem — Storage Systems and Forms</text>
+
+  <!-- Row 1 label -->
+  <text x="22" y="60" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">RELATIONAL &amp; ANALYTICAL</text>
+
+  <!-- RDBMS -->
+  <rect x="18" y="66" width="172" height="56" rx="7" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+  <text x="104" y="87" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#93c5fd">RDBMS</text>
+  <text x="104" y="103" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">PostgreSQL · MySQL · SQL Server</text>
+  <text x="104" y="116" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Structured rows &amp; columns</text>
+
+  <!-- Data Warehouse -->
+  <rect x="206" y="66" width="172" height="56" rx="7" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+  <text x="292" y="87" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#93c5fd">Data Warehouse</text>
+  <text x="292" y="103" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Snowflake · BigQuery · Redshift</text>
+  <text x="292" y="116" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">OLAP · columnar · analytics</text>
+
+  <!-- Row 1 label right -->
+  <text x="398" y="60" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">DOCUMENT &amp; KEY-VALUE</text>
+
+  <!-- NoSQL -->
+  <rect x="394" y="66" width="172" height="56" rx="7" fill="#2d1a5e" stroke="#a855f7" stroke-width="1"/>
+  <text x="480" y="87" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#d8b4fe">NoSQL Databases</text>
+  <text x="480" y="103" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">MongoDB · Cassandra · DynamoDB</text>
+  <text x="480" y="116" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">JSON · key-value · wide column</text>
+
+  <!-- Cache -->
+  <rect x="582" y="66" width="200" height="56" rx="7" fill="#2d1a5e" stroke="#a855f7" stroke-width="1"/>
+  <text x="682" y="87" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#d8b4fe">Cache / Search</text>
+  <text x="682" y="103" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Redis · Memcached · Elasticsearch</text>
+  <text x="682" y="116" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">In-memory · inverted index</text>
+
+  <!-- Row 2 label -->
+  <text x="22" y="148" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">OBJECT &amp; FILE STORAGE</text>
+
+  <!-- File Systems -->
+  <rect x="18" y="154" width="172" height="56" rx="7" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="104" y="175" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#6ee7b7">File Systems / Data Lake</text>
+  <text x="104" y="191" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">HDFS · S3 · GCS · Azure Blob</text>
+  <text x="104" y="204" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Parquet · ORC · Avro · CSV</text>
+
+  <!-- Cloud Storage -->
+  <rect x="206" y="154" width="172" height="56" rx="7" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="292" y="175" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#6ee7b7">Object / Cloud Storage</text>
+  <text x="292" y="191" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Amazon S3 · GCS · Azure Blob</text>
+  <text x="292" y="204" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Images · videos · documents</text>
+
+  <!-- Row 2 label right -->
+  <text x="398" y="148" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">BUSINESS SYSTEMS</text>
+
+  <!-- CMS -->
+  <rect x="394" y="154" width="172" height="56" rx="7" fill="#3d2200" stroke="#f59e0b" stroke-width="1"/>
+  <text x="480" y="175" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fcd34d">CMS</text>
+  <text x="480" y="191" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">WordPress · Drupal · Contentful</text>
+  <text x="480" y="204" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Articles · images · media</text>
+
+  <!-- ERP -->
+  <rect x="582" y="154" width="200" height="56" rx="7" fill="#3d2200" stroke="#f59e0b" stroke-width="1"/>
+  <text x="682" y="175" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fcd34d">ERP Systems</text>
+  <text x="682" y="191" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">SAP · Oracle EBS · MS Dynamics</text>
+  <text x="682" y="204" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Finance · HR · supply chain</text>
+
+  <!-- Row 3 label -->
+  <text x="22" y="236" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">CRM &amp; IOT</text>
+
+  <!-- CRM -->
+  <rect x="18" y="242" width="172" height="56" rx="7" fill="#3d0a0a" stroke="#ef4444" stroke-width="1"/>
+  <text x="104" y="263" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fca5a5">CRM Systems</text>
+  <text x="104" y="279" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Salesforce · HubSpot · Zoho</text>
+  <text x="104" y="292" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Contacts · interactions · sales</text>
+
+  <!-- IoT Platform -->
+  <rect x="206" y="242" width="172" height="56" rx="7" fill="#3d0a0a" stroke="#ef4444" stroke-width="1"/>
+  <text x="292" y="263" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fca5a5">IoT Platforms</text>
+  <text x="292" y="279" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">InfluxDB · Kafka · AWS IoT</text>
+  <text x="292" y="292" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Time-series · sensor streams</text>
+
+  <!-- Central Integration Hub -->
+  <rect x="394" y="230" width="388" height="80" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="394" y="230" width="388" height="28" rx="10" fill="#0f2744"/>
+  <rect x="394" y="246" width="388" height="12" fill="#0f2744"/>
+  <text x="588" y="249" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#f1f5f9">Data Integration &amp; Access Layer</text>
+  <text x="588" y="271" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">API Gateway · ETL Pipelines · CDC · Query Federation</text>
+  <text x="588" y="287" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Apache Spark · dbt · Airbyte · Fivetran · Trino</text>
+  <text x="588" y="302" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Data Catalog · Lineage · Governance (Apache Atlas · Collibra)</text>
+
+  <!-- Bottom: Data Consumers bar -->
+  <rect x="18" y="336" width="764" height="58" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <text x="400" y="356" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#94a3b8" letter-spacing="1">CONSUMERS</text>
+  <rect x="30" y="362" width="120" height="24" rx="5" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+  <text x="90" y="378" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="600" fill="#93c5fd">BI / Analytics</text>
+  <rect x="162" y="362" width="120" height="24" rx="5" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+  <text x="222" y="378" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="600" fill="#6ee7b7">ML / AI Models</text>
+  <rect x="294" y="362" width="120" height="24" rx="5" fill="#0f172a" stroke="#a855f7" stroke-width="1"/>
+  <text x="354" y="378" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="600" fill="#d8b4fe">Applications</text>
+  <rect x="426" y="362" width="120" height="24" rx="5" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+  <text x="486" y="378" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="600" fill="#fcd34d">Data Scientists</text>
+  <rect x="558" y="362" width="120" height="24" rx="5" fill="#0f172a" stroke="#ef4444" stroke-width="1"/>
+  <text x="618" y="378" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="600" fill="#fca5a5">Reporting / Dashboards</text>
+  <rect x="690" y="362" width="80" height="24" rx="5" fill="#0f172a" stroke="#64748b" stroke-width="1"/>
+  <text x="730" y="378" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" font-weight="600" fill="#94a3b8">APIs / Feeds</text>
+
+  <!-- Arrows: row1 → integration -->
+  <line x1="480" y1="210" x2="540" y2="230" stroke="#475569" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="682" y1="210" x2="660" y2="230" stroke="#475569" stroke-width="1.2" marker-end="url(#arr)"/>
+  <!-- Arrows: row3 left → integration -->
+  <line x1="190" y1="270" x2="394" y2="278" stroke="#475569" stroke-width="1.2" marker-end="url(#arr)"/>
+  <line x1="378" y1="265" x2="394" y2="265" stroke="#475569" stroke-width="1.2" marker-end="url(#arr)"/>
+  <!-- Integration → Consumers -->
+  <line x1="588" y1="310" x2="400" y2="336" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Caption -->
+  <text x="400" y="428" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#475569">Each storage paradigm is optimised for different access patterns — the integration layer federates them into a unified data fabric</text>
+</svg>

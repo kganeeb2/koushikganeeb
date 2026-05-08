@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" style="max-width:100%;display:block;">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0 0,8 3,0 6" fill="#475569"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0f172a" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="800" height="40" fill="#1e293b" rx="12"/>
+  <rect x="0" y="26" width="800" height="14" fill="#1e293b"/>
+  <text x="400" y="26" text-anchor="middle" font-family="system-ui,-apple-system,sans-serif" font-size="13" font-weight="700" fill="#f1f5f9" letter-spacing="0.3">Data Arrival Channels in Distributed Systems</text>
+
+  <!-- ── SOURCES: Interactive ── -->
+  <text x="14" y="58" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">INTERACTIVE</text>
+  <rect x="10" y="64" width="178" height="30" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+  <text x="99" y="83" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#93c5fd">Manual Entry / Web Forms</text>
+  <rect x="10" y="100" width="178" height="30" rx="6" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+  <text x="99" y="119" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#93c5fd">File Upload / FTP / SFTP</text>
+
+  <!-- ── SOURCES: Automated ── -->
+  <text x="14" y="148" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">AUTOMATED</text>
+  <rect x="10" y="154" width="178" height="30" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="99" y="173" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#6ee7b7">REST / GraphQL APIs</text>
+  <rect x="10" y="190" width="178" height="30" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="99" y="209" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#6ee7b7">Scheduled Batch ETL</text>
+  <rect x="10" y="226" width="178" height="30" rx="6" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="99" y="245" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#6ee7b7">Web Scraping / Crawlers</text>
+
+  <!-- ── SOURCES: Streaming ── -->
+  <text x="14" y="274" font-family="system-ui,sans-serif" font-size="8" font-weight="700" fill="#94a3b8" letter-spacing="1.5">STREAMING</text>
+  <rect x="10" y="280" width="178" height="30" rx="6" fill="#3d2200" stroke="#f59e0b" stroke-width="1"/>
+  <text x="99" y="299" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#fcd34d">Kafka / Kinesis Streams</text>
+  <rect x="10" y="316" width="178" height="30" rx="6" fill="#3d2200" stroke="#f59e0b" stroke-width="1"/>
+  <text x="99" y="335" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#fcd34d">IoT / Sensor Data</text>
+
+  <!-- ── CENTER: Ingestion &amp; Processing Layer ── -->
+  <rect x="222" y="46" width="286" height="316" rx="10" fill="#1e293b" stroke="#334155" stroke-width="1.5"/>
+  <rect x="222" y="46" width="286" height="38" rx="10" fill="#0f2744"/>
+  <rect x="222" y="72" width="286" height="12" fill="#0f2744"/>
+  <text x="365" y="70" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" font-weight="700" fill="#f1f5f9">Ingestion &amp; Processing Layer</text>
+
+  <rect x="232" y="94" width="266" height="56" rx="7" fill="#0f172a" stroke="#3b82f6" stroke-width="1"/>
+  <text x="365" y="117" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#93c5fd">API Gateway</text>
+  <text x="365" y="135" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Auth · Rate Limiting · Request Routing</text>
+
+  <rect x="232" y="160" width="266" height="56" rx="7" fill="#0f172a" stroke="#10b981" stroke-width="1"/>
+  <text x="365" y="183" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#6ee7b7">ETL Engine</text>
+  <text x="365" y="201" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Extract · Transform · Validate · Load</text>
+
+  <rect x="232" y="226" width="266" height="56" rx="7" fill="#0f172a" stroke="#f59e0b" stroke-width="1"/>
+  <text x="365" y="249" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fcd34d">Stream Processor</text>
+  <text x="365" y="267" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Apache Flink · Spark Streaming · Beam</text>
+
+  <rect x="232" y="292" width="266" height="56" rx="7" fill="#0f172a" stroke="#a855f7" stroke-width="1"/>
+  <text x="365" y="315" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#d8b4fe">Message Queue</text>
+  <text x="365" y="333" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">SQS · RabbitMQ · Google Pub/Sub</text>
+
+  <!-- ── TARGETS ── -->
+  <rect x="540" y="72" width="245" height="52" rx="7" fill="#1e3a5f" stroke="#3b82f6" stroke-width="1"/>
+  <text x="662" y="95" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#93c5fd">Relational DB</text>
+  <text x="662" y="113" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">PostgreSQL · MySQL · SQL Server</text>
+
+  <rect x="540" y="140" width="245" height="52" rx="7" fill="#2d1a5e" stroke="#a855f7" stroke-width="1"/>
+  <text x="662" y="163" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#d8b4fe">NoSQL / Cache</text>
+  <text x="662" y="181" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">MongoDB · Cassandra · Redis</text>
+
+  <rect x="540" y="208" width="245" height="52" rx="7" fill="#064e3b" stroke="#10b981" stroke-width="1"/>
+  <text x="662" y="231" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#6ee7b7">Data Warehouse</text>
+  <text x="662" y="249" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">Snowflake · BigQuery · Trino</text>
+
+  <rect x="540" y="276" width="245" height="52" rx="7" fill="#3d2200" stroke="#f59e0b" stroke-width="1"/>
+  <text x="662" y="299" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="700" fill="#fcd34d">Object Storage / Data Lake</text>
+  <text x="662" y="317" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#64748b">S3 · GCS · HDFS · Azure Blob</text>
+
+  <!-- ── ARROWS: Sources → Center ── -->
+  <line x1="188" y1="79" x2="222" y2="122" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="188" y1="115" x2="222" y2="140" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="188" y1="169" x2="222" y2="186" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="188" y1="205" x2="222" y2="210" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="188" y1="241" x2="222" y2="248" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="188" y1="295" x2="222" y2="305" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="188" y1="331" x2="222" y2="322" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- ── ARROWS: Center → Targets ── -->
+  <line x1="508" y1="130" x2="540" y2="98" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="508" y1="188" x2="540" y2="166" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="508" y1="254" x2="540" y2="234" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="508" y1="320" x2="540" y2="302" stroke="#475569" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Caption -->
+  <text x="400" y="390" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#475569">Data is normalized through the ingestion layer before routing to purpose-built storage based on latency requirements and query patterns</text>
+</svg>

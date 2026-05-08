@@ -13,7 +13,11 @@ usemathjax: true
 ## Data Forms and Systems:
 
 Data is a valuable resource that drives innovation, fosters growth, and enhances our understanding of the world. Its proper collection, analysis, and application can lead to improved decision-making, efficiency, and overall well-being, both for businesses and society as a whole. In AI, data is not just a resource; it’s the foundation upon which intelligent systems are built. The quality, quantity, and relevance of data are fundamental factors in determining the success and effectiveness of AI applications. As a result, data collection, management, and ethics play a central role in the development and deployment of AI technologies. Data can reside in various types of systems and exist in different forms.
-  
+
+<figure class="post-diagram">
+  <img src="/assets/img/posts/data-forms-systems.svg" alt="Data ecosystem — storage systems and forms" />
+  <figcaption>The modern data ecosystem spans multiple storage paradigms, each optimised for different access patterns and workloads</figcaption>
+</figure>
 
 ## 1.Relational Databases:
 Data is commonly stored in structured tables within relational database management systems (RDBMS) such as MySQL, Oracle, SQL Server, and PostgreSQL. Data in these systems is organized into rows and columns.

@@ -10,7 +10,10 @@ permalink: /blog/change-data-capture-techniques/
 usemathjax: true
 ---
 
- <img src="/assets/img/posts/change-data-capture-techniques.png" class="img-fluid">
+<figure class="post-diagram">
+  <img src="/assets/img/posts/cdc-techniques.svg" alt="Change Data Capture architecture with Debezium and Kafka" />
+  <figcaption>Log-based CDC pipeline: the transaction log is read by Debezium, changes are published to Kafka, and consumed by downstream services</figcaption>
+</figure>
  
 ## Change Data Capture:
 

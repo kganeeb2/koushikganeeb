@@ -13,7 +13,11 @@ usemathjax: true
 ## Data Arrival Ways:
 
 Data can arrive in various types of distributed systems in different forms through several channels. Here are some common ways data can be introduced into the systems mentioned in my previous article :
-  
+
+<figure class="post-diagram">
+  <img src="/assets/img/posts/data-arrival-channels.svg" alt="Data arrival channels in distributed systems" />
+  <figcaption>Common data ingestion channels, normalized through a central processing layer before routing to storage</figcaption>
+</figure>
 
 ## 1.Manual Entry: 
 Users may manually input data into systems like relational databases, spreadsheets, or content management systems. This method is often used for structured data.

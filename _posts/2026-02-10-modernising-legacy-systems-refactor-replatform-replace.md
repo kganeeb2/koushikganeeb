@@ -17,6 +17,11 @@ The honest truth is there's no universal answer. The right path depends on where
 
 ---
 
+<figure class="post-diagram">
+  <img src="/assets/img/posts/legacy-modernisation-strategies.svg" alt="Strangler Fig pattern — legacy modernisation strategies" />
+  <figcaption>The Strangler Fig pattern: a facade intercepts traffic and progressively routes it to new services while the monolith shrinks</figcaption>
+</figure>
+
 ## Three Strategies, Three Different Problems
 
 Legacy modernisation generally comes down to three approaches: refactoring the existing system, replatforming it onto new infrastructure, or replacing it with something new. Each one targets a different root cause.
